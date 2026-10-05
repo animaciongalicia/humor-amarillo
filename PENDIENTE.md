@@ -1,19 +1,30 @@
 # Pendiente de completar / confirmar
 
-## Confirmar (datos que he tomado del PDF "Coruña 2026" o deducido)
-1. **Dominio**: usado `https://www.humoramarilloencoruna.com` (el enlace que pasaste). El texto decía `humoramarillocoruna.com`: confirma cuál es el bueno. Se cambia en `astro.config.mjs` o con la variable `SITE_URL`.
-2. **Humor Amarillo**: tú dijiste "una consumición por persona"; el PDF dice "2 bebidas". Dejé una. También tomé del PDF: mínimo 6 participantes, exclusividad con 12 y gratis el novio/a con 11+1.
-3. **Pack "Humor Amarillo + cena y fiesta" desde 92 €**: lo calculé (42 + 50). El resto de precios de packs son los del PDF.
-4. **Los 7 PC**: usé del PDF la cena baile (desde 50 €, horario, DJ hasta las 3:00, sesión de drag). El PDF la sitúa en un restaurante concreto, que no nombro. Confirma que es Los 7 PC y que el precio/horario siguen vigentes (el PDF habla de temporada 4 abril–26 septiembre 2026, no la publico).
-5. **Datos de contacto**: el PDF trae también 881 255 607 e info@despedidascoruna.es; uso solo 678 288 284 y animaciongalicia@gmail.com. Dirección: usé la que me diste (Ronda de Montealto); el PDF cita C/ Coronel Cerviño 1-6A.
-6. **Excluido a propósito**: tuppersex, boy-stripper, buggies y quads (tachados en el PDF). Se pueden añadir en `src/data/activities.ts`.
-7. **Precios de 2026**: revisar que sigan vigentes antes de publicar.
+## Confirmado
+- Dominio: `https://www.humoramarillocoruna.com`.
+- Titular y dirección: Inversiones Shiso SL, B70319223, Ronda de Montealto, 4, 5A, 15002 A Coruña.
+- Humor Amarillo: circuito en exclusiva desde 11 personas.
+- Cenas: con 11 o más, el homenajeado/a no paga. Cena baile y fiesta 2027: desde 55 €/persona.
+
+## Confirmar
+1. **Humor Amarillo gratis para el novio/a**: ahora solo lo digo para las cenas. Si también aplica a la actividad, dime desde cuántas personas.
+2. **Consumición**: tú dijiste una por persona; el PDF dice "2 bebidas". Dejé una. Mínimo de 6 participantes: viene del PDF.
+3. **Pack Humor Amarillo + cena y fiesta, desde 97 €**: calculado (42 + 55). El resto de packs usan los precios del PDF 2026 y la web avisa de que son orientativos para 2027. Cuando tengas los de 2027, se cambian en `src/data/packs.ts`; las actividades en `src/data/activities.ts`.
+4. **Los 7 PC**: horario, qué incluye y sesión de drag vienen del PDF 2026. Confirmar que aplican a Los 7 PC en 2027.
+5. **Contacto**: solo 678 288 284 y animaciongalicia@gmail.com (el PDF trae también 881 255 607 e info@despedidascoruna.es).
+6. **Excluido a propósito**: tuppersex, boy-stripper, buggies y quads. Se pueden añadir en `src/data/activities.ts`.
 
 ## Falta
-- **Fotos**: `src/assets/photos/` (ver README). Ahora hay huecos visibles; al final, con las fotos puestas, no hace falta tocar nada. Para ocultar los huecos antes: `PUBLIC_HIDE_PHOTO_SLOTS=1`.
-- **Aviso legal** (`src/pages/aviso-legal-privacidad.astro`): datos del Registro Mercantil y plazo de conservación. Revisar con gestoría.
-- **Formulario**: abre WhatsApp o email; no guarda nada. Para recibirlo en un servidor hay que conectar un servicio.
+- **Fotos** en `src/assets/photos/` (ver README ahí). Ahora hay huecos visibles; `PUBLIC_HIDE_PHOTO_SLOTS=1` los oculta.
+- **Aviso legal**: datos del Registro Mercantil y plazo de conservación. Revisar con gestoría.
+- **Formulario**: abre WhatsApp o email, no guarda nada. Para recibirlo en un servidor, conectar un servicio.
+- **Hosting**: sin decidir. Los 301 reales dependen de dónde se aloje (Vercel, Netlify o Cloudflare Pages valen).
 
-## Migración desde WordPress (importante para no perder posicionamiento)
-- Antes de cambiar el DNS, listar todas las URL actuales de la WP y preparar redirecciones 301 a las nuevas.
-- Mantener el dominio, verificar Search Console y enviar `/sitemap-index.xml`.
+## Redirecciones desde la WordPress (cuando la web nueva esté lista)
+Exporta y pásame, antes de tocar el DNS:
+1. **Search Console** → Rendimiento → Páginas (últimos 16 meses; exporta también Consultas) y el informe Indexación → Páginas.
+2. **Analytics** → páginas de destino / páginas vistas (mismo periodo, ordenado por sesiones).
+3. **Sitemap de la WP** (`/sitemap.xml` o `/wp-sitemap.xml`) o un rastreo con Screaming Frog (versión gratuita sirve hasta 500 URL).
+4. Enlaces externos (Search Console → Enlaces → Páginas más enlazadas) para priorizar lo que no se puede perder.
+
+Con eso hago el mapa `redirects.csv` (origen,destino), luego `npm run redirects` genera `public/_redirects` y `vercel.json`. Regla: cada URL con tráfico o enlaces va a su equivalente más cercano, nunca todo a la portada. Después del cambio: verificar los 301 y enviar `/sitemap-index.xml` en Search Console.

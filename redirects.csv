@@ -1,0 +1,5 @@
+# Redirecciones 301 de la WordPress antigua a la web nueva.
+# Formato: origen,destino  (rutas relativas, con la barra inicial). Sin comillas.
+# Ejemplo: /humor-amarillo/,/humor-amarillo-coruna/
+# Rellenar con las URL de GSC (Rendimiento > Páginas), de Analytics (páginas de destino) y del rastreo de la WP.
+# Después: npm run redirects

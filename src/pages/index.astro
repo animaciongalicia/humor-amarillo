@@ -107,7 +107,7 @@ const schema = [faqPage(faqs)];
   <section>
     <div class="wrap">
       <h2>Packs de despedida en A Coruña</h2>
-      <p class="lead">Ideas de partida, todas personalizables. Precios por persona, «desde», según temporada, menú y número de asistentes.</p>
+      <p class="lead">Ideas de partida, todas personalizables. Precios por persona, «desde», orientativos para 2027; pueden variar según temporada, menú y número de asistentes.</p>
       <div class="grid cols-4">
         {packs.slice(0, 2).map((pk) => <PackCard pack={pk} />)}
         {packs.filter((p) => p.name === 'Pack Karts y fiesta' || p.name === 'Pack del Mar').map((pk) => <PackCard pack={pk} />)}

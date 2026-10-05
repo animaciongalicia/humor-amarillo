@@ -1,8 +1,8 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
-// SITE_URL: dominio definitivo (sin barra final). Dominio actual (hoy en WordPress); confirmar ortografía.
-const site = process.env.SITE_URL || 'https://www.humoramarilloencoruna.com';
+// SITE_URL: dominio definitivo (sin barra final). Dominio definitivo (hoy en WordPress).
+const site = process.env.SITE_URL || 'https://www.humoramarillocoruna.com';
 
 export default defineConfig({
   site,
