@@ -1,0 +1,27 @@
+---
+import { site, nav, tel, whatsapp } from '../data/site';
+---
+<footer class="site-footer">
+  <div class="wrap grid">
+    <div>
+      <h2>{site.name}</h2>
+      <p>Despedidas en A Coruña: Humor Amarillo, cena y fiesta, hotel y más actividades para grupos adultos.</p>
+      <p class="small">Actividad para adultos. Disponibilidad siempre bajo consulta.</p>
+    </div>
+    <div>
+      <h2>Contacto</h2>
+      <ul>
+        <li><a href={whatsapp()} rel="noopener">WhatsApp {site.phoneDisplay}</a></li>
+        <li><a href={tel}>Llamar al {site.phoneDisplay}</a></li>
+        <li><a href={`mailto:${site.email}`}>{site.email}</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Web</h2>
+      <ul>
+        {nav.map((i) => <li><a href={i.href}>{i.label}</a></li>)}
+        <li><a href="/aviso-legal-privacidad/">Aviso legal y privacidad</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>

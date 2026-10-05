@@ -1,0 +1,26 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../data/site';
+---
+<Base title="Aviso legal y privacidad" description="Aviso legal y política de privacidad de la web." noindex={true}>
+  <section>
+    <div class="wrap prose">
+      <h1>Aviso legal y privacidad</h1>
+      <p><strong>Borrador pendiente de completar y revisar antes de publicar.</strong></p>
+      <h2>Titular de la web</h2>
+      <ul>
+        <li>Titular: [COMPLETAR: nombre o razón social]</li>
+        <li>NIF/CIF: [COMPLETAR]</li>
+        <li>Domicilio: [COMPLETAR]</li>
+        <li>Email: <a href={`mailto:${site.email}`}>{site.email}</a></li>
+        <li>Teléfono: {site.phoneDisplay}</li>
+      </ul>
+      <h2>Datos personales</h2>
+      <p>Esta web no guarda los datos que escribes en el formulario: al enviarlo se abre WhatsApp o tu programa de correo con el mensaje preparado, y los datos llegan a nosotros cuando tú lo envías.</p>
+      <p>Usaremos esos datos solo para responder a tu consulta y gestionar la reserva. Puedes ejercer tus derechos de acceso, rectificación, supresión y demás escribiendo a <a href={`mailto:${site.email}`}>{site.email}</a>.</p>
+      <p>[COMPLETAR: base jurídica, plazo de conservación, encargados de tratamiento y, si se añaden analítica o cookies, la política de cookies.]</p>
+      <h2>Proveedores colaboradores</h2>
+      <p>El parque donde se celebra Humor Amarillo pertenece a un proveedor colaborador. Nosotros captamos y organizamos la experiencia completa.</p>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,24 @@
+---
+import { Image } from 'astro:assets';
+
+interface Props { name: string; alt: string; priority?: boolean; width?: number; height?: number }
+const { name, alt, priority = false, width = 1200, height = 750 } = Astro.props;
+
+const all = import.meta.glob<{ default: ImageMetadata }>('/src/assets/photos/*.{jpg,jpeg,png,webp}', { eager: true });
+const hit = Object.entries(all).find(([p]) => p.split('/').pop()!.replace(/\.[^.]+$/, '') === name);
+---
+{hit && (
+  <Image
+    class="photo"
+    src={hit[1].default}
+    alt={alt}
+    width={width}
+    height={height}
+    widths={[480, 800, width]}
+    sizes="(min-width: 720px) 50vw, 100vw"
+    loading={priority ? 'eager' : 'lazy'}
+    fetchpriority={priority ? 'high' : 'auto'}
+    decoding={priority ? 'sync' : 'async'}
+    format="webp"
+  />
+)}

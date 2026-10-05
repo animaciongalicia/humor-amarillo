@@ -1,0 +1,135 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import Photo from '../components/Photo.astro';
+import CtaRow from '../components/CtaRow.astro';
+import Faq from '../components/Faq.astro';
+import ContactForm from '../components/ContactForm.astro';
+import { site, pruebas } from '../data/site';
+import { faqPage, breadcrumb, orgRef, area } from '../data/schema';
+
+const path = '/humor-amarillo-coruna/';
+const faqs = [
+  { q: '¿Cuánto cuesta Humor Amarillo en A Coruña?', a: `${site.price} € por persona. Incluye una consumición por persona y un disfraz para el homenajeado o la homenajeada.` },
+  { q: '¿Cuánto dura?', a: 'Aproximadamente entre 2 y 2,15 horas.' },
+  { q: '¿Qué días se hace?', a: 'Principalmente los sábados. La disponibilidad siempre es bajo consulta, así que escríbenos con la fecha que tienes en mente.' },
+  { q: '¿Dónde se celebra?', a: 'En la zona de Feáns / A Zapateira, en A Coruña.' },
+  { q: '¿Es solo para adultos?', a: 'Sí, es una actividad para adultos.' },
+  { q: '¿Competimos contra otros grupos?', a: 'Si el grupo es pequeño, puede haber competición con otros grupos. Si es grande, se pueden organizar equipos dentro del propio grupo.' },
+  { q: '¿Quién gestiona el parque?', a: 'El parque pertenece a un proveedor colaborador. Nosotros captamos y organizamos la experiencia completa para tu grupo, incluida la combinación con cena, fiesta y otras actividades.' },
+  { q: '¿Puedo añadir cena y fiesta?', a: 'Sí. Puedes combinarlo con una cena baile y fiesta en Los 7 PC. Consulta el pack con tu fecha y número de personas.' },
+];
+const schema = [
+  breadcrumb(Astro.site!.href, 'Humor Amarillo Coruña', path),
+  faqPage(faqs),
+  {
+    '@type': 'Service',
+    name: 'Humor Amarillo en A Coruña: circuito Gakushi-Kai',
+    serviceType: 'Actividad de grupo para despedidas',
+    description: 'Circuito Gakushi-Kai de Humor Amarillo con 11 pruebas para grupos adultos en la zona de Feáns / A Zapateira, A Coruña. Incluye una consumición por persona y un disfraz para el homenajeado o la homenajeada.',
+    url: new URL(path, Astro.site).href,
+    provider: orgRef(Astro.site!.href),
+    areaServed: area,
+    offers: {
+      '@type': 'Offer',
+      priceCurrency: 'EUR',
+      priceSpecification: {
+        '@type': 'UnitPriceSpecification',
+        price: site.price,
+        priceCurrency: 'EUR',
+        referenceQuantity: { '@type': 'QuantitativeValue', value: 1, unitText: 'persona' },
+      },
+    },
+  },
+];
+---
+<Base
+  title="Humor Amarillo Coruña: circuito Gakushi-Kai, 42 € por persona"
+  description="Humor Amarillo en A Coruña: 11 pruebas, 2–2,15 horas, 42 € por persona con consumición y disfraz para el homenajeado. Zona Feáns / A Zapateira."
+  schema={schema}
+>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+      <Breadcrumb current="Humor Amarillo Coruña" />
+      <h1>Humor Amarillo en A Coruña: el circuito Gakushi-Kai para tu despedida</h1>
+      <p class="lead">Once pruebas, una consumición por persona y un disfraz para el homenajeado o la homenajeada. {site.price} € por persona, solo adultos.</p>
+      <CtaRow wa="Hola, quiero consultar disponibilidad para Humor Amarillo en A Coruña." />
+    </div>
+      <Photo name="humor-amarillo" alt="Grupo en una de las pruebas del circuito Humor Amarillo en A Coruña" priority />
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>Datos rápidos</h2>
+      <dl class="data">
+        <div><dt>Precio</dt><dd>{site.price} € por persona</dd></div>
+        <div><dt>Duración</dt><dd>Aproximadamente 2–2,15 horas</dd></div>
+        <div><dt>Días</dt><dd>Principalmente sábados. Disponibilidad siempre bajo consulta</dd></div>
+        <div><dt>Dónde</dt><dd>Zona Feáns / A Zapateira, A Coruña</dd></div>
+        <div><dt>Incluye</dt><dd>Una consumición por persona y un disfraz para el homenajeado o la homenajeada</dd></div>
+        <div><dt>Para quién</dt><dd>Adultos: despedidas de soltero y soltera, grupos de amigos y asociaciones</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <h2>Las 11 pruebas del circuito</h2>
+      <ul class="pills">
+        {pruebas.map((p) => <li>{p}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap grid cols-2">
+      <div>
+        <h2>Cómo se juega según el tamaño del grupo</h2>
+        <ul class="ticks">
+          <li><strong>Grupo pequeño:</strong> puede haber competición con otros grupos.</li>
+          <li><strong>Grupo grande:</strong> se pueden organizar equipos dentro del propio grupo.</li>
+        </ul>
+        <p class="muted">Dinos cuántos sois y cómo lo prefieres al consultar la fecha.</p>
+      </div>
+      <div>
+        <h2>Quién organiza qué</h2>
+        <p>El parque pertenece a un proveedor colaborador. Nosotros captamos y organizamos la experiencia completa: la actividad, y si quieres, la cena, la fiesta y el resto del plan.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <h2>No lo dejes en una actividad de {site.price} €</h2>
+      <p class="lead">Lo normal es que el grupo quiera algo más que dos horas. Puedes seguir con la noche, quedarte a dormir o añadir otra actividad.</p>
+      <div class="grid cols-3">
+        <article class="card">
+          <h3>Cena y fiesta</h3>
+          <p>Cena baile y fiesta en Los 7 PC, nuestra oferta propia.</p>
+          <a class="btn btn-ghost" href="/cena-fiesta-despedidas-coruna/">Ver cena y fiesta</a>
+        </article>
+        <article class="card">
+          <h3>Hotel</h3>
+          <p>Alojamiento para el grupo, bajo consulta.</p>
+          <a class="btn btn-ghost" href="/packs-despedida-coruna/#hotel-y-actividades">Pedir precio</a>
+        </article>
+        <article class="card">
+          <h3>Packs</h3>
+          <p>Mira las combinaciones y pide precio con tu fecha y número de personas.</p>
+          <a class="btn" href="/packs-despedida-coruna/">Ver packs</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <Faq items={faqs} />
+
+  <section class="dark">
+    <div class="wrap">
+      <h2>Consulta disponibilidad para Humor Amarillo</h2>
+      <ContactForm preselect={['Humor Amarillo']} />
+    </div>
+  </section>
+</Base>

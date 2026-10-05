@@ -1,0 +1,92 @@
+---
+import '../styles/global.css';
+import { site, nav, tel, whatsapp } from '../data/site';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  schema?: object[];
+  noindex?: boolean;
+}
+const { title, description, schema = [], noindex = false } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const ogImage = new URL(site.ogImage, Astro.site).href;
+const path = Astro.url.pathname;
+
+const org = {
+  '@type': 'Organization',
+  '@id': new URL('/#organization', Astro.site).href,
+  name: site.name,
+  url: new URL('/', Astro.site).href,
+  email: site.email,
+  telephone: site.phoneTel,
+  areaServed: { '@type': 'City', name: 'A Coruña' },
+  contactPoint: [{
+    '@type': 'ContactPoint',
+    contactType: 'reservas y consultas',
+    telephone: site.phoneTel,
+    email: site.email,
+    availableLanguage: ['es', 'gl'],
+  }],
+};
+const webSite = {
+  '@type': 'WebSite',
+  '@id': new URL('/#website', Astro.site).href,
+  url: new URL('/', Astro.site).href,
+  name: site.name,
+  inLanguage: 'es-ES',
+  publisher: { '@id': org['@id'] },
+};
+const graph = { '@context': 'https://schema.org', '@graph': [org, webSite, ...schema] };
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex, follow" />}
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="theme-color" content="#ffd21f" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json" set:html={JSON.stringify(graph)} />
+  </head>
+  <body>
+    <a class="skip" href="#contenido">Saltar al contenido</a>
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href="/">{site.name}</a>
+        <nav class="nav-desktop" aria-label="Principal">
+          <ul>
+            {nav.map((i) => <li><a href={i.href} aria-current={path === i.href ? 'page' : undefined}>{i.label}</a></li>)}
+          </ul>
+        </nav>
+        <details class="nav-mobile">
+          <summary>Menú</summary>
+          <nav aria-label="Principal móvil">
+            <ul>
+              {nav.map((i) => <li><a href={i.href} aria-current={path === i.href ? 'page' : undefined}>{i.label}</a></li>)}
+            </ul>
+          </nav>
+        </details>
+      </div>
+    </header>
+    <main id="contenido"><slot /></main>
+    <Footer />
+    <div class="sticky-cta" role="complementary" aria-label="Contacto rápido">
+      <a class="wa" href={whatsapp()} rel="noopener">WhatsApp</a>
+      <a href={tel}>Llamar</a>
+      <a class="main" href="/contacto/#formulario">Consultar fecha</a>
+    </div>
+  </body>
+</html>

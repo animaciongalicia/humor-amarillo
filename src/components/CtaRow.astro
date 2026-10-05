@@ -1,0 +1,10 @@
+---
+import { tel, whatsapp } from '../data/site';
+interface Props { label?: string; href?: string; wa?: string }
+const { label = 'Consultar disponibilidad', href = '/contacto/#formulario', wa } = Astro.props;
+---
+<div class="btn-row">
+  <a class="btn" href={href}>{label}</a>
+  <a class="btn btn-wa" href={whatsapp(wa)} rel="noopener">WhatsApp</a>
+  <a class="btn btn-ghost" href={tel}>Llamar</a>
+</div>

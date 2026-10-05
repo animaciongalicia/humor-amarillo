@@ -1,0 +1,121 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import Photo from '../components/Photo.astro';
+import CtaRow from '../components/CtaRow.astro';
+import Faq from '../components/Faq.astro';
+import ContactForm from '../components/ContactForm.astro';
+import { site, whatsapp } from '../data/site';
+import { faqPage, breadcrumb } from '../data/schema';
+
+const faqs = [
+  { q: '¿Cuánto cuestan los packs de despedida?', a: `Solo Humor Amarillo son ${site.price} € por persona. El precio de los packs con cena y fiesta, hotel o segunda actividad depende de la fecha y del número de personas: pídelo y te lo confirmamos.` },
+  { q: '¿Puedo montar mi propio pack?', a: 'Sí. Los packs son combinaciones de partida. Dinos qué te interesa y lo ajustamos al grupo.' },
+  { q: '¿Qué pasa si somos un grupo grande?', a: 'Humor Amarillo permite organizar equipos dentro del propio grupo. Para cena, hotel y otras actividades, cuéntanos cuántos sois al pedir precio.' },
+  { q: '¿La disponibilidad está garantizada?', a: 'No. La disponibilidad es siempre bajo consulta, y la actividad se hace principalmente en sábado.' },
+];
+const schema = [breadcrumb(Astro.site!.href, 'Packs de despedida', '/packs-despedida-coruna/'), faqPage(faqs)];
+---
+<Base
+  title="Packs de despedida en A Coruña: actividad, cena y fiesta"
+  description="Packs de despedida en A Coruña: Humor Amarillo (42 € por persona), cena y fiesta en Los 7 PC, hotel y segunda actividad. Pide precio con tu fecha."
+  schema={schema}
+>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+      <Breadcrumb current="Packs de despedida" />
+      <h1>Packs de despedida en A Coruña</h1>
+      <p class="lead">Parte de Humor Amarillo y añade lo que tu grupo necesite: cena y fiesta, hotel y otra actividad. Precio según fecha y número de personas.</p>
+      <CtaRow label="Pedir precio" wa="Hola, quiero pedir precio de un pack de despedida en A Coruña." />
+    </div>
+      <Photo name="packs" alt="Grupo de despedida disfrutando de un pack en A Coruña" priority />
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>Elige cómo montarlo</h2>
+      <div class="grid cols-3">
+        <article class="card">
+          <h3>Solo Humor Amarillo</h3>
+          <p class="price">{site.price} € <span class="small muted">/ persona</span></p>
+          <ul class="ticks">
+            <li>Circuito Gakushi-Kai, 11 pruebas.</li>
+            <li>Una consumición por persona.</li>
+            <li>Disfraz para el homenajeado o la homenajeada.</li>
+          </ul>
+          <a class="btn btn-ghost" href="/humor-amarillo-coruna/">Ver detalles</a>
+        </article>
+        <article class="card featured">
+          <span class="tag">Para ampliar el plan</span>
+          <h3>Humor Amarillo + cena y fiesta</h3>
+          <p class="price">Pedir precio</p>
+          <ul class="ticks">
+            <li>Todo lo anterior.</li>
+            <li>Cena baile y fiesta en Los 7 PC.</li>
+          </ul>
+          <a class="btn" href="/contacto/#formulario">Pedir precio</a>
+        </article>
+        <article class="card">
+          <h3>Despedida completa</h3>
+          <p class="price">Pedir precio</p>
+          <ul class="ticks">
+            <li>Humor Amarillo.</li>
+            <li>Cena y fiesta en Los 7 PC.</li>
+            <li>Hotel.</li>
+            <li>Una segunda actividad.</li>
+          </ul>
+          <a class="btn" href="/contacto/#formulario">Pedir precio</a>
+        </article>
+      </div>
+      <p class="muted small">Los packs son combinaciones de partida; el precio y las condiciones de los que incluyen cena, hotel o segunda actividad se confirman por consulta.</p>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <h2>Qué incluye cada pack</h2>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th></th><th>Solo Humor Amarillo</th><th>+ cena y fiesta</th><th>Completa</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Humor Amarillo ({site.price} €/persona)</th><td>Sí</td><td>Sí</td><td>Sí</td></tr>
+            <tr><th scope="row">Cena y fiesta (Los 7 PC)</th><td>Opcional</td><td>Sí</td><td>Sí</td></tr>
+            <tr><th scope="row">Hotel</th><td>Opcional</td><td>Opcional</td><td>Sí</td></tr>
+            <tr><th scope="row">Segunda actividad</th><td>Opcional</td><td>Opcional</td><td>Sí</td></tr>
+            <tr><th scope="row">Precio</th><td>{site.price} € por persona</td><td>Pedir precio</td><td>Pedir precio</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section id="hotel-y-actividades">
+    <div class="wrap grid cols-2">
+      <div>
+        <h2>Hotel para el grupo</h2>
+        <p>Si vienes de fuera o quieres que nadie tenga que volver a casa de madrugada, podemos incluir alojamiento en A Coruña en el pack.</p>
+        <p class="muted">Bajo consulta: dinos fecha y número de personas.</p>
+        <div class="btn-row"><a class="btn" href="/contacto/#formulario">Pedir precio</a></div>
+      </div>
+      <div>
+        <h2>Una segunda actividad</h2>
+        <p>Para llenar el fin de semana con otra actividad de grupo además de Humor Amarillo.</p>
+        <p class="muted">Bajo consulta: dinos qué tipo de plan buscáis y lo miramos.</p>
+        <div class="btn-row"><a class="btn btn-wa" href={whatsapp('Hola, quiero consultar una segunda actividad para una despedida en A Coruña.')} rel="noopener">Preguntar por WhatsApp</a></div>
+      </div>
+    </div>
+  </section>
+
+  <Faq items={faqs} />
+
+  <section class="dark">
+    <div class="wrap">
+      <h2>Pide precio para tu pack</h2>
+      <ContactForm preselect={['Humor Amarillo', 'Cena y fiesta (Los 7 PC)']} />
+    </div>
+  </section>
+</Base>

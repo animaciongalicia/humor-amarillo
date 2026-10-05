@@ -1,0 +1,47 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import ContactForm from '../components/ContactForm.astro';
+import { site, tel, whatsapp } from '../data/site';
+import { breadcrumb } from '../data/schema';
+
+const schema = [
+  breadcrumb(Astro.site!.href, 'Contacto', '/contacto/'),
+  { '@type': 'ContactPage', url: new URL('/contacto/', Astro.site).href, name: 'Contacto', about: { '@id': new URL('/#organization', Astro.site).href } },
+];
+---
+<Base
+  title="Contacto y reservas: despedidas en A Coruña"
+  description="Consulta disponibilidad y precio para tu despedida en A Coruña por WhatsApp, teléfono, email o formulario."
+  schema={schema}
+>
+  <section class="hero">
+    <div class="wrap">
+      <Breadcrumb current="Contacto" />
+      <h1>Consulta disponibilidad para tu despedida</h1>
+      <p class="lead">Escríbenos por WhatsApp, llámanos o rellena el formulario con fecha y número de personas.</p>
+      <div class="btn-row">
+        <a class="btn btn-wa" href={whatsapp()} rel="noopener">WhatsApp {site.phoneDisplay}</a>
+        <a class="btn" href={tel}>Llamar al {site.phoneDisplay}</a>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="wrap grid cols-2">
+      <div>
+        <h2>Formulario de consulta</h2>
+        <ContactForm />
+      </div>
+      <div>
+        <h2>Otras formas de contactar</h2>
+        <dl class="data">
+          <div><dt>WhatsApp</dt><dd><a href={whatsapp()} rel="noopener">{site.phoneDisplay}</a></dd></div>
+          <div><dt>Teléfono</dt><dd><a href={tel}>{site.phoneDisplay}</a></dd></div>
+          <div><dt>Email</dt><dd><a href={`mailto:${site.email}`}>{site.email}</a></dd></div>
+          <div><dt>Actividad</dt><dd>Zona Feáns / A Zapateira, A Coruña</dd></div>
+        </dl>
+        <p class="muted small">Actividad para adultos. La disponibilidad siempre es bajo consulta.</p>
+      </div>
+    </div>
+  </section>
+</Base>

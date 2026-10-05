@@ -1,0 +1,82 @@
+---
+import { site, tel, whatsapp } from '../data/site';
+interface Props { preselect?: string[]; id?: string }
+const { preselect = ['Humor Amarillo'], id = 'formulario' } = Astro.props;
+const options = ['Humor Amarillo', 'Cena y fiesta (Los 7 PC)', 'Hotel', 'Otra actividad', 'Aún no lo sé, aconsejadme'];
+---
+<form class="form" id={id} data-email={site.email} data-wa={site.whatsappNumber} novalidate>
+  <div class="row">
+    <div>
+      <label for={`${id}-fecha`}>Fecha prevista</label>
+      <input id={`${id}-fecha`} name="fecha" type="date" required />
+      <p class="hint">Aunque sea orientativa.</p>
+    </div>
+    <div>
+      <label for={`${id}-personas`}>Número de personas</label>
+      <input id={`${id}-personas`} name="personas" type="number" min="1" max="500" inputmode="numeric" required />
+    </div>
+  </div>
+  <fieldset>
+    <legend>Qué te interesa</legend>
+    <div class="checks">
+      {options.map((o) => (
+        <label><input type="checkbox" name="actividades" value={o} checked={preselect.includes(o)} /> {o}</label>
+      ))}
+    </div>
+  </fieldset>
+  <div class="row">
+    <div>
+      <label for={`${id}-tel`}>Teléfono / WhatsApp</label>
+      <input id={`${id}-tel`} name="telefono" type="tel" inputmode="tel" autocomplete="tel" required />
+    </div>
+    <div>
+      <label for={`${id}-email`}>Email</label>
+      <input id={`${id}-email`} name="email" type="email" autocomplete="email" />
+      <p class="hint">Opcional si ya nos das el teléfono.</p>
+    </div>
+  </div>
+  <p class="form-status" role="status" aria-live="polite"></p>
+  <div class="btn-row">
+    <button type="submit" class="btn btn-wa" data-channel="wa">Enviar por WhatsApp</button>
+    <button type="submit" class="btn" data-channel="mail">Enviar por email</button>
+  </div>
+  <p class="hint">
+    Se abrirá WhatsApp o tu correo con el mensaje ya escrito; no se guarda nada en esta web. Al enviarlo, aceptas que usemos tus datos para responderte (<a href="/aviso-legal-privacidad/">aviso legal y privacidad</a>).
+    ¿Prefieres hablar? <a href={tel}>Llama al {site.phoneDisplay}</a> o <a href={whatsapp()} rel="noopener">escribe por WhatsApp</a>.
+  </p>
+</form>
+
+<script>
+  const fmt = (iso: string) => iso.split('-').reverse().join('/');
+  document.querySelectorAll<HTMLFormElement>('form[data-wa]').forEach((form) => {
+    const date = form.querySelector<HTMLInputElement>('input[name="fecha"]');
+    if (date) date.min = new Date().toISOString().slice(0, 10);
+    let channel = 'wa';
+    form.querySelectorAll<HTMLButtonElement>('button[data-channel]').forEach((b) =>
+      b.addEventListener('click', () => (channel = b.dataset.channel || 'wa'))
+    );
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const status = form.querySelector<HTMLElement>('.form-status')!;
+      if (!form.reportValidity()) { status.textContent = 'Revisa los campos marcados.'; return; }
+      const d = new FormData(form);
+      const acts = d.getAll('actividades').join(', ') || 'Sin especificar';
+      const lines = [
+        'Hola, quiero consultar disponibilidad para una despedida en A Coruña.',
+        `Fecha prevista: ${fmt(String(d.get('fecha')))}`,
+        `Personas: ${d.get('personas')}`,
+        `Interés: ${acts}`,
+        `Teléfono: ${d.get('telefono')}`,
+      ];
+      if (d.get('email')) lines.push(`Email: ${d.get('email')}`);
+      const text = lines.join('\n');
+      if (channel === 'mail') {
+        location.href = `mailto:${form.dataset.email}?subject=${encodeURIComponent('Consulta de despedida en A Coruña')}&body=${encodeURIComponent(text)}`;
+        status.textContent = 'Abriendo tu correo con el mensaje preparado. Si no se abre, escríbenos a ' + form.dataset.email + '.';
+      } else {
+        window.open(`https://wa.me/${form.dataset.wa}?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
+        status.textContent = 'Abriendo WhatsApp con el mensaje preparado. Pulsa enviar allí para completar la consulta.';
+      }
+    });
+  });
+</script>

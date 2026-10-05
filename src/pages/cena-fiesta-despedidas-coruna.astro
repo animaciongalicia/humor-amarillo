@@ -1,0 +1,77 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import Photo from '../components/Photo.astro';
+import CtaRow from '../components/CtaRow.astro';
+import Faq from '../components/Faq.astro';
+import ContactForm from '../components/ContactForm.astro';
+import { site } from '../data/site';
+import { faqPage, breadcrumb, orgRef, area } from '../data/schema';
+
+const path = '/cena-fiesta-despedidas-coruna/';
+const faqs = [
+  { q: '¿Qué es Los 7 PC?', a: 'Es nuestra oferta propia de cenas baile y fiesta en A Coruña, pensada para grupos y despedidas.' },
+  { q: '¿Cuánto cuesta la cena y fiesta?', a: 'Depende de la fecha y del número de personas. Pide precio y te lo confirmamos.' },
+  { q: '¿Se puede combinar con Humor Amarillo?', a: `Sí. Puedes empezar con Humor Amarillo (${site.price} € por persona) y seguir con la cena y la fiesta con el mismo grupo.` },
+  { q: '¿Cómo reservo?', a: 'Consulta disponibilidad con fecha y número de personas por el formulario, WhatsApp o teléfono. La disponibilidad siempre es bajo consulta.' },
+];
+const schema = [
+  breadcrumb(Astro.site!.href, 'Cena y fiesta', path),
+  faqPage(faqs),
+  {
+    '@type': 'Service',
+    name: 'Cena baile y fiesta para despedidas en A Coruña: Los 7 PC',
+    serviceType: 'Cena y fiesta para grupos',
+    description: 'Cena baile y fiesta en A Coruña para despedidas y grupos, ofrecida por Los 7 PC. Se puede combinar con la actividad Humor Amarillo.',
+    url: new URL(path, Astro.site).href,
+    provider: orgRef(Astro.site!.href),
+    areaServed: area,
+  },
+];
+---
+<Base
+  title="Cena y fiesta para despedidas en A Coruña | Los 7 PC"
+  description="Cena baile y fiesta para despedidas en A Coruña con Los 7 PC. Combínala con Humor Amarillo y pide precio según fecha y número de personas."
+  schema={schema}
+>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+      <Breadcrumb current="Cena y fiesta" />
+      <h1>Cena y fiesta para despedidas en A Coruña</h1>
+      <p class="lead">Tras Humor Amarillo, el grupo sigue junto: cena baile y fiesta en Los 7 PC, nuestra oferta propia.</p>
+      <CtaRow label="Pedir precio" wa="Hola, quiero pedir precio de cena y fiesta para una despedida en A Coruña." />
+    </div>
+      <Photo name="cena-fiesta" alt="Grupo de despedida en una cena y fiesta en Los 7 PC, A Coruña" priority />
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap grid cols-2">
+      <div>
+        <h2>Una noche que no se acaba al terminar la actividad</h2>
+        <p>Lo difícil de una despedida no es la actividad: es que la noche tenga sentido. Con Los 7 PC resuelves la cena y la fiesta en el mismo plan que Humor Amarillo, sin buscar local ni negociar por separado.</p>
+        <p>Los 7 PC es nuestra oferta propia de cenas baile en A Coruña. Cuéntanos fecha y número de personas y te preparamos la propuesta.</p>
+        <p><a href={site.los7pcUrl} rel="noopener">Ver la web de Los 7 PC</a></p>
+      </div>
+      <div>
+        <h2>El plan completo</h2>
+        <ol class="ticks">
+          <li><a href="/humor-amarillo-coruna/">Humor Amarillo</a>: {site.price} € por persona.</li>
+          <li>Cena baile y fiesta en Los 7 PC: pedir precio.</li>
+          <li><a href="/packs-despedida-coruna/#hotel-y-actividades">Hotel y segunda actividad</a>: bajo consulta.</li>
+        </ol>
+        <div class="btn-row"><a class="btn btn-ghost" href="/packs-despedida-coruna/">Ver packs</a></div>
+      </div>
+    </div>
+  </section>
+
+  <Faq items={faqs} />
+
+  <section class="dark">
+    <div class="wrap">
+      <h2>Pide precio de cena y fiesta</h2>
+      <ContactForm preselect={['Cena y fiesta (Los 7 PC)']} />
+    </div>
+  </section>
+</Base>
