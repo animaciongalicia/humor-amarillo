@@ -1,0 +1,76 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import CtaRow from '../components/CtaRow.astro';
+import ContactForm from '../components/ContactForm.astro';
+import { site } from '../data/site';
+import { groups } from '../data/activities';
+import { breadcrumb } from '../data/schema';
+
+const path = '/otras-actividades-despedidas-coruna/';
+const schema = [
+  breadcrumb(Astro.site!.href, 'Actividades', path),
+  {
+    '@type': 'ItemList',
+    name: 'Actividades para despedidas en A Coruña',
+    itemListElement: groups.flatMap((g) => g.items).map((a, i) => ({ '@type': 'ListItem', position: i + 1, name: a.name })),
+  },
+];
+---
+<Base
+  title="Actividades para despedidas en A Coruña: karts, barco, escape"
+  description="Actividades para despedidas en A Coruña desde 22 € por persona: karts, paintball, barco, motos de agua, escape room, catas, spa y gymkanas."
+  schema={schema}
+>
+  <section class="hero">
+    <div class="wrap">
+      <Breadcrumb current="Actividades" />
+      <h1>Actividades para despedidas en A Coruña</h1>
+      <p class="lead">Humor Amarillo es nuestra actividad estrella ({site.price} € por persona), pero un fin de semana da para más. Elige una segunda actividad y la montamos en el mismo pack.</p>
+      <ul class="chips">
+        {groups.map((g) => <li><a href={`#${g.id}`}>{g.title}</a></li>)}
+      </ul>
+      <CtaRow label="Pedir precio" wa="Hola, quiero consultar actividades para una despedida en A Coruña." />
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>Empieza por Humor Amarillo</h2>
+      <p>Circuito Gakushi-Kai con 11 pruebas en la zona de Feáns / A Zapateira. {site.price} € por persona, con una consumición y disfraz para el homenajeado o la homenajeada. <a href="/humor-amarillo-coruna/">Ver Humor Amarillo</a>.</p>
+      <p class="muted small">Precios por persona y «desde», salvo que se indique otra cosa. Pueden variar según temporada y disponibilidad; casi todas tienen un mínimo de personas o de pago. La disponibilidad siempre es bajo consulta.</p>
+    </div>
+  </section>
+
+  {groups.map((g, i) => (
+    <section id={g.id} class={i % 2 === 0 ? 'band' : undefined}>
+      <div class="wrap">
+        <h2>{g.title}</h2>
+        <p class="lead">{g.intro}</p>
+        <ul class="act-list cols-2">
+          {g.items.map((a) => (
+            <li class="act">
+              <h3>{a.name} <span>{a.price}</span></h3>
+              <p>{a.detail}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  ))}
+
+  <section>
+    <div class="wrap">
+      <h2>¿No ves lo que buscas?</h2>
+      <p class="lead">Dinos qué tipo de plan queréis y lo miramos. Trabajamos con más actividades y también en otras ciudades de Galicia.</p>
+      <p><a href="/packs-despedida-coruna/">Ver packs que ya combinan actividad, cena y alojamiento</a>.</p>
+    </div>
+  </section>
+
+  <section class="dark">
+    <div class="wrap">
+      <h2>Pide precio de tu actividad</h2>
+      <ContactForm preselect={['Humor Amarillo', 'Otra actividad']} />
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,14 @@
+---
+import type { Pack } from '../data/packs';
+interface Props { pack: Pack; cta?: string }
+const { pack, cta = 'Pedir precio' } = Astro.props;
+---
+<article class={`card${pack.featured ? ' featured' : ''}`}>
+  {pack.featured && <span class="tag">Para ampliar el plan</span>}
+  <h3>{pack.name}</h3>
+  <p class="price"><span class="from-inline">desde</span>{pack.from} € <small class="muted">/ persona</small></p>
+  <ul class="ticks">
+    {pack.includes.map((i: string) => <li>{i}</li>)}
+  </ul>
+  <a class={pack.featured ? 'btn' : 'btn btn-ghost'} href="/contacto/#formulario">{cta}</a>
+</article>

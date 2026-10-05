@@ -11,8 +11,10 @@ import { faqPage, breadcrumb, orgRef, area } from '../data/schema';
 const path = '/cena-fiesta-despedidas-coruna/';
 const faqs = [
   { q: '¿Qué es Los 7 PC?', a: 'Es nuestra oferta propia de cenas baile y fiesta en A Coruña, pensada para grupos y despedidas.' },
-  { q: '¿Cuánto cuesta la cena y fiesta?', a: 'Depende de la fecha y del número de personas. Pide precio y te lo confirmamos.' },
-  { q: '¿Se puede combinar con Humor Amarillo?', a: `Sí. Puedes empezar con Humor Amarillo (${site.price} € por persona) y seguir con la cena y la fiesta con el mismo grupo.` },
+  { q: '¿Cuánto cuesta la cena y fiesta?', a: 'La cena baile con fiesta parte de 50 € por persona e incluye cena con menú, bebida y postre, animación y sesión de DJ. El precio final depende de la temporada y del menú elegido.' },
+  { q: '¿Se puede combinar con Humor Amarillo?', a: `Sí. Humor Amarillo (${site.price} € por persona) más cena y fiesta parte de 92 € por persona.` },
+  { q: '¿Por qué una cena con fiesta en lugar de salir de discoteca?', a: 'Porque algunos locales de marcha de A Coruña no dejan entrar con disfraces de despedida. Con cena y fiesta, el grupo va disfrazado, tiene mesa y no depende de la puerta.' },
+  { q: '¿Puedo cenar en un restaurante sin fiesta?', a: 'Sí. Hacemos reservas en restaurantes de A Coruña según gusto y presupuesto, y cenas privadas en restaurante de hotel de 4 estrellas desde 38 € por persona.' },
   { q: '¿Cómo reservo?', a: 'Consulta disponibilidad con fecha y número de personas por el formulario, WhatsApp o teléfono. La disponibilidad siempre es bajo consulta.' },
 ];
 const schema = [
@@ -22,44 +24,87 @@ const schema = [
     '@type': 'Service',
     name: 'Cena baile y fiesta para despedidas en A Coruña: Los 7 PC',
     serviceType: 'Cena y fiesta para grupos',
-    description: 'Cena baile y fiesta en A Coruña para despedidas y grupos, ofrecida por Los 7 PC. Se puede combinar con la actividad Humor Amarillo.',
+    description: 'Cena baile y fiesta en A Coruña para despedidas y grupos, con cena, bebida, postre, animación y sesión de DJ. Se puede combinar con la actividad Humor Amarillo.',
     url: new URL(path, Astro.site).href,
     provider: orgRef(Astro.site!.href),
     areaServed: area,
+    offers: { '@type': 'Offer', priceCurrency: 'EUR', priceSpecification: { '@type': 'UnitPriceSpecification', price: 50, minPrice: 50, priceCurrency: 'EUR', referenceQuantity: { '@type': 'QuantitativeValue', value: 1, unitText: 'persona' } } },
   },
 ];
 ---
 <Base
   title="Cena y fiesta para despedidas en A Coruña | Los 7 PC"
-  description="Cena baile y fiesta para despedidas en A Coruña con Los 7 PC. Combínala con Humor Amarillo y pide precio según fecha y número de personas."
+  description="Cena baile y fiesta para despedidas en A Coruña con Los 7 PC, desde 50 € por persona. Combínala con Humor Amarillo y consulta disponibilidad."
   schema={schema}
 >
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
-      <Breadcrumb current="Cena y fiesta" />
-      <h1>Cena y fiesta para despedidas en A Coruña</h1>
-      <p class="lead">Tras Humor Amarillo, el grupo sigue junto: cena baile y fiesta en Los 7 PC, nuestra oferta propia.</p>
-      <CtaRow label="Pedir precio" wa="Hola, quiero pedir precio de cena y fiesta para una despedida en A Coruña." />
-    </div>
-      <Photo name="cena-fiesta" alt="Grupo de despedida en una cena y fiesta en Los 7 PC, A Coruña" priority />
+        <Breadcrumb current="Cena y fiesta" />
+        <h1>Cena y fiesta para despedidas en A Coruña</h1>
+        <p class="lead">Tras Humor Amarillo, el grupo sigue junto: cena baile y fiesta en Los 7 PC, nuestra oferta propia. <strong>Desde 50 € por persona.</strong></p>
+        <CtaRow label="Pedir precio" wa="Hola, quiero pedir precio de cena y fiesta para una despedida en A Coruña." />
+      </div>
+      <Photo name="cena-fiesta" alt="Grupo de despedida en una cena y fiesta en Los 7 PC, A Coruña" priority placeholder />
     </div>
   </section>
 
   <section>
     <div class="wrap grid cols-2">
       <div>
-        <h2>Una noche que no se acaba al terminar la actividad</h2>
-        <p>Lo difícil de una despedida no es la actividad: es que la noche tenga sentido. Con Los 7 PC resuelves la cena y la fiesta en el mismo plan que Humor Amarillo, sin buscar local ni negociar por separado.</p>
-        <p>Los 7 PC es nuestra oferta propia de cenas baile en A Coruña. Cuéntanos fecha y número de personas y te preparamos la propuesta.</p>
+        <h2>Qué incluye la cena baile con fiesta</h2>
+        <ul class="ticks">
+          <li>Cena con menú, bebida y postre.</li>
+          <li>Sesión de animación musical con espectáculo.</li>
+          <li>Juegos y concurso de karaoke.</li>
+          <li>Fiesta y sesión de DJ hasta las 3:00.</li>
+        </ul>
+        <p class="muted">Precio desde 50 € por persona; varía según temporada y menú elegido. Fechas y disponibilidad, bajo consulta.</p>
         <p><a href={site.los7pcUrl} rel="noopener">Ver la web de Los 7 PC</a></p>
+      </div>
+      <div>
+        <h2>Cómo suele desarrollarse la noche</h2>
+        <ol class="ticks">
+          <li><strong>22:00:</strong> recepción de los grupos.</li>
+          <li><strong>22:30 a 24:00:</strong> cena.</li>
+          <li><strong>24:00 a 1:00:</strong> animación y espectáculo.</li>
+          <li><strong>1:15 a 2:30:</strong> sesión de discoteca.</li>
+          <li><strong>3:00:</strong> fin de la fiesta.</li>
+        </ol>
+        <p class="muted small">Horario orientativo; puede sufrir ligeras variaciones.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <h2>¿Por qué cena con fiesta y no discoteca?</h2>
+      <p class="lead">Porque en algunos locales de marcha de A Coruña no dejan entrar con disfraces de despedida. Aquí el grupo va disfrazado, tiene mesa reservada y la noche no depende de la puerta.</p>
+      <ul class="ticks">
+        <li>Todo el grupo en el mismo sitio, sin buscar local.</li>
+        <li>Cena, bebida y fiesta resueltas en un único precio por persona.</li>
+        <li>Combinable con <a href="/humor-amarillo-coruna/">Humor Amarillo</a> y con <a href="/alojamiento-despedidas-coruna/">alojamiento</a>.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap grid cols-2">
+      <div>
+        <h2>Otras opciones de cena</h2>
+        <ul class="ticks">
+          <li><strong>Cena privada en restaurante de hotel de 4 estrellas</strong>, en el centro de A Coruña y a 200 m de la zona de marcha. Menús desde 38 € por persona, con shows permitidos.</li>
+          <li><strong>Comida buffet libre:</strong> carnes y pizzas a farta, 25 € (bebida, postre y café aparte).</li>
+          <li><strong>Ginkana de tapas:</strong> 50 € con 4 tapas o pinchos y 4 bebidas, al mediodía.</li>
+          <li>Reservas en restaurantes de A Coruña según gusto y presupuesto.</li>
+        </ul>
       </div>
       <div>
         <h2>El plan completo</h2>
         <ol class="ticks">
-          <li><a href="/humor-amarillo-coruna/">Humor Amarillo</a>: {site.price} € por persona.</li>
-          <li>Cena baile y fiesta en Los 7 PC: pedir precio.</li>
-          <li><a href="/packs-despedida-coruna/#hotel-y-actividades">Hotel y segunda actividad</a>: bajo consulta.</li>
+          <li><a href="/humor-amarillo-coruna/">Humor Amarillo</a>: desde {site.price} € por persona.</li>
+          <li>Cena y fiesta: desde 50 € por persona.</li>
+          <li><a href="/alojamiento-despedidas-coruna/">Alojamiento</a> y <a href="/otras-actividades-despedidas-coruna/">otra actividad</a>.</li>
         </ol>
         <div class="btn-row"><a class="btn btn-ghost" href="/packs-despedida-coruna/">Ver packs</a></div>
       </div>

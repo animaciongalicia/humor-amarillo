@@ -1,11 +1,13 @@
 ---
 import { Image } from 'astro:assets';
 
-interface Props { name: string; alt: string; priority?: boolean; width?: number; height?: number }
-const { name, alt, priority = false, width = 1200, height = 750 } = Astro.props;
+interface Props { name: string; alt: string; priority?: boolean; width?: number; height?: number; placeholder?: boolean }
+const { name, alt, priority = false, width = 1200, height = 750, placeholder = false } = Astro.props;
 
 const all = import.meta.glob<{ default: ImageMetadata }>('/src/assets/photos/*.{jpg,jpeg,png,webp}', { eager: true });
 const hit = Object.entries(all).find(([p]) => p.split('/').pop()!.replace(/\.[^.]+$/, '') === name);
+// Hueco visible mientras faltan las fotos. Ocultar con PUBLIC_HIDE_PHOTO_SLOTS=1.
+const showSlot = placeholder && !hit && !import.meta.env.PUBLIC_HIDE_PHOTO_SLOTS;
 ---
 {hit && (
   <Image
@@ -22,3 +24,4 @@ const hit = Object.entries(all).find(([p]) => p.split('/').pop()!.replace(/\.[^.
     format="webp"
   />
 )}
+{showSlot && <div class="photo photo-slot" role="img" aria-label={`Espacio reservado para foto: ${alt}`}><span>Foto pendiente<br /><small>{name}.jpg</small></span></div>}

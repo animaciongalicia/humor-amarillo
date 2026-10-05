@@ -1,0 +1,97 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import Photo from '../components/Photo.astro';
+import CtaRow from '../components/CtaRow.astro';
+import Faq from '../components/Faq.astro';
+import ContactForm from '../components/ContactForm.astro';
+import { faqPage, breadcrumb } from '../data/schema';
+
+const path = '/alojamiento-despedidas-coruna/';
+const faqs = [
+  { q: '¿Cuánto cuesta el hotel para una despedida en A Coruña?', a: 'Hoteles de 2 y 3 estrellas desde 30 € por persona y de 3 y 4 estrellas desde 35 € por persona, con habitaciones dobles y triples en el centro. El precio varía según temporada y disponibilidad.' },
+  { q: '¿Qué ventaja tiene una casa rural?', a: 'Hay más de 10 casas de 8 a 20 plazas en los alrededores de A Coruña, con piscina, barbacoa, billar o futbolín. Admiten shows y otras animaciones, y se pueden concertar cenas o servicio de catering.' },
+  { q: '¿A qué distancia están las casas rurales?', a: 'Entre 15 y 25 km del centro de A Coruña, en zonas como Oleiros, Sada, Betanzos, Arteixo, Carballo o Miño.' },
+  { q: '¿Puedo incluir el alojamiento en un pack?', a: 'Sí. Varios de nuestros packs lo incluyen junto con actividad y cena. Dinos fecha y número de personas y te lo cuadramos.' },
+];
+const schema = [breadcrumb(Astro.site!.href, 'Alojamiento', path), faqPage(faqs)];
+---
+<Base
+  title="Alojamiento para despedidas en A Coruña: hotel o casa rural"
+  description="Hotel en el centro de A Coruña desde 30 € por persona o casa rural de 8 a 20 plazas para tu despedida. Combínalo con Humor Amarillo y cena y fiesta."
+  schema={schema}
+>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <Breadcrumb current="Alojamiento" />
+        <h1>Alojamiento para despedidas en A Coruña</h1>
+        <p class="lead">Hotel en el centro desde 30 € por persona, o casa rural para 8–20 personas. Se puede incluir en el mismo pack que Humor Amarillo y la cena y fiesta.</p>
+        <CtaRow label="Pedir precio" wa="Hola, quiero pedir precio de alojamiento para una despedida en A Coruña." />
+      </div>
+      <Photo name="alojamiento" alt="Alojamiento para despedidas en A Coruña" priority placeholder />
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap grid cols-2">
+      <div>
+        <h2>Hoteles en el centro de A Coruña</h2>
+        <p>Habitaciones dobles y triples, cerca de la zona de vinos y de marcha, para volver andando.</p>
+        <ul class="ticks">
+          <li>Hoteles de 2 y 3 estrellas: desde 30 € por persona.</li>
+          <li>Hoteles de 3 y 4 estrellas: desde 35 € por persona.</li>
+        </ul>
+        <p class="muted small">Precios orientativos; varían según temporada y disponibilidad.</p>
+      </div>
+      <div>
+        <h2>Casas rurales para el grupo</h2>
+        <p>En A Coruña y alrededores (Oleiros, Sada, Betanzos, Arteixo, Carballo, Miño), a 15–25 km del centro.</p>
+        <ul class="ticks">
+          <li>Más de 10 casas de 8 a 20 plazas.</li>
+          <li>Piscina, barbacoa, billar, futbolín…</li>
+          <li>Admiten shows, beauty parties y otras animaciones.</li>
+          <li>Cenas concertadas o servicio de catering.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <h2>Salir por A Coruña</h2>
+      <div class="grid cols-2">
+        <div>
+          <h3>Zonas de vinos</h3>
+          <p>Calle Estrella (Mantelería y Cunqueiro), Barrera (Jaleo, Cavita y Bombilla), Galera y Franja.</p>
+        </div>
+        <div>
+          <h3>Zona de marcha</h3>
+          <p>Orzán, centro y San Andrés, con pubs y locales de ambiente. Ojo: algunos locales no dejan entrar con disfraces de despedida; por eso la <a href="/cena-fiesta-despedidas-coruna/">cena con fiesta</a> es la opción más cómoda para el grupo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>El plan completo</h2>
+      <ol class="ticks">
+        <li><a href="/humor-amarillo-coruna/">Humor Amarillo</a>: desde 42 € por persona.</li>
+        <li><a href="/cena-fiesta-despedidas-coruna/">Cena y fiesta</a>: desde 50 € por persona.</li>
+        <li>Alojamiento, como arriba.</li>
+        <li><a href="/otras-actividades-despedidas-coruna/">Una segunda actividad</a>.</li>
+      </ol>
+      <div class="btn-row"><a class="btn" href="/packs-despedida-coruna/">Ver packs</a></div>
+    </div>
+  </section>
+
+  <Faq items={faqs} />
+
+  <section class="dark">
+    <div class="wrap">
+      <h2>Pide precio de alojamiento</h2>
+      <ContactForm preselect={['Hotel']} />
+    </div>
+  </section>
+</Base>

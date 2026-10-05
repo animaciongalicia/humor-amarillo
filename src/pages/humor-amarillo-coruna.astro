@@ -11,6 +11,7 @@ import { faqPage, breadcrumb, orgRef, area } from '../data/schema';
 const path = '/humor-amarillo-coruna/';
 const faqs = [
   { q: '¿Cuánto cuesta Humor Amarillo en A Coruña?', a: `${site.price} € por persona. Incluye una consumición por persona y un disfraz para el homenajeado o la homenajeada.` },
+  { q: '¿Cuántas personas hacen falta?', a: 'Desde 6 participantes. Con 12 o más, el homenajeado o la homenajeada no paga (11 + 1) y el grupo puede tener el circuito en exclusiva; si sois menos, competís contra otros equipos.' },
   { q: '¿Cuánto dura?', a: 'Aproximadamente entre 2 y 2,15 horas.' },
   { q: '¿Qué días se hace?', a: 'Principalmente los sábados. La disponibilidad siempre es bajo consulta, así que escríbenos con la fecha que tienes en mente.' },
   { q: '¿Dónde se celebra?', a: 'En la zona de Feáns / A Zapateira, en A Coruña.' },
@@ -56,7 +57,7 @@ const schema = [
       <p class="lead">Once pruebas, una consumición por persona y un disfraz para el homenajeado o la homenajeada. {site.price} € por persona, solo adultos.</p>
       <CtaRow wa="Hola, quiero consultar disponibilidad para Humor Amarillo en A Coruña." />
     </div>
-      <Photo name="humor-amarillo" alt="Grupo en una de las pruebas del circuito Humor Amarillo en A Coruña" priority />
+      <Photo name="humor-amarillo" alt="Grupo en una de las pruebas del circuito Humor Amarillo en A Coruña" priority placeholder />
     </div>
   </section>
 
@@ -69,6 +70,7 @@ const schema = [
         <div><dt>Días</dt><dd>Principalmente sábados. Disponibilidad siempre bajo consulta</dd></div>
         <div><dt>Dónde</dt><dd>Zona Feáns / A Zapateira, A Coruña</dd></div>
         <div><dt>Incluye</dt><dd>Una consumición por persona y un disfraz para el homenajeado o la homenajeada</dd></div>
+        <div><dt>Tamaño del grupo</dt><dd>Desde 6 participantes. Con 12 o más, el homenajeado o la homenajeada va gratis (11 + 1)</dd></div>
         <div><dt>Para quién</dt><dd>Adultos: despedidas de soltero y soltera, grupos de amigos y asociaciones</dd></div>
       </dl>
     </div>
@@ -89,7 +91,7 @@ const schema = [
         <h2>Cómo se juega según el tamaño del grupo</h2>
         <ul class="ticks">
           <li><strong>Grupo pequeño:</strong> puede haber competición con otros grupos.</li>
-          <li><strong>Grupo grande:</strong> se pueden organizar equipos dentro del propio grupo.</li>
+          <li><strong>Grupo grande:</strong> se pueden organizar equipos dentro del propio grupo. Para tener el circuito en exclusiva hacen falta 12 personas como mínimo.</li>
         </ul>
         <p class="muted">Dinos cuántos sois y cómo lo prefieres al consultar la fecha.</p>
       </div>
@@ -112,12 +114,12 @@ const schema = [
         </article>
         <article class="card">
           <h3>Hotel</h3>
-          <p>Alojamiento para el grupo, bajo consulta.</p>
-          <a class="btn btn-ghost" href="/packs-despedida-coruna/#hotel-y-actividades">Pedir precio</a>
+          <p>Hoteles en el centro desde 30 € por persona o casa rural para el grupo.</p>
+          <a class="btn btn-ghost" href="/alojamiento-despedidas-coruna/">Ver alojamiento</a>
         </article>
         <article class="card">
           <h3>Packs</h3>
-          <p>Mira las combinaciones y pide precio con tu fecha y número de personas.</p>
+          <p>Humor Amarillo + cena y fiesta desde 92 € por persona, y 6 packs más.</p>
           <a class="btn" href="/packs-despedida-coruna/">Ver packs</a>
         </article>
       </div>

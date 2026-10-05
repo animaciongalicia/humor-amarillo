@@ -5,6 +5,8 @@ import Faq from '../components/Faq.astro';
 import ContactForm from '../components/ContactForm.astro';
 import Photo from '../components/Photo.astro';
 import { site, tel, whatsapp } from '../data/site';
+import PackCard from '../components/PackCard.astro';
+import { packs } from '../data/packs';
 import { faqPage } from '../data/schema';
 
 const faqs = [
@@ -12,12 +14,12 @@ const faqs = [
   { q: '¿Cuánto dura y cuándo se hace?', a: 'La actividad dura aproximadamente 2–2,15 horas y se hace principalmente en sábado. La disponibilidad siempre es bajo consulta.' },
   { q: '¿Dónde es?', a: 'En la zona de Feáns / A Zapateira, en A Coruña.' },
   { q: '¿Se puede añadir cena y fiesta?', a: 'Sí. Los 7 PC es nuestra oferta propia de cena baile y fiesta, y se puede combinar con Humor Amarillo en el mismo plan.' },
-  { q: '¿Y el hotel u otras actividades?', a: 'Se pueden añadir al pack. Cuéntanos fecha y número de personas y te decimos qué hay disponible y a qué precio.' },
+  { q: '¿Y el hotel u otras actividades?', a: 'Se pueden añadir al pack. Hay hoteles en el centro de A Coruña desde 30 € por persona y más de 25 actividades alternativas desde 22 € por persona, como karts, paintball, barco o escape room. Cuéntanos fecha y número de personas y te lo cuadramos.' },
   { q: '¿Es una actividad para adultos?', a: 'Sí, está pensada para grupos adultos: despedidas de soltero y soltera, grupos de amigos y asociaciones.' },
   { q: '¿Competimos contra otros grupos?', a: 'Depende del tamaño. Si el grupo es pequeño, puede haber competición con otros grupos. Si es grande, se organizan equipos dentro del propio grupo.' },
 ];
 
-const description = `Organiza tu despedida en A Coruña: Humor Amarillo por ${site.price} € por persona, cena y fiesta en Los 7 PC, hotel y más actividades bajo consulta.`;
+const description = `Organiza tu despedida en A Coruña: Humor Amarillo por ${site.price} € por persona, cena y fiesta en Los 7 PC, hotel y más actividades.`;
 const schema = [faqPage(faqs)];
 ---
 <Base title="Despedidas en A Coruña: Humor Amarillo, cena y fiesta" description={description} schema={schema}>
@@ -39,7 +41,7 @@ const schema = [faqPage(faqs)];
           <li><strong>Adultos</strong><span>disponibilidad bajo consulta</span></li>
         </ul>
       </div>
-      <Photo name="hero" alt="Grupo de amigos en el circuito de Humor Amarillo en A Coruña" priority />
+      <Photo name="hero" alt="Grupo de amigos en el circuito de Humor Amarillo en A Coruña" priority placeholder />
     </div>
   </section>
 
@@ -63,14 +65,14 @@ const schema = [faqPage(faqs)];
         <article class="card">
           <span class="num">3</span>
           <h3>Hotel</h3>
-          <p>Si vienen de fuera o quieres alargar la noche, lo incluimos en el pack. Bajo consulta.</p>
-          <a class="btn btn-ghost" href="/packs-despedida-coruna/#hotel-y-actividades">Pedir precio</a>
+          <p>Hoteles en el centro desde 30 € por persona, o casa rural para 8–20 personas.</p>
+          <a class="btn btn-ghost" href="/alojamiento-despedidas-coruna/">Ver alojamiento</a>
         </article>
         <article class="card">
           <span class="num">4</span>
           <h3>Segunda actividad</h3>
-          <p>Para llenar el fin de semana con otra actividad de grupo. Bajo consulta, según fecha y grupo.</p>
-          <a class="btn btn-ghost" href="/packs-despedida-coruna/#hotel-y-actividades">Pedir precio</a>
+          <p>Karts, barco, paintball, escape room, catas, spa y más, desde 22 € por persona.</p>
+          <a class="btn btn-ghost" href="/otras-actividades-despedidas-coruna/">Ver actividades</a>
         </article>
       </div>
     </div>
@@ -105,26 +107,12 @@ const schema = [faqPage(faqs)];
   <section>
     <div class="wrap">
       <h2>Packs de despedida en A Coruña</h2>
-      <p class="lead">Tres formas de montarlo. El precio de cada pack se confirma según fecha y número de personas.</p>
-      <div class="grid cols-3">
-        <article class="card">
-          <h3>Solo Humor Amarillo</h3>
-          <p class="price">{site.price} € <span class="small muted">/ persona</span></p>
-          <p>La actividad con consumición y disfraz para el homenajeado o la homenajeada.</p>
-        </article>
-        <article class="card featured">
-          <span class="tag">Para ampliar el plan</span>
-          <h3>Humor Amarillo + cena y fiesta</h3>
-          <p class="price">Pedir precio</p>
-          <p>La actividad y la noche con Los 7 PC para el mismo grupo.</p>
-        </article>
-        <article class="card">
-          <h3>Despedida completa</h3>
-          <p class="price">Pedir precio</p>
-          <p>Humor Amarillo, cena y fiesta, hotel y una segunda actividad.</p>
-        </article>
+      <p class="lead">Ideas de partida, todas personalizables. Precios por persona, «desde», según temporada, menú y número de asistentes.</p>
+      <div class="grid cols-4">
+        {packs.slice(0, 2).map((pk) => <PackCard pack={pk} />)}
+        {packs.filter((p) => p.name === 'Pack Karts y fiesta' || p.name === 'Pack del Mar').map((pk) => <PackCard pack={pk} />)}
       </div>
-      <div class="btn-row"><a class="btn" href="/packs-despedida-coruna/">Ver packs</a></div>
+      <div class="btn-row"><a class="btn" href="/packs-despedida-coruna/">Ver los 8 packs</a></div>
     </div>
   </section>
 

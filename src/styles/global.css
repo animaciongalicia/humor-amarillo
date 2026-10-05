@@ -182,3 +182,21 @@ thead th { background: var(--yellow); }
 .hero-grid:not(:has(.photo)) { display: block; }
 .hero .meta { font-weight: 700; margin: 0 0 1rem; }
 @media (min-width: 720px) { .hero-grid:has(.photo) { grid-template-columns: 1.1fr .9fr; gap: 2.5rem; } }
+
+.photo-slot { display: grid; place-items: center; text-align: center; border-style: dashed; color: var(--muted); font-weight: 700; }
+.hero-grid:has(.photo-slot) { display: grid; }
+@media (min-width: 720px) { .hero-grid:has(.photo-slot) { grid-template-columns: 1.1fr .9fr; gap: 2.5rem; } }
+.card .from { font-size: .85rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); margin: 0; }
+.card .price small { font-size: .9rem; font-weight: 600; }
+.card .price .from-inline { font-size: .85rem; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; margin-right: .2rem; }
+.act-list { display: grid; gap: .75rem; list-style: none; padding: 0; margin: 1rem 0 0; }
+.act { background: #fff; border: 2px solid var(--ink); border-radius: var(--radius); padding: 1rem 1.2rem; }
+.act h3 { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin: 0 0 .3rem; font-size: 1.1rem; }
+.act h3 span { background: var(--yellow); border: 2px solid var(--ink); border-radius: 999px; padding: 0 .7rem; font-size: .9rem; white-space: nowrap; }
+.act p { margin: 0; }
+@media (min-width: 720px) { .act-list.cols-2 { grid-template-columns: repeat(2, 1fr); } }
+.chips { display: flex; flex-wrap: wrap; gap: .5rem; list-style: none; padding: 0; margin: 1rem 0 0; }
+.chips a { display: inline-block; border: 2px solid var(--ink); border-radius: 999px; padding: .3rem .95rem; font-weight: 700; text-decoration: none; background: #fff; }
+.chips a:hover { background: var(--ink); color: var(--yellow); }
+.nav-desktop ul { gap: 1.1rem; font-size: .95rem; }
+@media (min-width: 720px) { .hero-grid .facts { grid-template-columns: repeat(2, 1fr); max-width: 24rem; } }
