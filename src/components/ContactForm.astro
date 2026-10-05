@@ -1,48 +1,43 @@
 ---
-import { site, tel, whatsapp } from '../data/site';
+import { site, tel } from '../data/site';
 interface Props { preselect?: string[]; id?: string }
 const { preselect = ['Humor Amarillo'], id = 'formulario' } = Astro.props;
-const options = ['Humor Amarillo', 'Cena y fiesta (Los 7 PC)', 'Hotel', 'Otra actividad', 'Aún no lo sé, aconsejadme'];
+const options = ['Humor Amarillo', 'Cena y fiesta', 'Hotel', 'Otra actividad', 'Aconsejadme'];
 ---
 <form class="form" id={id} data-email={site.email} data-wa={site.whatsappNumber} novalidate>
-  <div class="row">
+  <div class="row r3">
     <div>
-      <label for={`${id}-fecha`}>Fecha prevista</label>
+      <label for={`${id}-fecha`}>Fecha</label>
       <input id={`${id}-fecha`} name="fecha" type="date" required />
-      <p class="hint">Aunque sea orientativa.</p>
     </div>
     <div>
-      <label for={`${id}-personas`}>Número de personas</label>
+      <label for={`${id}-personas`}>Personas</label>
       <input id={`${id}-personas`} name="personas" type="number" min="1" max="500" inputmode="numeric" required />
+    </div>
+    <div>
+      <label for={`${id}-tel`}>Teléfono / WhatsApp</label>
+      <input id={`${id}-tel`} name="telefono" type="tel" inputmode="tel" autocomplete="tel" required />
     </div>
   </div>
   <fieldset>
     <legend>Qué te interesa</legend>
     <div class="checks">
       {options.map((o) => (
-        <label><input type="checkbox" name="actividades" value={o} checked={preselect.includes(o)} /> {o}</label>
+        <label><input type="checkbox" name="actividades" value={o} checked={preselect.includes(o)} /><span>{o}</span></label>
       ))}
     </div>
   </fieldset>
-  <div class="row">
-    <div>
-      <label for={`${id}-tel`}>Teléfono / WhatsApp</label>
-      <input id={`${id}-tel`} name="telefono" type="tel" inputmode="tel" autocomplete="tel" required />
-    </div>
-    <div>
-      <label for={`${id}-email`}>Email</label>
-      <input id={`${id}-email`} name="email" type="email" autocomplete="email" />
-      <p class="hint">Opcional si ya nos das el teléfono.</p>
-    </div>
+  <div>
+    <label for={`${id}-email`}>Email <span class="opt">(opcional)</span></label>
+    <input id={`${id}-email`} name="email" type="email" autocomplete="email" />
   </div>
   <p class="form-status" role="status" aria-live="polite"></p>
   <div class="btn-row">
     <button type="submit" class="btn btn-wa" data-channel="wa">Enviar por WhatsApp</button>
-    <button type="submit" class="btn" data-channel="mail">Enviar por email</button>
+    <button type="submit" class="btn btn-ghost" data-channel="mail">Enviar por email</button>
   </div>
   <p class="hint">
-    Se abrirá WhatsApp o tu correo con el mensaje ya escrito; no se guarda nada en esta web. Al enviarlo, aceptas que usemos tus datos para responderte (<a href="/aviso-legal-privacidad/">aviso legal y privacidad</a>).
-    ¿Prefieres hablar? <a href={tel}>Llama al {site.phoneDisplay}</a> o <a href={whatsapp()} rel="noopener">escribe por WhatsApp</a>.
+    Se abre WhatsApp o tu correo con el mensaje ya escrito; no guardamos nada en la web. Al enviarlo aceptas el <a href="/aviso-legal-privacidad/">aviso legal y privacidad</a>. ¿Prefieres hablar? <a href={tel}>{site.phoneDisplay}</a>.
   </p>
 </form>
 

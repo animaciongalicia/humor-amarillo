@@ -12,7 +12,6 @@ export const site = {
   phoneDisplay: '678 288 284',
   phoneTel: `+34${phoneDigits}`,
   whatsappNumber: `34${phoneDigits}`,
-  los7pcUrl: 'https://los7pc.com',
   price: 42,
   area: 'A Coruña',
   ogImage: '/og-humor-amarillo-coruna.png',

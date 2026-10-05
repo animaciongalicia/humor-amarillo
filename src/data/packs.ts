@@ -4,7 +4,7 @@ export interface Pack { name: string; includes: string[]; from: number; featured
 
 export const packs: Pack[] = [
   { name: 'Solo Humor Amarillo', from: 42, includes: ['Circuito Gakushi-Kai, 11 pruebas', 'Una consumición por persona', 'Disfraz para el homenajeado o la homenajeada'] },
-  { name: 'Humor Amarillo + cena y fiesta', from: 97, featured: true, includes: ['Humor Amarillo', 'Cena baile y fiesta en Los 7 PC'] },
+  { name: 'Humor Amarillo + cena y fiesta', from: 97, featured: true, includes: ['Humor Amarillo', 'Cena baile y fiesta en nuestro local'] },
   { name: 'Pack Karts y fiesta', from: 119, includes: ['Karts', 'Hotel', 'Cena y fiesta'] },
   { name: 'Pack Cena y gymkana', from: 80, includes: ['Cena conjunta', 'Gymkana'] },
   { name: 'Pack Cena y show', from: 109, includes: ['Cena', 'Show', 'Alojamiento'] },

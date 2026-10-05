@@ -10,7 +10,7 @@ import { faqPage, breadcrumb, orgRef, area } from '../data/schema';
 
 const path = '/cena-fiesta-despedidas-coruna/';
 const faqs = [
-  { q: '¿Qué es Los 7 PC?', a: 'Es nuestra oferta propia de cenas baile y fiesta en A Coruña, pensada para grupos y despedidas.' },
+  { q: '¿Qué es el local de cenas baile?', a: 'Es nuestra oferta propia de cenas baile y fiesta en A Coruña, pensada para grupos y despedidas.' },
   { q: '¿Cuánto cuesta la cena y fiesta?', a: 'La cena baile con fiesta parte de 55 € por persona (precio 2027) e incluye cena con menú, bebida y postre, animación y sesión de DJ. Con 11 o más personas, el homenajeado o la homenajeada no paga la cena. El precio final depende de la temporada y del menú elegido.' },
   { q: '¿Se puede combinar con Humor Amarillo?', a: `Sí. Humor Amarillo (${site.price} € por persona) más cena y fiesta parte de 97 € por persona.` },
   { q: '¿Por qué una cena con fiesta en lugar de salir de discoteca?', a: 'Porque algunos locales de marcha de A Coruña no dejan entrar con disfraces de despedida. Con cena y fiesta, el grupo va disfrazado, tiene mesa y no depende de la puerta.' },
@@ -22,7 +22,7 @@ const schema = [
   faqPage(faqs),
   {
     '@type': 'Service',
-    name: 'Cena baile y fiesta para despedidas en A Coruña: Los 7 PC',
+    name: 'Local de cenas baile y fiesta para despedidas en A Coruña',
     serviceType: 'Cena y fiesta para grupos',
     description: 'Cena baile y fiesta en A Coruña para despedidas y grupos, con cena, bebida, postre, animación y sesión de DJ. Se puede combinar con la actividad Humor Amarillo.',
     url: new URL(path, Astro.site).href,
@@ -33,8 +33,8 @@ const schema = [
 ];
 ---
 <Base
-  title="Cena y fiesta para despedidas en A Coruña | Los 7 PC"
-  description="Cena baile y fiesta para despedidas en A Coruña con Los 7 PC, desde 55 € por persona. Con 11 o más, el homenajeado no paga. Combínala con Humor Amarillo y consulta disponibilidad."
+  title="Cenas baile y fiesta para despedidas en A Coruña"
+  description="Cena baile y fiesta para despedidas en A Coruña en nuestro local de cenas baile, desde 55 € por persona. Con 11 o más, el homenajeado no paga. Combínala con Humor Amarillo y consulta disponibilidad."
   schema={schema}
 >
   <section class="hero">
@@ -42,10 +42,10 @@ const schema = [
       <div>
         <Breadcrumb current="Cena y fiesta" />
         <h1>Cena y fiesta para despedidas en A Coruña</h1>
-        <p class="lead">Tras Humor Amarillo, el grupo sigue junto: cena baile y fiesta en Los 7 PC, nuestra oferta propia. <strong>Desde 55 € por persona.</strong> Con 11 o más personas, el homenajeado o la homenajeada no paga la cena.</p>
+        <p class="lead">Tras Humor Amarillo, el grupo sigue junto: cena baile y fiesta en nuestro local de cenas baile. <strong>Desde 55 € por persona.</strong> Con 11 o más personas, el homenajeado o la homenajeada no paga la cena.</p>
         <CtaRow label="Pedir precio" wa="Hola, quiero pedir precio de cena y fiesta para una despedida en A Coruña." />
       </div>
-      <Photo name="cena-fiesta" alt="Grupo de despedida en una cena y fiesta en Los 7 PC, A Coruña" priority placeholder />
+      <Photo name="cena-fiesta" alt="Grupo de despedida en nuestro local de cenas baile, A Coruña" priority placeholder />
     </div>
   </section>
 
@@ -60,7 +60,6 @@ const schema = [
           <li>Fiesta y sesión de DJ hasta las 3:00.</li>
         </ul>
         <p class="muted">Precio 2027 desde 55 € por persona; puede variar según temporada y menú elegido. Con 11 o más personas, el homenajeado o la homenajeada no paga. Fechas y disponibilidad, bajo consulta.</p>
-        <p><a href={site.los7pcUrl} rel="noopener">Ver la web de Los 7 PC</a></p>
       </div>
       <div>
         <h2>Cómo suele desarrollarse la noche</h2>
@@ -116,7 +115,7 @@ const schema = [
   <section class="dark">
     <div class="wrap">
       <h2>Pide precio de cena y fiesta</h2>
-      <ContactForm preselect={['Cena y fiesta (Los 7 PC)']} />
+      <ContactForm preselect={['Cena y fiesta']} />
     </div>
   </section>
 </Base>

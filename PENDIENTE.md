@@ -10,7 +10,7 @@
 1. **Humor Amarillo gratis para el novio/a**: ahora solo lo digo para las cenas. Si también aplica a la actividad, dime desde cuántas personas.
 2. **Consumición**: tú dijiste una por persona; el PDF dice "2 bebidas". Dejé una. Mínimo de 6 participantes: viene del PDF.
 3. **Pack Humor Amarillo + cena y fiesta, desde 97 €**: calculado (42 + 55). El resto de packs usan los precios del PDF 2026 y la web avisa de que son orientativos para 2027. Cuando tengas los de 2027, se cambian en `src/data/packs.ts`; las actividades en `src/data/activities.ts`.
-4. **Los 7 PC**: horario, qué incluye y sesión de drag vienen del PDF 2026. Confirmar que aplican a Los 7 PC en 2027.
+4. **Local de cenas baile**: horario, qué incluye y sesión de drag vienen del PDF 2026. Confirmar que aplican en 2027. En la web ya no aparece el nombre Los 7 PC ni el enlace a los7pc.com.
 5. **Contacto**: solo 678 288 284 y animaciongalicia@gmail.com (el PDF trae también 881 255 607 e info@despedidascoruna.es).
 6. **Excluido a propósito**: tuppersex, boy-stripper, buggies y quads. Se pueden añadir en `src/data/activities.ts`.
 

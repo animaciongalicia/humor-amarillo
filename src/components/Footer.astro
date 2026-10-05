@@ -1,28 +1,42 @@
 ---
-import { site, nav, tel, whatsapp } from '../data/site';
+import { site, tel, whatsapp } from '../data/site';
+import { groups } from '../data/activities';
 ---
 <footer class="site-footer">
-  <div class="wrap grid">
-    <div>
-      <h2>{site.name}</h2>
-      <p>Despedidas en A Coruña: Humor Amarillo, cena y fiesta, hotel y más actividades para grupos adultos.</p>
-      <p class="small">Actividad para adultos. Disponibilidad siempre bajo consulta.</p>
-      <p class="small">{site.legalName} · CIF {site.cif}<br />{site.address.street}, {site.address.postalCode} {site.address.city}</p>
+  <div class="wrap">
+    <div class="grid">
+      <div class="f-brand">
+        <h2>{site.name}</h2>
+        <p>Despedidas en A Coruña: Humor Amarillo, cena y fiesta, hotel y más actividades para grupos adultos.</p>
+      </div>
+      <div class="f-contact">
+        <h2>Contacto</h2>
+        <ul>
+          <li><a href={whatsapp()} rel="noopener">WhatsApp {site.phoneDisplay}</a></li>
+          <li><a href={tel}>Llamar al {site.phoneDisplay}</a></li>
+          <li><a href={`mailto:${site.email}`}>{site.email}</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Humor Amarillo</h2>
+        <ul>
+          <li><a href="/humor-amarillo-coruna/">Humor Amarillo Coruña</a></li>
+          <li><a href="/packs-despedida-coruna/">Packs de despedida</a></li>
+          <li><a href="/cena-fiesta-despedidas-coruna/">Cena y fiesta</a></li>
+          <li><a href="/contacto/">Consultar disponibilidad</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Actividades y planes</h2>
+        <ul>
+          {groups.map((g) => <li><a href={`/otras-actividades-despedidas-coruna/#${g.id}`}>{g.title}</a></li>)}
+          <li><a href="/alojamiento-despedidas-coruna/">Alojamiento</a></li>
+        </ul>
+      </div>
     </div>
-    <div>
-      <h2>Contacto</h2>
-      <ul>
-        <li><a href={whatsapp()} rel="noopener">WhatsApp {site.phoneDisplay}</a></li>
-        <li><a href={tel}>Llamar al {site.phoneDisplay}</a></li>
-        <li><a href={`mailto:${site.email}`}>{site.email}</a></li>
-      </ul>
-    </div>
-    <div>
-      <h2>Web</h2>
-      <ul>
-        {nav.map((i) => <li><a href={i.href}>{i.label}</a></li>)}
-        <li><a href="/aviso-legal-privacidad/">Aviso legal y privacidad</a></li>
-      </ul>
+    <div class="f-bottom">
+      <span>{site.legalName} · CIF {site.cif} · {site.address.street}, {site.address.postalCode} {site.address.city}</span>
+      <span>Actividad para adultos. Disponibilidad bajo consulta. · <a href="/aviso-legal-privacidad/">Aviso legal y privacidad</a></span>
     </div>
   </div>
 </footer>
