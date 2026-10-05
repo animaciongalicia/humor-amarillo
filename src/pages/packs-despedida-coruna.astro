@@ -5,7 +5,7 @@ import Photo from '../components/Photo.astro';
 import CtaRow from '../components/CtaRow.astro';
 import Faq from '../components/Faq.astro';
 import ContactForm from '../components/ContactForm.astro';
-import PackCard from '../components/PackCard.astro';
+import PackDetail from '../components/PackDetail.astro';
 import { packs } from '../data/packs';
 import { site } from '../data/site';
 import { faqPage, breadcrumb } from '../data/schema';
@@ -31,18 +31,52 @@ const schema = [breadcrumb(Astro.site!.href, 'Packs de despedida', '/packs-despe
       <p class="lead">Desde {site.price} € por persona. Parte de Humor Amarillo y añade cena y fiesta, hotel u otra actividad. El precio final depende de la fecha y del número de personas.</p>
       <CtaRow label="Pedir precio" wa="Hola, quiero pedir precio de un pack de despedida en A Coruña." />
     </div>
-      <Photo name="packs" alt="Grupo de despedida disfrutando de un pack en A Coruña" priority placeholder />
+      <Photo name="pared-obstaculos-puños" alt="Grupo de amigos superando juntos una prueba del circuito de Humor Amarillo" priority />
     </div>
   </section>
 
   <section>
     <div class="wrap">
       <h2>8 ideas de pack para tu despedida</h2>
-      <p class="lead">Todos los packs son personalizables: se pueden cambiar actividades y cenas, y recalcular el precio según el número de personas y el menú elegido.</p>
-      <div class="grid cols-4">
-        {packs.map((pk) => <PackCard pack={pk} />)}
+      <p class="lead">Todos los packs son personalizables: se pueden cambiar actividades y cenas, y recalcular el precio según el número de personas y el menú elegido. Úsalos como punto de partida.</p>
+      <div class="pack-grid">
+        {packs.map((pk, i) => <PackDetail pack={pk} n={i + 1} />)}
       </div>
       <p class="muted small">Precios por persona, «desde», orientativos para 2027. Pueden variar según temporada, menú, número de asistentes y disponibilidad. Humor Amarillo ({site.price} € por persona) incluye una consumición por persona y disfraz para el homenajeado o la homenajeada.</p>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <h2>Cómo se pide un pack</h2>
+      <ol class="steps">
+        <li><strong>Cuéntanos tu plan</strong>Fecha, número de personas y qué te interesa. Por WhatsApp, teléfono o formulario.</li>
+        <li><strong>Ajustamos el pack</strong>Cambiamos actividades, cena o alojamiento y te damos el precio por persona según temporada y menú.</li>
+        <li><strong>Reservas con un pago de garantía</strong>El porcentaje depende de los servicios contratados. Consulta las <a href="#condiciones">condiciones de reserva</a>.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap grid cols-2">
+      <div>
+        <h2>Qué influye en el precio</h2>
+        <ul class="ticks">
+          <li><strong>La temporada.</strong> Los alojamientos, barcos y cenas cambian según la época.</li>
+          <li><strong>El menú elegido.</strong> En cenas, hay distintas opciones y rangos de precio.</li>
+          <li><strong>El número de personas.</strong> Muchas actividades piden un mínimo o permiten exclusividad con más gente.</li>
+          <li><strong>El alojamiento.</strong> Hoteles en el centro o casa rural para el grupo.</li>
+        </ul>
+      </div>
+      <div>
+        <h2>Ventajas de ser 11 o más</h2>
+        <ul class="ticks">
+          <li>Humor Amarillo en exclusiva para vuestro grupo.</li>
+          <li>El homenajeado o la homenajeada no paga la cena.</li>
+          <li>Gymkana con novio o novia gratis (10 + 1).</li>
+          <li>Más margen para ajustar el pack a lo que queráis.</li>
+        </ul>
+      </div>
     </div>
   </section>
 

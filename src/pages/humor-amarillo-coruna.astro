@@ -57,7 +57,7 @@ const schema = [
       <p class="lead">Once pruebas, una consumición por persona y un disfraz para el homenajeado o la homenajeada. {site.price} € por persona, solo adultos.</p>
       <CtaRow wa="Hola, quiero consultar disponibilidad para Humor Amarillo en A Coruña." />
     </div>
-      <Photo name="humor-amarillo" alt="Grupo en una de las pruebas del circuito Humor Amarillo en A Coruña" priority placeholder />
+      <Photo name="IMG-1788" alt="Entrada al circuito Humor Amarillo con un grupo de participantes disfrazados" priority />
     </div>
   </section>
 
@@ -82,6 +82,21 @@ const schema = [
       <ul class="pills">
         {pruebas.map((p) => <li>{p}</li>)}
       </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>Así son las pruebas</h2>
+      <p class="muted">Algunas de las pruebas del circuito. Todas se hacen en grupo y con disfraz.</p>
+      <div class="gallery">
+        <figure><Photo name="gladiadores-barna" alt="Dos participantes con traje de gladiador luchando" width={800} height={600} widths={[400, 800]} sizes="(min-width: 720px) 33vw, 50vw" /><figcaption>Lucha de Gladiadores</figcaption></figure>
+        <figure><Photo name="pared-obstaculos-puños" alt="Un grupo atraviesa la pared con puños de espuma" width={800} height={600} widths={[400, 800]} sizes="(min-width: 720px) 33vw, 50vw" /><figcaption>Pared de Puños</figcaption></figure>
+        <figure><Photo name="telaraña-765" alt="Un participante cruza la telaraña de cuerdas" width={800} height={600} widths={[400, 800]} sizes="(min-width: 720px) 33vw, 50vw" /><figcaption>Telaraña</figcaption></figure>
+        <figure><Photo name="puente-colgante-612" alt="Una participante cruza el puente de cuerdas" width={800} height={600} widths={[400, 800]} sizes="(min-width: 720px) 33vw, 50vw" /><figcaption>Puente de Cuerdas</figcaption></figure>
+        <figure><Photo name="sumos-batalla" alt="Participantes con trajes de sumo hinchables" width={800} height={600} widths={[400, 800]} sizes="(min-width: 720px) 33vw, 50vw" /><figcaption>Con Sumo Gusto</figcaption></figure>
+        <figure><Photo name="bolas-gigantes" alt="Un participante salta sobre las bolas gigantes" width={800} height={600} widths={[400, 800]} sizes="(min-width: 720px) 33vw, 50vw" /><figcaption>Y más pruebas en el circuito</figcaption></figure>
+      </div>
     </div>
   </section>
 

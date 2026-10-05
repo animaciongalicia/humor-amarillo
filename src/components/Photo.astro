@@ -1,11 +1,19 @@
 ---
 import { Image } from 'astro:assets';
 
-interface Props { name: string; alt: string; priority?: boolean; width?: number; height?: number; placeholder?: boolean }
-const { name, alt, priority = false, width = 1200, height = 750, placeholder = false } = Astro.props;
+interface Props {
+  name: string; alt: string; priority?: boolean; width?: number; height?: number; placeholder?: boolean;
+  sizes?: string; widths?: number[];
+}
+const {
+  name, alt, priority = false, width = 1200, height = 750, placeholder = false,
+  sizes = '(min-width: 720px) 50vw, 100vw', widths = [480, 800, width],
+} = Astro.props;
 
-const all = import.meta.glob<{ default: ImageMetadata }>('/src/assets/photos/*.{jpg,jpeg,png,webp}', { eager: true });
-const hit = Object.entries(all).find(([p]) => p.split('/').pop()!.replace(/\.[^.]+$/, '') === name);
+// Busca la foto por nombre de archivo (sin extensión), ignorando mayúsculas y acentos.
+const norm = (s: string) => s.normalize('NFC').toLowerCase();
+const all = import.meta.glob<{ default: ImageMetadata }>('/src/assets/photos/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}', { eager: true });
+const hit = Object.entries(all).find(([p]) => norm(p.split('/').pop()!.replace(/\.[^.]+$/, '')) === norm(name));
 // Hueco visible mientras faltan las fotos. Ocultar con PUBLIC_HIDE_PHOTO_SLOTS=1.
 const showSlot = placeholder && !hit && !import.meta.env.PUBLIC_HIDE_PHOTO_SLOTS;
 ---
@@ -16,8 +24,8 @@ const showSlot = placeholder && !hit && !import.meta.env.PUBLIC_HIDE_PHOTO_SLOTS
     alt={alt}
     width={width}
     height={height}
-    widths={[480, 800, width]}
-    sizes="(min-width: 720px) 50vw, 100vw"
+    widths={widths}
+    sizes={sizes}
     loading={priority ? 'eager' : 'lazy'}
     fetchpriority={priority ? 'high' : 'auto'}
     decoding={priority ? 'sync' : 'async'}

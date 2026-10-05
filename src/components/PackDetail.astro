@@ -1,0 +1,26 @@
+---
+import type { Pack } from '../data/packs';
+interface Props { pack: Pack; n: number }
+const { pack, n } = Astro.props;
+---
+<article class={`pack${pack.featured ? ' featured' : ''}`}>
+  <header>
+    <span class="pack-n">{String(n).padStart(2, '0')}</span>
+    <div>
+      {pack.featured && <span class="tag">Para ampliar el plan</span>}
+      <h3>{pack.name}</h3>
+      <p class="pack-tag">{pack.tagline}</p>
+    </div>
+    <p class="price"><span class="from-inline">desde</span>{pack.from} € <small class="muted">/ persona</small></p>
+  </header>
+  <p>{pack.summary}</p>
+  <h4>Qué incluye</h4>
+  <ul class="ticks">
+    {pack.items.map((i: { t: string; d: string }) => <li><strong>{i.t}.</strong> {i.d}</li>)}
+  </ul>
+  <p class="pack-ideal"><strong>Ideal para:</strong> {pack.ideal}</p>
+  <ul class="pack-notes">
+    {pack.notes.map((x: string) => <li>{x}</li>)}
+  </ul>
+  <a class={pack.featured ? 'btn' : 'btn btn-ghost'} href="/contacto/#formulario">Pedir precio de este pack</a>
+</article>

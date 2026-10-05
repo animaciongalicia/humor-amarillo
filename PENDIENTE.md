@@ -15,7 +15,10 @@
 6. **Excluido a propósito**: tuppersex, boy-stripper, buggies y quads. Se pueden añadir en `src/data/activities.ts`.
 
 ## Falta
-- **Fotos** en `src/assets/photos/` (ver README ahí). Ahora hay huecos visibles; `PUBLIC_HIDE_PHOTO_SLOTS=1` los oculta.
+- **Fotos**: usadas 7 de las 27 subidas (ver `src/assets/photos/README.md`). Faltan fotos para Cena y fiesta y Alojamiento (huecos visibles; `PUBLIC_HIDE_PHOTO_SLOTS=1` los oculta).
+  - No usadas por tener marca de agua o texto de terceros: `gladiadores-43223` (nitdefesta.com), `gladiadores-uni` (Universal Games), `carrera-obstaculos-dfi34` (teléfono de otra empresa), `tragabolas_caja_rural` (patrocinador).
+  - No usadas por salir menores o dudas: `tirachinas-gigante-3`, `sumo-coruña-infantil`, `bolas-gigantes-g6544`, `teambuilding-A-PoS`.
+  - Confirmar que tienes derechos sobre las que sí se usan y que los pies de foto (nombre de la prueba) son correctos.
 - **Aviso legal**: datos del Registro Mercantil y plazo de conservación. Revisar con gestoría.
 - **Formulario**: abre WhatsApp o email, no guarda nada. Para recibirlo en un servidor, conectar un servicio.
 - **Hosting**: sin decidir. Los 301 reales dependen de dónde se aloje (Vercel, Netlify o Cloudflare Pages valen).
