@@ -1,6 +1,5 @@
 ---
 import Base from '../layouts/Base.astro';
-import CtaRow from '../components/CtaRow.astro';
 import Faq from '../components/Faq.astro';
 import ContactForm from '../components/ContactForm.astro';
 import Photo from '../components/Photo.astro';
@@ -15,7 +14,6 @@ const faqs = [
   { q: '¿Dónde es?', a: 'En la zona de Feáns / A Zapateira, en A Coruña.' },
   { q: '¿Se puede añadir cena y fiesta?', a: 'Sí. Tenemos nuestro propio local de cenas baile y fiesta, y se puede combinar con Humor Amarillo en el mismo plan.' },
   { q: '¿Y el hotel u otras actividades?', a: 'Se pueden añadir al pack. Hay hoteles en el centro de A Coruña desde 30 € por persona y más de 25 actividades alternativas desde 22 € por persona, como karts, paintball, barco o escape room. Cuéntanos fecha y número de personas y te lo cuadramos.' },
-  { q: '¿Es una actividad para adultos?', a: 'Sí, está pensada para grupos adultos: despedidas de soltero y soltera, grupos de amigos y asociaciones.' },
   { q: '¿Competimos contra otros grupos?', a: 'Depende del tamaño. Si el grupo es pequeño, puede haber competición con otros grupos. Si es grande, se organizan equipos dentro del propio grupo.' },
 ];
 
@@ -23,108 +21,88 @@ const description = `Organiza tu despedida en A Coruña: Humor Amarillo por ${si
 const schema = [faqPage(faqs)];
 ---
 <Base title="Despedidas en A Coruña: Humor Amarillo, cena y fiesta" description={description} schema={schema}>
-  <section class="hero">
+  <section class="hero hero-home">
     <div class="wrap hero-grid">
       <div>
-        <p class="eyebrow">Humor Amarillo · A Coruña · Solo adultos</p>
-        <h1>Despedidas en A Coruña: Humor Amarillo, cena y fiesta en un solo plan</h1>
-        <p class="lead">Circuito de 11 pruebas para grupos adultos en Feáns / A Zapateira. <strong>Desde {site.price} € por persona</strong>, con una consumición y disfraz para el homenajeado o la homenajeada.</p>
+        <p class="eyebrow">A Coruña · Solo adultos</p>
+        <h1>Despedidas en A Coruña con Humor Amarillo, cena y fiesta</h1>
+        <p class="lead">Circuito de 11 pruebas en Feáns / A Zapateira para despedidas de soltero y soltera, grupos de amigos y asociaciones adultas. <strong>Desde {site.price} € por persona.</strong></p>
         <div class="btn-row">
           <a class="btn btn-wa" href={whatsapp()} rel="noopener">WhatsApp</a>
-          <a class="btn" href="/packs-despedida-coruna/">Ver packs con cena y fiesta</a>
+          <a class="btn" href="/packs-despedida-coruna/">Ver packs con cena</a>
           <a class="btn btn-ghost hide-sm" href={tel}>Llamar</a>
         </div>
-        <ul class="facts">
-          <li><strong>{site.price} €</strong><span>por persona</span></li>
-          <li><strong>2–2,15 h</strong><span>de actividad</span></li>
-          <li><strong>Sábados</strong><span>principalmente</span></li>
-          <li><strong>Adultos</strong><span>bajo consulta</span></li>
+        <ul class="facts-line">
+          <li><strong>{site.price} €</strong> por persona</li>
+          <li><strong>2–2,15 h</strong></li>
+          <li><strong>Sábados</strong></li>
         </ul>
       </div>
-      <Photo name="gladiadores-barna" alt="Dos participantes con trajes de gladiador en la prueba de lucha del circuito Humor Amarillo" priority />
+      <Photo name="gladiadores-barna" alt="Dos participantes con trajes de gladiador en la prueba de lucha del circuito Humor Amarillo" width={1400} height={1050} widths={[640, 1000, 1400]} sizes="(min-width: 720px) 52vw, 100vw" priority />
     </div>
   </section>
 
   <section>
+    <div class="wrap">
+      <p class="eyebrow">El circuito</p>
+      <h2>Humor Amarillo: 11 pruebas para reíros juntos</h2>
+      <div class="mosaic">
+        <figure class="big"><Photo name="bolas-gigantes" alt="Un participante salta sobre las bolas gigantes" width={900} height={600} widths={[480, 900]} sizes="(min-width: 720px) 45vw, 100vw" /><figcaption>Y más pruebas</figcaption></figure>
+        <figure><Photo name="telaraña-765" alt="Un participante cruza la telaraña de cuerdas" width={600} height={450} widths={[400, 600]} sizes="(min-width: 720px) 22vw, 50vw" /><figcaption>Telaraña</figcaption></figure>
+        <figure><Photo name="puente-colgante-612" alt="Una participante cruza el puente de cuerdas" width={600} height={450} widths={[400, 600]} sizes="(min-width: 720px) 22vw, 50vw" /><figcaption>Puente de Cuerdas</figcaption></figure>
+        <figure><Photo name="sumos-batalla" alt="Participantes con trajes de sumo hinchables" width={600} height={450} widths={[400, 600]} sizes="(min-width: 720px) 22vw, 50vw" /><figcaption>Con Sumo Gusto</figcaption></figure>
+        <figure><Photo name="pared-obstaculos-puños" alt="Un grupo atraviesa la pared con puños de espuma" width={600} height={450} widths={[400, 600]} sizes="(min-width: 720px) 22vw, 50vw" /><figcaption>Pared de Puños</figcaption></figure>
+      </div>
+      <div class="grid cols-3 inc">
+        <p><strong>Una consumición por persona</strong> y disfraz para el homenajeado o la homenajeada.</p>
+        <p><strong>Equipos o competición:</strong> contra otros grupos si sois pocos; con 11 o más, en exclusiva.</p>
+        <p><strong>Un parque de un proveedor colaborador;</strong> nosotros organizamos la experiencia completa.</p>
+      </div>
+      <div class="btn-row"><a class="btn" href="/humor-amarillo-coruna/">Ver Humor Amarillo</a><a class="btn btn-ghost" href="/contacto/#formulario">Consultar disponibilidad</a></div>
+    </div>
+  </section>
+
+  <section class="band">
     <div class="wrap">
       <h2>Una despedida completa, no solo una actividad</h2>
       <p class="lead">Un grupo que se organiza solo acaba con tres chats, cuatro presupuestos y alguien que no contesta. Aquí lo tienes junto: nos dices fecha y número de personas, y te proponemos el plan.</p>
-      <div class="grid cols-4">
-        <article class="card">
-          <span class="num">1</span>
-          <h3>Humor Amarillo</h3>
-          <p>El circuito Gakushi-Kai con 11 pruebas para todo el grupo.</p>
-          <a class="btn btn-ghost" href="/humor-amarillo-coruna/">Ver Humor Amarillo</a>
-        </article>
-        <article class="card">
-          <span class="num">2</span>
-          <h3>Cena y fiesta</h3>
-          <p>Cena baile y fiesta en nuestro local de cenas baile, para seguir con el grupo entero.</p>
-          <a class="btn btn-ghost" href="/cena-fiesta-despedidas-coruna/">Ver cena y fiesta</a>
-        </article>
-        <article class="card">
-          <span class="num">3</span>
-          <h3>Hotel</h3>
-          <p>Hoteles en el centro desde 30 € por persona, o casa rural para 8–20 personas.</p>
-          <a class="btn btn-ghost" href="/alojamiento-despedidas-coruna/">Ver alojamiento</a>
-        </article>
-        <article class="card">
-          <span class="num">4</span>
-          <h3>Segunda actividad</h3>
-          <p>Karts, barco, paintball, escape room, catas, spa y más, desde 22 € por persona.</p>
-          <a class="btn btn-ghost" href="/otras-actividades-despedidas-coruna/">Ver actividades</a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="band">
-    <div class="wrap">
-      <h2>Humor Amarillo en A Coruña: qué te llevas por {site.price} €</h2>
-      <div class="grid cols-2">
-        <div>
-          <ul class="ticks">
-            <li>Circuito Gakushi-Kai con 11 pruebas.</li>
-            <li>Una consumición por persona.</li>
-            <li>Disfraz para el homenajeado o la homenajeada.</li>
-            <li>Competición con otros grupos si sois pocos; equipos dentro del grupo si sois muchos.</li>
-          </ul>
-          <p class="muted">Zona Feáns / A Zapateira. El circuito se celebra en un parque de un proveedor colaborador; nosotros organizamos la experiencia completa.</p>
-          <CtaRow label="Consultar disponibilidad" wa="Hola, quiero consultar disponibilidad para Humor Amarillo en A Coruña." />
-        </div>
-        <div>
-          <p class="eyebrow">Las pruebas</p>
-          <ul class="pills">
-            <li>Con Sumo Gusto</li><li>El Guantazo</li><li>Lucha de Gladiadores</li><li>Pared de Puños</li>
-            <li>Telaraña</li><li>Tiro de Soga</li><li>Abraza la Seta</li><li>Puente de Cuerdas</li>
-            <li>Carrera de Dragones</li><li>Rollitos de Primavera</li><li>Salto al Vacío</li>
-          </ul>
-        </div>
-      </div>
+      <ol class="ladder">
+        <li><a href="/humor-amarillo-coruna/"><span class="num">1</span><strong>Humor Amarillo</strong><span class="lp">desde {site.price} €</span><span class="ld">El circuito, con consumición y disfraz.</span></a></li>
+        <li><a href="/cena-fiesta-despedidas-coruna/"><span class="num">2</span><strong>Cena y fiesta</strong><span class="lp">desde 55 €</span><span class="ld">Cena baile y fiesta en nuestro local.</span></a></li>
+        <li><a href="/alojamiento-despedidas-coruna/"><span class="num">3</span><strong>Hotel</strong><span class="lp">desde 30 €</span><span class="ld">En el centro, o casa rural para 8–20.</span></a></li>
+        <li><a href="/otras-actividades-despedidas-coruna/"><span class="num">4</span><strong>Segunda actividad</strong><span class="lp">desde 22 €</span><span class="ld">Karts, barco, paintball, escape room…</span></a></li>
+      </ol>
+      <p class="muted small">Precios por persona, «desde», orientativos para 2027. Pueden variar según temporada, menú y número de personas.</p>
     </div>
   </section>
 
   <section>
-    <div class="wrap">
-      <h2>Packs de despedida en A Coruña</h2>
-      <p class="lead">Ideas de partida, todas personalizables. Precios por persona, «desde», orientativos para 2027; pueden variar según temporada, menú y número de asistentes.</p>
-      <div class="grid cols-4">
-        {packs.slice(0, 2).map((pk) => <PackCard pack={pk} />)}
-        {packs.filter((p) => p.name === 'Pack Karts y fiesta' || p.name === 'Pack del Mar').map((pk) => <PackCard pack={pk} />)}
+    <div class="wrap hero-grid feature">
+      <div>
+        <p class="eyebrow">Después de la actividad</p>
+        <h2>Cena baile y fiesta: la noche del sábado, resuelta</h2>
+        <p class="lead">Nuestro local de cenas baile, para seguir con el grupo entero y sin depender de la puerta de ninguna discoteca.</p>
+        <ul class="ticks">
+          <li>Cena con menú, bebida y postre.</li>
+          <li>Animación, espectáculo y juegos.</li>
+          <li>Fiesta y sesión de DJ hasta las 3:00.</li>
+          <li><strong>Con 11 o más, el homenajeado o la homenajeada no paga la cena.</strong></li>
+        </ul>
+        <p class="price"><span class="from-inline">desde</span>55 € <small class="muted">/ persona</small></p>
+        <div class="btn-row"><a class="btn" href="/cena-fiesta-despedidas-coruna/">Ver cena y fiesta</a><a class="btn btn-ghost" href="/contacto/#formulario">Pedir precio</a></div>
       </div>
-      <div class="btn-row"><a class="btn" href="/packs-despedida-coruna/">Ver los 8 packs</a></div>
+      <Photo name="cena-fiesta" alt="Grupo de despedida en nuestro local de cenas baile, A Coruña" placeholder />
     </div>
   </section>
 
   <section class="band">
     <div class="wrap">
-      <h2>Para quién es</h2>
-      <ul class="ticks">
-        <li>Despedidas de soltero y de soltera.</li>
-        <li>Grupos de amigos adultos.</li>
-        <li>Asociaciones y grupos adultos.</li>
-      </ul>
-      <p class="muted">¿Eres una empresa y buscas un plan para tu equipo? También puedes consultarlo.</p>
+      <h2>Packs de despedida en A Coruña</h2>
+      <p class="lead">Ideas de partida, todas personalizables. Desde el plan sencillo hasta la despedida con hotel incluido.</p>
+      <div class="grid cols-3 packs-home">
+        {packs.slice(0, 3).map((pk) => <PackCard pack={pk} />)}
+      </div>
+      <div class="btn-row"><a class="btn" href="/packs-despedida-coruna/">Ver los 8 packs</a></div>
     </div>
   </section>
 

@@ -31,3 +31,7 @@ Exporta y pásame, antes de tocar el DNS:
 4. Enlaces externos (Search Console → Enlaces → Páginas más enlazadas) para priorizar lo que no se puede perder.
 
 Con eso hago el mapa `redirects.csv` (origen,destino), luego `npm run redirects` genera `public/_redirects` y `vercel.json`. Regla: cada URL con tráfico o enlaces va a su equivalente más cercano, nunca todo a la portada. Después del cambio: verificar los 301 y enviar `/sitemap-index.xml` en Search Console.
+
+## Home: pendiente de contenido
+- **Opiniones de clientes reales** (con permiso): la home no tiene prueba social y es lo que más ayuda a cerrar una reserva. Se añade un bloque en cuanto las tengas.
+- **Foto de cena y fiesta** (`cena-fiesta`): ahora hay un hueco visible en la home y en la página de Cena y fiesta.
