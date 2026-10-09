@@ -16,7 +16,7 @@
 
 ## Falta
 - **Fotos**: ver `src/assets/photos/README.md`. Solo se publican las registradas en `src/data/photos.ts` (16 de 43 subidas).
-  - **Derechos (importante)**: confirma que puedes publicar todas las usadas. Las de Torre de Hércules (`0viajes-por-galicia`), María Pita, puerto con veleros (`1ventana-atlantico…`) y el segway parecen de bancos de imágenes o de webs de viajes: si no son tuyas ni tienes licencia, hay que cambiarlas. Las del show drag y las de la fiesta (`slide-local…`) salen personas: necesitan su permiso.
+  - **Derechos**: confirmado por Pablo que tiene permiso para las usadas. Si alguna persona de las fotos (show drag, fiesta) lo pidiera, retirarla en `src/data/photos.ts`. Detalle original: Las de Torre de Hércules (`0viajes-por-galicia`), María Pita, puerto con veleros (`1ventana-atlantico…`) y el segway parecen de bancos de imágenes o de webs de viajes: si no son tuyas ni tienes licencia, hay que cambiarlas. Las del show drag y las de la fiesta (`slide-local…`) salen personas: necesitan su permiso.
   - **No usadas por marcas de terceros**: `gladiadores-43223`, `gladiadores-uni`, `carrera-obstaculos-dfi34`, `tragabolas_caja_rural`.
   - **No usadas por menores o dudas**: `tirachinas-gigante-3`, `sumo-coruña-infantil`, `bolas-gigantes-g6544`, `teambuilding-A-PoS`.
   - **No usadas por calidad o procedencia**: `111-humor-y-amor…` (x2, fotos de bodas de un blog ajeno), `11-bromas…`, `11-despedidas (1)`, `1-slide-local-despedidas-1`, `gincanas-despedidas-galicia` (stock 550 px), `cenas-tematicas-baile-coruña` (360 px).

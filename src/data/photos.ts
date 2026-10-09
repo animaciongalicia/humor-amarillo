@@ -15,6 +15,7 @@ import fiesta3 from '../assets/photos/12-slide-local-despedidas-3.JPG';
 import segway from '../assets/photos/segway-torre-de-hercules.jpg';
 import mariaPita from '../assets/photos/coruna-ayuntamiento-maria-pita.jpg';
 import torre from '../assets/photos/0viajes-por-galicia.jpg';
+import gladiadores2 from '../assets/photos/gladiadores-43665.JPG';
 import puerto from '../assets/photos/1ventana-atlantico-viajes-galicia.jpg';
 
 export const photos: Record<string, ImageMetadata> = {
@@ -34,4 +35,5 @@ export const photos: Record<string, ImageMetadata> = {
   'coruna-ayuntamiento-maria-pita': mariaPita,
   '0viajes-por-galicia': torre,
   '1ventana-atlantico-viajes-galicia': puerto,
+  'gladiadores-43665': gladiadores2,
 };

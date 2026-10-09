@@ -14,6 +14,7 @@ Sube aquí las fotos (jpg, png o webp), sin preocuparte del tamaño: la web las 
 | `_MG_9499` | Bloque de cena y fiesta en la home |
 | `_MG_7062` | Cabecera de Cena y fiesta |
 | `3-slide-…-2`, `14-slide-…`, `12-slide-…-3` | Tira "La fiesta" en Cena y fiesta |
+| `gladiadores-43665` | Cabecera de Contacto |
 | `segway-torre-de-hercules` | Cabecera de Actividades |
 | `coruna-ayuntamiento-maria-pita` | Cabecera de Alojamiento |
 | `0viajes-por-galicia` | Banda de A Coruña en la home |

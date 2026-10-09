@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
 import ContactForm from '../components/ContactForm.astro';
 import { site, tel, whatsapp } from '../data/site';
+import Photo from '../components/Photo.astro';
 import { breadcrumb } from '../data/schema';
 
 const schema = [
@@ -16,7 +17,8 @@ const schema = [
   schema={schema}
 >
   <section class="hero">
-    <div class="wrap">
+    <div class="wrap hero-grid">
+      <div>
       <Breadcrumb current="Contacto" />
       <h1>Consulta disponibilidad para tu despedida</h1>
       <p class="lead">Escríbenos por WhatsApp, llámanos o rellena el formulario con fecha y número de personas.</p>
@@ -24,6 +26,8 @@ const schema = [
         <a class="btn btn-wa" href={whatsapp()} rel="noopener">WhatsApp {site.phoneDisplay}</a>
         <a class="btn" href={tel}>Llamar al {site.phoneDisplay}</a>
       </div>
+      </div>
+      <Photo name="gladiadores-43665" alt="Dos participantes luchando sobre plataformas en el circuito de Humor Amarillo" width={1000} height={750} widths={[480, 800, 1000]} priority pos="50% 40%" />
     </div>
   </section>
   <section>
