@@ -5,6 +5,7 @@ import CtaRow from '../components/CtaRow.astro';
 import ContactForm from '../components/ContactForm.astro';
 import { site } from '../data/site';
 import { groups } from '../data/activities';
+import Photo from '../components/Photo.astro';
 import { breadcrumb } from '../data/schema';
 
 const path = '/otras-actividades-despedidas-coruna/';
@@ -23,7 +24,8 @@ const schema = [
   schema={schema}
 >
   <section class="hero">
-    <div class="wrap">
+    <div class="wrap hero-grid">
+      <div>
       <Breadcrumb current="Actividades" />
       <h1>Actividades para despedidas en A Coruña</h1>
       <p class="lead">Humor Amarillo es nuestra actividad estrella ({site.price} € por persona), pero un fin de semana da para más. Elige una segunda actividad y la montamos en el mismo pack.</p>
@@ -31,6 +33,8 @@ const schema = [
         {groups.map((g) => <li><a href={`#${g.id}`}>{g.title}</a></li>)}
       </ul>
       <CtaRow label="Pedir precio" wa="Hola, quiero consultar actividades para una despedida en A Coruña." />
+      </div>
+      <Photo name="segway-torre-de-hercules" alt="Segways junto a la Torre de Hércules, en A Coruña" width={1200} height={900} widths={[480, 800, 1200]} priority pos="55% 60%" />
     </div>
   </section>
 
@@ -47,6 +51,7 @@ const schema = [
       <div class="wrap">
         <h2>{g.title}</h2>
         <p class="lead">{g.intro}</p>
+        {g.id === 'mar' && <div class="banner"><Photo name="1ventana-atlantico-viajes-galicia" alt="Puerto deportivo con veleros amarrados" width={1317} height={393} widths={[640, 1317]} sizes="100vw" /></div>}
         <ul class="act-list cols-2">
           {g.items.map((a) => (
             <li class="act">

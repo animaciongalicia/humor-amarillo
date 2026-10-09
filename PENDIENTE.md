@@ -15,10 +15,12 @@
 6. **Excluido a propósito**: tuppersex, boy-stripper, buggies y quads. Se pueden añadir en `src/data/activities.ts`.
 
 ## Falta
-- **Fotos**: usadas 7 de las 27 subidas (ver `src/assets/photos/README.md`). Faltan fotos para Cena y fiesta y Alojamiento (huecos visibles; `PUBLIC_HIDE_PHOTO_SLOTS=1` los oculta).
-  - No usadas por tener marca de agua o texto de terceros: `gladiadores-43223` (nitdefesta.com), `gladiadores-uni` (Universal Games), `carrera-obstaculos-dfi34` (teléfono de otra empresa), `tragabolas_caja_rural` (patrocinador).
-  - No usadas por salir menores o dudas: `tirachinas-gigante-3`, `sumo-coruña-infantil`, `bolas-gigantes-g6544`, `teambuilding-A-PoS`.
-  - Confirmar que tienes derechos sobre las que sí se usan y que los pies de foto (nombre de la prueba) son correctos.
+- **Fotos**: ver `src/assets/photos/README.md`. Solo se publican las registradas en `src/data/photos.ts` (16 de 43 subidas).
+  - **Derechos (importante)**: confirma que puedes publicar todas las usadas. Las de Torre de Hércules (`0viajes-por-galicia`), María Pita, puerto con veleros (`1ventana-atlantico…`) y el segway parecen de bancos de imágenes o de webs de viajes: si no son tuyas ni tienes licencia, hay que cambiarlas. Las del show drag y las de la fiesta (`slide-local…`) salen personas: necesitan su permiso.
+  - **No usadas por marcas de terceros**: `gladiadores-43223`, `gladiadores-uni`, `carrera-obstaculos-dfi34`, `tragabolas_caja_rural`.
+  - **No usadas por menores o dudas**: `tirachinas-gigante-3`, `sumo-coruña-infantil`, `bolas-gigantes-g6544`, `teambuilding-A-PoS`.
+  - **No usadas por calidad o procedencia**: `111-humor-y-amor…` (x2, fotos de bodas de un blog ajeno), `11-bromas…`, `11-despedidas (1)`, `1-slide-local-despedidas-1`, `gincanas-despedidas-galicia` (stock 550 px), `cenas-tematicas-baile-coruña` (360 px).
+  - Si el repositorio es público, quizá convenga quitar de GitHub las fotos de terceros que no vayas a usar.
 - **Aviso legal**: datos del Registro Mercantil y plazo de conservación. Revisar con gestoría.
 - **Formulario**: abre WhatsApp o email, no guarda nada. Para recibirlo en un servidor, conectar un servicio.
 - **Hosting**: sin decidir. Los 301 reales dependen de dónde se aloje (Vercel, Netlify o Cloudflare Pages valen).
