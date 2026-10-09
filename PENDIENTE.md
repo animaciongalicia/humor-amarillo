@@ -25,21 +25,9 @@
 - **Formulario**: abre WhatsApp o email, no guarda nada. Para recibirlo en un servidor, conectar un servicio.
 - **Hosting**: sin decidir. Los 301 reales dependen de dónde se aloje (Vercel, Netlify o Cloudflare Pages valen).
 
-## Redirecciones desde la WordPress (cuando la web nueva esté lista)
-Exporta y pásame, antes de tocar el DNS:
-1. **Search Console** → Rendimiento → Páginas (últimos 16 meses; exporta también Consultas) y el informe Indexación → Páginas.
-2. **Analytics** → páginas de destino / páginas vistas (mismo periodo, ordenado por sesiones).
-3. **Sitemap de la WP** (`/sitemap.xml` o `/wp-sitemap.xml`) o un rastreo con Screaming Frog (versión gratuita sirve hasta 500 URL).
-4. Enlaces externos (Search Console → Enlaces → Páginas más enlazadas) para priorizar lo que no se puede perder.
-
-Con eso hago el mapa `redirects.csv` (origen,destino), luego `npm run redirects` genera `public/_redirects` y `vercel.json`. Regla: cada URL con tráfico o enlaces va a su equivalente más cercano, nunca todo a la portada. Después del cambio: verificar los 301 y enviar `/sitemap-index.xml` en Search Console.
-
-## Home: pendiente de contenido
-- **Opiniones de clientes reales** (con permiso): la home no tiene prueba social y es lo que más ayuda a cerrar una reserva. Se añade un bloque en cuanto las tengas.
-- **Foto de cena y fiesta** (`cena-fiesta`): ahora hay un hueco visible en la home y en la página de Cena y fiesta.
-
-## Analytics y Search Console (ya instalados)
-- **Google Analytics 4** `G-0FG4HS4K7G`: se carga solo si el visitante acepta el aviso de cookies (obligatorio en España). Por eso verás menos visitas que el tráfico real: solo cuentan quienes aceptan. Si quieres medir más sin cookies, habría que usar una analítica sin cookies (por ejemplo Plausible o Umami).
-- **Search Console**: etiqueta de verificación `tNAQ0cyg…` puesta en todas las páginas. Funciona cuando la web nueva esté publicada en el dominio. Si la propiedad ya está verificada con la WordPress por otro método (DNS o archivo), no hace falta repetir nada.
-- Tras publicar: en Search Console, enviar `https://www.humoramarillocoruna.com/sitemap-index.xml` y comprobar en GA4 > Tiempo real que llegan visitas (aceptando cookies).
-- El texto de cookies del aviso legal ya describe Analytics. Revisar con la gestoría.
+## Redirecciones desde la WordPress (hechas con el export del 09/10/2026)
+- `redirects.csv` tiene el mapa (13 páginas y 5 entradas publicadas, más los enlaces `?p=` y `?page_id=`); `npm run redirects` genera `vercel.json`.
+- Sin regla porque la URL es igual: `/contacto/`. Borradores del export (11 entradas y 2 páginas) no son públicos: sin redirección.
+- **Decisión pendiente:** `/grupos/cumpleanos/` y `/grupos/excursiones-y-colegios/` van a la portada porque la web nueva es solo para adultos. Si mantenéis esa actividad para niños, hay que crear páginas nuevas antes de cambiar el dominio.
+- **Contenido SEO antiguo** (5 entradas de blog de 2024, p. ej. Discoteca Pelícano, Playa de Riazor): ahora redirigen a la página más cercana. Si en Search Console resultan tener tráfico, conviene recrear esa guía en la web nueva.
+- Antes de cambiar el dominio: probar los 301 en el despliegue y, ya publicado, vigilar en Search Console los 404.

@@ -1,5 +1,45 @@
-# Redirecciones 301 de la WordPress antigua a la web nueva.
-# Formato: origen,destino  (rutas relativas, con la barra inicial). Sin comillas.
-# Ejemplo: /humor-amarillo/,/humor-amarillo-coruna/
-# Rellenar con las URL de GSC (Rendimiento > Páginas), de Analytics (páginas de destino) y del rastreo de la WP.
-# Después: npm run redirects
+# Redirecciones 301 de la WordPress antigua (export del 09/10/2026) a la web nueva.
+# Formato: origen,destino. Rutas con barra inicial. Origen puede ser una ruta (/tarifas/) o un enlace de WordPress con ID (/?p=280).
+# Para regenerar vercel.json: npm run redirects
+# /contacto/ ya existe en la web nueva con la misma URL: no necesita regla.
+
+# --- Páginas
+/inicio/,/
+/acerca-de/,/aviso-legal-privacidad/
+/blog/,/
+/actividades/,/humor-amarillo-coruna/
+/tarifas/,/humor-amarillo-coruna/
+/reserva/,/contacto/
+/grupos/,/
+/grupos/despedidas/,/
+/grupos/empresas/,/contacto/
+/grupos/cumpleanos/,/
+/grupos/excursiones-y-colegios/,/
+/cenas-tematicas-en-coruna/,/cena-fiesta-despedidas-coruna/
+
+# --- Entradas del blog
+/despedidas-en-coruna/,/
+/yincanas_para_despedidas/,/otras-actividades-despedidas-coruna/
+/las-mejores-actividades-para-despedidas-en-a-coruna/,/otras-actividades-despedidas-coruna/
+/discoteca-pelicano-coruna/,/cena-fiesta-despedidas-coruna/
+/playa-riazor-orzan/,/alojamiento-despedidas-coruna/
+
+# --- Enlaces cortos de WordPress (?page_id= y ?p=) de las páginas y entradas publicadas
+/?page_id=50,/
+/?page_id=51,/aviso-legal-privacidad/
+/?page_id=52,/
+/?page_id=53,/contacto/
+/?page_id=69,/humor-amarillo-coruna/
+/?page_id=71,/
+/?page_id=73,/
+/?page_id=77,/
+/?page_id=79,/
+/?page_id=82,/contacto/
+/?page_id=84,/humor-amarillo-coruna/
+/?page_id=212,/contacto/
+/?page_id=383,/cena-fiesta-despedidas-coruna/
+/?p=280,/otras-actividades-despedidas-coruna/
+/?p=305,/
+/?p=307,/cena-fiesta-despedidas-coruna/
+/?p=309,/alojamiento-despedidas-coruna/
+/?p=340,/otras-actividades-despedidas-coruna/

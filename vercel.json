@@ -1,4 +1,391 @@
 {
   "trailingSlash": true,
-  "redirects": []
+  "redirects": [
+    {
+      "source": "/inicio/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/inicio",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/acerca-de/",
+      "destination": "/aviso-legal-privacidad/",
+      "permanent": true
+    },
+    {
+      "source": "/acerca-de",
+      "destination": "/aviso-legal-privacidad/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/blog",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/actividades/",
+      "destination": "/humor-amarillo-coruna/",
+      "permanent": true
+    },
+    {
+      "source": "/actividades",
+      "destination": "/humor-amarillo-coruna/",
+      "permanent": true
+    },
+    {
+      "source": "/tarifas/",
+      "destination": "/humor-amarillo-coruna/",
+      "permanent": true
+    },
+    {
+      "source": "/tarifas",
+      "destination": "/humor-amarillo-coruna/",
+      "permanent": true
+    },
+    {
+      "source": "/reserva/",
+      "destination": "/contacto/",
+      "permanent": true
+    },
+    {
+      "source": "/reserva",
+      "destination": "/contacto/",
+      "permanent": true
+    },
+    {
+      "source": "/grupos/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/grupos",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/grupos/despedidas/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/grupos/despedidas",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/grupos/empresas/",
+      "destination": "/contacto/",
+      "permanent": true
+    },
+    {
+      "source": "/grupos/empresas",
+      "destination": "/contacto/",
+      "permanent": true
+    },
+    {
+      "source": "/grupos/cumpleanos/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/grupos/cumpleanos",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/grupos/excursiones-y-colegios/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/grupos/excursiones-y-colegios",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/cenas-tematicas-en-coruna/",
+      "destination": "/cena-fiesta-despedidas-coruna/",
+      "permanent": true
+    },
+    {
+      "source": "/cenas-tematicas-en-coruna",
+      "destination": "/cena-fiesta-despedidas-coruna/",
+      "permanent": true
+    },
+    {
+      "source": "/despedidas-en-coruna/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/despedidas-en-coruna",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/yincanas_para_despedidas/",
+      "destination": "/otras-actividades-despedidas-coruna/",
+      "permanent": true
+    },
+    {
+      "source": "/yincanas_para_despedidas",
+      "destination": "/otras-actividades-despedidas-coruna/",
+      "permanent": true
+    },
+    {
+      "source": "/las-mejores-actividades-para-despedidas-en-a-coruna/",
+      "destination": "/otras-actividades-despedidas-coruna/",
+      "permanent": true
+    },
+    {
+      "source": "/las-mejores-actividades-para-despedidas-en-a-coruna",
+      "destination": "/otras-actividades-despedidas-coruna/",
+      "permanent": true
+    },
+    {
+      "source": "/discoteca-pelicano-coruna/",
+      "destination": "/cena-fiesta-despedidas-coruna/",
+      "permanent": true
+    },
+    {
+      "source": "/discoteca-pelicano-coruna",
+      "destination": "/cena-fiesta-despedidas-coruna/",
+      "permanent": true
+    },
+    {
+      "source": "/playa-riazor-orzan/",
+      "destination": "/alojamiento-despedidas-coruna/",
+      "permanent": true
+    },
+    {
+      "source": "/playa-riazor-orzan",
+      "destination": "/alojamiento-despedidas-coruna/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "page_id",
+          "value": "50"
+        }
+      ],
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "page_id",
+          "value": "51"
+        }
+      ],
+      "destination": "/aviso-legal-privacidad/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "page_id",
+          "value": "52"
+        }
+      ],
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "page_id",
+          "value": "53"
+        }
+      ],
+      "destination": "/contacto/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "page_id",
+          "value": "69"
+        }
+      ],
+      "destination": "/humor-amarillo-coruna/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "page_id",
+          "value": "71"
+        }
+      ],
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "page_id",
+          "value": "73"
+        }
+      ],
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "page_id",
+          "value": "77"
+        }
+      ],
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "page_id",
+          "value": "79"
+        }
+      ],
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "page_id",
+          "value": "82"
+        }
+      ],
+      "destination": "/contacto/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "page_id",
+          "value": "84"
+        }
+      ],
+      "destination": "/humor-amarillo-coruna/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "page_id",
+          "value": "212"
+        }
+      ],
+      "destination": "/contacto/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "page_id",
+          "value": "383"
+        }
+      ],
+      "destination": "/cena-fiesta-despedidas-coruna/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "p",
+          "value": "280"
+        }
+      ],
+      "destination": "/otras-actividades-despedidas-coruna/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "p",
+          "value": "305"
+        }
+      ],
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "p",
+          "value": "307"
+        }
+      ],
+      "destination": "/cena-fiesta-despedidas-coruna/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "p",
+          "value": "309"
+        }
+      ],
+      "destination": "/alojamiento-despedidas-coruna/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "p",
+          "value": "340"
+        }
+      ],
+      "destination": "/otras-actividades-despedidas-coruna/",
+      "permanent": true
+    }
+  ]
 }
