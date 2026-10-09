@@ -13,6 +13,8 @@ export const site = {
   phoneTel: `+34${phoneDigits}`,
   whatsappNumber: `34${phoneDigits}`,
   price: 42,
+  gaId: 'G-0FG4HS4K7G',
+  gscVerification: 'tNAQ0cygBXUyAhI6JzllI4A4hg9Rl2V2K_HkjuWbBfA',
   area: 'A Coruña',
   ogImage: '/og-humor-amarillo-coruna.png',
 };

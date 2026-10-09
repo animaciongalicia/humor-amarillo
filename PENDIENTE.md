@@ -37,3 +37,9 @@ Con eso hago el mapa `redirects.csv` (origen,destino), luego `npm run redirects`
 ## Home: pendiente de contenido
 - **Opiniones de clientes reales** (con permiso): la home no tiene prueba social y es lo que más ayuda a cerrar una reserva. Se añade un bloque en cuanto las tengas.
 - **Foto de cena y fiesta** (`cena-fiesta`): ahora hay un hueco visible en la home y en la página de Cena y fiesta.
+
+## Analytics y Search Console (ya instalados)
+- **Google Analytics 4** `G-0FG4HS4K7G`: se carga solo si el visitante acepta el aviso de cookies (obligatorio en España). Por eso verás menos visitas que el tráfico real: solo cuentan quienes aceptan. Si quieres medir más sin cookies, habría que usar una analítica sin cookies (por ejemplo Plausible o Umami).
+- **Search Console**: etiqueta de verificación `tNAQ0cyg…` puesta en todas las páginas. Funciona cuando la web nueva esté publicada en el dominio. Si la propiedad ya está verificada con la WordPress por otro método (DNS o archivo), no hace falta repetir nada.
+- Tras publicar: en Search Console, enviar `https://www.humoramarillocoruna.com/sitemap-index.xml` y comprobar en GA4 > Tiempo real que llegan visitas (aceptando cookies).
+- El texto de cookies del aviso legal ya describe Analytics. Revisar con la gestoría.

@@ -61,6 +61,7 @@ const graph = { '@context': 'https://schema.org', '@graph': [org, webSite, ...sc
     {noindex && <meta name="robots" content="noindex, follow" />}
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <meta name="theme-color" content="#fbf8f1" />
+    <meta name="google-site-verification" content={site.gscVerification} />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="es_ES" />
     <meta property="og:site_name" content={site.name} />
@@ -93,6 +94,40 @@ const graph = { '@context': 'https://schema.org', '@graph': [org, webSite, ...sc
     </header>
     <main id="contenido"><slot /></main>
     <Footer />
+    <div class="cookie" id="cookie-banner" role="dialog" aria-label="Aviso de cookies" hidden>
+      <p>Usamos cookies de analítica (Google Analytics) para saber cómo se usa la web. Solo se activan si las aceptas. <a href="/aviso-legal-privacidad/#cookies">Política de cookies</a></p>
+      <div class="cookie-btns">
+        <button type="button" class="btn btn-ghost" data-consent="denied">Rechazar</button>
+        <button type="button" class="btn" data-consent="granted">Aceptar</button>
+      </div>
+    </div>
+    <script is:inline define:vars={{ gaId: site.gaId }}>
+      (function () {
+        var KEY = 'cookie-consent';
+        var banner = document.getElementById('cookie-banner');
+        function get() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
+        function set(v) { try { localStorage.setItem(KEY, v); } catch (e) {} }
+        function loadGA() {
+          if (window.__gaLoaded) return; window.__gaLoaded = true;
+          window.dataLayer = window.dataLayer || [];
+          window.gtag = function () { window.dataLayer.push(arguments); };
+          window.gtag('js', new Date()); window.gtag('config', gaId);
+          var s = document.createElement('script'); s.async = true;
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=' + gaId;
+          document.head.appendChild(s);
+        }
+        var v = get();
+        if (v === 'granted') loadGA(); else if (v !== 'denied') banner.hidden = false;
+        banner.addEventListener('click', function (e) {
+          var b = e.target.closest('[data-consent]'); if (!b) return;
+          set(b.dataset.consent); banner.hidden = true;
+          if (b.dataset.consent === 'granted') loadGA();
+        });
+        document.addEventListener('click', function (e) {
+          if (e.target.closest('[data-cookie-settings]')) { banner.hidden = false; }
+        });
+      })();
+    </script>
     <div class="sticky-cta" role="complementary" aria-label="Contacto rápido">
       <a class="wa" href={whatsapp()} rel="noopener">WhatsApp</a>
       <a href={tel}>Llamar</a>
