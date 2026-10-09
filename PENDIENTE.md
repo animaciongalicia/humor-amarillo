@@ -25,6 +25,12 @@
 - **Formulario**: abre WhatsApp o email, no guarda nada. Para recibirlo en un servidor, conectar un servicio.
 - **Hosting**: sin decidir. Los 301 reales dependen de dónde se aloje (Vercel, Netlify o Cloudflare Pages valen).
 
+## Decisiones tomadas (09/10/2026)
+- **Parque:** la web no dice que sea nuestro ni que sea de un colaborador; solo "nosotros organizamos la experiencia completa". No volver a introducir ninguna de las dos afirmaciones.
+- **Marca registrada:** no se menciona (ya no está registrada).
+- **Blog (futuro):** publicar guías de A Coruña como autoridad. Cuando exista `/blog/`, quitar la regla `/blog/` de `redirects.csv` y apuntar las 5 entradas antiguas a sus equivalentes nuevas.
+- **Página del grupo Animación Galicia** con las otras webs: más adelante.
+
 ## Redirecciones desde la WordPress (hechas con el export del 09/10/2026)
 - `redirects.csv` tiene el mapa (13 páginas y 5 entradas publicadas, más los enlaces `?p=` y `?page_id=`); `npm run redirects` genera `vercel.json`.
 - Sin regla porque la URL es igual: `/contacto/`. Borradores del export (11 entradas y 2 páginas) no son públicos: sin redirección.
