@@ -43,3 +43,9 @@
 /?p=307,/cena-fiesta-despedidas-coruna/
 /?p=309,/alojamiento-despedidas-coruna/
 /?p=340,/otras-actividades-despedidas-coruna/
+
+# --- Sitemaps antiguos de WordPress (por si estaban enviados en Search Console)
+/sitemap_index.xml,/sitemap.xml
+/wp-sitemap.xml,/sitemap.xml
+/page-sitemap.xml,/sitemap.xml
+/post-sitemap.xml,/sitemap.xml

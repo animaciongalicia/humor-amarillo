@@ -40,5 +40,8 @@
 
 ## Dominio (cambiado el 09/10/2026)
 - `www.humoramarillocoruna.com` es el principal; `humoramarillocoruna.com` redirige a www (308). HTTPS correcto. El DNS sigue en el proveedor actual (piensasolutions): correo no afectado.
-- **`humoramarillocoruna.es`** está añadido en el proyecto de Vercel pero sin DNS configurado, y redirige a `www.humoramarillocoruna.es`. Decidir: si es vuestro, hacer que redirija a `https://www.humoramarillocoruna.com`; si no, quitarlo del proyecto.
 - Conservar la WordPress 2–4 semanas como copia. Vigilar 404 en Search Console.
+
+## Sitemap y llms.txt
+- Enviar a Search Console: `https://www.humoramarillocoruna.com/sitemap.xml` (7 páginas). Los antiguos de WordPress redirigen a él. También siguen disponibles `sitemap-index.xml` y `sitemap-0.xml`.
+- `llms.txt` incluye datos clave y las 7 páginas públicas más el aviso legal; los precios se leen de los datos del proyecto, así que se actualiza solo al cambiar `src/data/`. El precio de la cena (55 €) está escrito a mano en `src/pages/llms.txt.ts`.
