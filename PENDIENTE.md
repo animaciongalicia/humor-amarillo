@@ -34,6 +34,11 @@
 ## Redirecciones desde la WordPress (hechas con el export del 09/10/2026)
 - `redirects.csv` tiene el mapa (13 páginas y 5 entradas publicadas, más los enlaces `?p=` y `?page_id=`); `npm run redirects` genera `vercel.json`.
 - Sin regla porque la URL es igual: `/contacto/`. Borradores del export (11 entradas y 2 páginas) no son públicos: sin redirección.
-- **Decisión pendiente:** `/grupos/cumpleanos/` y `/grupos/excursiones-y-colegios/` van a la portada porque la web nueva es solo para adultos. Si mantenéis esa actividad para niños, hay que crear páginas nuevas antes de cambiar el dominio.
+- **Decidido:** `/grupos/cumpleanos/` y `/grupos/excursiones-y-colegios/` van a la portada. No se comercializan cumpleaños infantiles ni colegios: se derivan a Humor Amarillo oficial. Pendiente: publicar un post en el blog que lo explique y enlace al oficial; entonces apuntar esas dos redirecciones al post.
 - **Contenido SEO antiguo** (5 entradas de blog de 2024, p. ej. Discoteca Pelícano, Playa de Riazor): ahora redirigen a la página más cercana. Si en Search Console resultan tener tráfico, conviene recrear esa guía en la web nueva.
 - Antes de cambiar el dominio: probar los 301 en el despliegue y, ya publicado, vigilar en Search Console los 404.
+
+## Dominio (cambiado el 09/10/2026)
+- `www.humoramarillocoruna.com` es el principal; `humoramarillocoruna.com` redirige a www (308). HTTPS correcto. El DNS sigue en el proveedor actual (piensasolutions): correo no afectado.
+- **`humoramarillocoruna.es`** está añadido en el proyecto de Vercel pero sin DNS configurado, y redirige a `www.humoramarillocoruna.es`. Decidir: si es vuestro, hacer que redirija a `https://www.humoramarillocoruna.com`; si no, quitarlo del proyecto.
+- Conservar la WordPress 2–4 semanas como copia. Vigilar 404 en Search Console.
