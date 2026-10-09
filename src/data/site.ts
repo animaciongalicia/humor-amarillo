@@ -3,9 +3,9 @@ const phoneDigits = '678288284';
 
 export const site = {
   name: 'Humor Amarillo Coruña',
-  legalName: 'Inversiones Shiso SL',
+  legalName: 'Inversiones SHISO SL',
   cif: 'B70319223',
-  address: { street: 'Ronda de Montealto, 4, 5A', postalCode: '15002', city: 'A Coruña', region: 'Galicia', country: 'ES' },
+  address: { street: 'Ronda de Montealto, 4, 5A', postalCode: '15003', city: 'A Coruña', region: 'Galicia', country: 'ES' },
   tagline: 'Despedidas en A Coruña',
   lang: 'es-ES',
   email: 'animaciongalicia@gmail.com',
@@ -16,6 +16,8 @@ export const site = {
   gaId: 'G-0FG4HS4K7G',
   gscVerification: 'tNAQ0cygBXUyAhI6JzllI4A4hg9Rl2V2K_HkjuWbBfA',
   area: 'A Coruña',
+  // Humor Amarillo oficial (cumpleaños, infantiles, colegios): teléfono y página de destino. Mientras estén vacíos, ese post no se publica.
+  humorOficial: { phoneDisplay: '', phoneTel: '', url: '' },
   ogImage: '/og-humor-amarillo-coruna.png',
 };
 
@@ -32,6 +34,7 @@ export const nav = [
   { href: '/cena-fiesta-despedidas-coruna/', label: 'Cena y fiesta' },
   { href: '/otras-actividades-despedidas-coruna/', label: 'Actividades' },
   { href: '/alojamiento-despedidas-coruna/', label: 'Alojamiento' },
+  { href: '/blog/', label: 'Blog' },
   { href: '/contacto/', label: 'Contacto' },
 ];
 

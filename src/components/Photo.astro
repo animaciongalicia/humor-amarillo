@@ -29,6 +29,7 @@ const showSlot = placeholder && !hit && !import.meta.env.PUBLIC_HIDE_PHOTO_SLOTS
     fetchpriority={priority ? 'high' : 'auto'}
     decoding={priority ? 'sync' : 'async'}
     format="webp"
+    quality={priority ? 68 : 60}
   />
 )}
 {showSlot && <div class="photo photo-slot" role="img" aria-label={`Espacio reservado para foto: ${alt}`}><span>Foto pendiente<br /><small>{name}.jpg</small></span></div>}

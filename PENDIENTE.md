@@ -2,7 +2,7 @@
 
 ## Confirmado
 - Dominio: `https://www.humoramarillocoruna.com`.
-- Titular y dirección: Inversiones Shiso SL, B70319223, Ronda de Montealto, 4, 5A, 15002 A Coruña.
+- Titular y dirección: Inversiones SHISO SL, B70319223, Ronda de Montealto, 4, 5A, 15003 A Coruña.
 - Humor Amarillo: circuito en exclusiva desde 11 personas.
 - Cenas: con 11 o más, el homenajeado/a no paga. Cena baile y fiesta 2027: desde 55 €/persona.
 
@@ -45,3 +45,8 @@
 ## Sitemap y llms.txt
 - Enviar a Search Console: `https://www.humoramarillocoruna.com/sitemap.xml` (7 páginas). Los antiguos de WordPress redirigen a él. También siguen disponibles `sitemap-index.xml` y `sitemap-0.xml`.
 - `llms.txt` incluye datos clave y las 7 páginas públicas más el aviso legal; los precios se leen de los datos del proyecto, así que se actualiza solo al cambiar `src/data/`. El precio de la cena (55 €) está escrito a mano en `src/pages/llms.txt.ts`.
+
+## Blog (09/10/2026)
+- 4 posts publicados en /blog/. 5º post (cumpleaños/infantiles/colegios → Humor Amarillo oficial) en borrador: rellenar `humorOficial` (teléfono y URL) en src/data/site.ts para publicarlo; entonces re-apuntar en redirects.csv /grupos/cumpleanos/ y /grupos/excursiones-y-colegios/ al post.
+- Aviso legal: faltan datos registrales (Registro Mercantil) y plazo de conservación.
+- Imágenes: calidad webp 60/68 y hero home 1280 px (dist/_astro 4,3 MB → 3,1 MB).

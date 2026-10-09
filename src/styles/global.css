@@ -345,3 +345,16 @@ thead th { background: var(--soft); font-family: var(--serif); font-weight: 600;
 .linkbtn { background: none; border: 0; padding: 0; font: inherit; color: #fff; text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 3px; cursor: pointer; }
 .linkbtn:hover { color: var(--gold); }
 @media (min-width: 720px) { .cookie { left: 1.5rem; right: auto; bottom: 1.5rem; max-width: 26rem; } }
+
+/* Blog */
+.post-card { gap: .5rem; }
+.post-card h2 { font-size: 1.35rem; margin: .2rem 0 .4rem; }
+.post-card h2 a { text-decoration: none; color: inherit; }
+.post-card .btn { margin-top: auto; align-self: flex-start; }
+.post-img { display: block; margin: -1.5rem -1.5rem .8rem; overflow: hidden; border-radius: var(--radius) var(--radius) 0 0; }
+.post-img .photo { aspect-ratio: 8 / 5; width: 100%; object-fit: cover; display: block; }
+.post-hero { margin: 0 0 1.5rem; }
+.post-hero .photo { width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; border-radius: var(--radius); }
+.prose .btn-row { margin: 1.5rem 0 1rem; }
+.hero + section:has(.post-hero) { padding-top: 0; }
+.hero:has(+ section .post-hero) { padding-bottom: 1.2rem; }

@@ -22,16 +22,6 @@
       "permanent": true
     },
     {
-      "source": "/blog/",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/blog",
-      "destination": "/",
-      "permanent": true
-    },
-    {
       "source": "/actividades/",
       "destination": "/humor-amarillo-coruna/",
       "permanent": true

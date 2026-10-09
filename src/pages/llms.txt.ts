@@ -1,6 +1,7 @@
 import type { APIRoute } from 'astro';
 import { site } from '../data/site';
 import { packs } from '../data/packs';
+import { posts } from '../data/blog';
 
 export const GET: APIRoute = ({ site: origin }) => {
   const u = (p: string) => new URL(p, origin).href;
@@ -27,6 +28,8 @@ export const GET: APIRoute = ({ site: origin }) => {
 - [Cena y fiesta](${u('/cena-fiesta-despedidas-coruna/')}): local de cenas baile, qué incluye y cómo es la noche.
 - [Otras actividades](${u('/otras-actividades-despedidas-coruna/')}): karts, barco, paintball, escape room, catas, spa, gymkanas y animaciones, con precios.
 - [Alojamiento](${u('/alojamiento-despedidas-coruna/')}): hoteles y casas rurales para grupos.
+- [Blog](${u('/blog/')}): guías sobre despedidas en A Coruña.
+${posts.map((p) => `  - [${p.title}](${u(`/blog/${p.slug}/`)}): ${p.description}`).join('\n')}
 - [Contacto](${u('/contacto/')}): formulario, WhatsApp, teléfono y correo.
 
 ## Legal

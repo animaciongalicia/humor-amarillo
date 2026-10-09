@@ -1,0 +1,63 @@
+---
+import Base from '../../layouts/Base.astro';
+import Photo from '../../components/Photo.astro';
+import { posts, fmtDate } from '../../data/blog';
+import { site, whatsapp } from '../../data/site';
+import { orgRef } from '../../data/schema';
+import type { Post, Section } from '../../data/blog';
+
+export function getStaticPaths() {
+  return posts.map((post) => ({ params: { slug: post.slug }, props: { post } }));
+}
+const { post } = Astro.props as { post: Post };
+const origin = Astro.site!.href;
+const url = new URL(`/blog/${post.slug}/`, origin).href;
+const schema = [
+  {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Inicio', item: new URL('/', origin).href },
+      { '@type': 'ListItem', position: 2, name: 'Blog', item: new URL('/blog/', origin).href },
+      { '@type': 'ListItem', position: 3, name: post.title, item: url },
+    ],
+  },
+  {
+    '@type': 'BlogPosting', headline: post.h1, description: post.description, url, mainEntityOfPage: url,
+    datePublished: post.date, dateModified: post.date, inLanguage: 'es-ES',
+    author: orgRef(origin), publisher: orgRef(origin),
+  },
+];
+---
+<Base title={post.title} description={post.description} schema={schema}>
+  <section class="hero">
+    <div class="wrap prose">
+      <nav class="breadcrumb" aria-label="Migas de pan">
+        <ol>
+          <li><a href="/">Inicio</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li aria-current="page">{post.title}</li>
+        </ol>
+      </nav>
+      <time datetime={post.date} class="muted small">{fmtDate(post.date)}</time>
+      <h1>{post.h1}</h1>
+      <p class="lead">{post.lead}</p>
+    </div>
+  </section>
+  <section>
+    <div class="wrap prose">
+      <figure class="post-hero"><Photo name={post.photo} alt={post.alt} width={1200} height={750} widths={[480, 800, 1200]} sizes="(min-width: 760px) 46rem, 100vw" pos={post.pos} priority /></figure>
+      {post.sections.map((s: Section) => (
+        <>
+          {s.h && <h2>{s.h}</h2>}
+          {s.p?.map((t: string) => <p set:html={t} />)}
+          {s.list && <ul>{s.list.map((t: string) => <li set:html={t} />)}</ul>}
+        </>
+      ))}
+      <div class="btn-row">
+        <a class="btn btn-wa" href={whatsapp()} rel="noopener">WhatsApp {site.phoneDisplay}</a>
+        <a class="btn btn-ghost" href="/packs-despedida-coruna/">Ver packs</a>
+      </div>
+      <p class="muted small"><a href="/blog/">← Volver al blog</a></p>
+    </div>
+  </section>
+</Base>
