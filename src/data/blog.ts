@@ -1,4 +1,5 @@
 import { site } from './site';
+import { calendar } from './blog-calendar';
 
 export interface Section { h?: string; p?: string[]; list?: string[]; img?: { name: string; alt: string; pos?: string; caption?: string } }
 export interface Post {
@@ -219,7 +220,12 @@ export const allPosts: Post[] = [
   },
 ];
 
-export const posts = allPosts.filter((p) => !p.draft);
+// Fecha de hoy en Madrid (AAAA-MM-DD). Los posts con fecha futura no se publican hasta ese día.
+const today = process.env.BLOG_TODAY || new Date().toLocaleDateString('sv-SE', { timeZone: 'Europe/Madrid' });
+export const posts = [...allPosts, ...calendar]
+  .filter((p) => !p.draft && p.date <= today)
+  .sort((a, b) => b.date.localeCompare(a.date));
+export const scheduled = calendar.filter((p) => p.date > today).sort((a, b) => a.date.localeCompare(b.date));
 export const fmtDate = (d: string) => new Date(d + 'T12:00:00').toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
 export const slugify = (s: string) => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 export const readMin = (p: Post) => {

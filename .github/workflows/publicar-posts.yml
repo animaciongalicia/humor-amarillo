@@ -1,0 +1,29 @@
+# Publica los posts programados del blog: cada mañana comprueba si hoy toca alguno
+# y, si toca, hace un commit que dispara el despliegue en Vercel.
+name: Publicar posts programados
+
+on:
+  schedule:
+    - cron: '17 5 * * *' # 6:17–7:17 en Madrid
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/publish-due.mjs
+      - name: Commit si hay post nuevo
+        run: |
+          if git diff --quiet; then exit 0; fi
+          git config user.name "animaciongalicia"
+          git config user.email "animaciongalicia@users.noreply.github.com"
+          git add src/data/ultimo-post-publicado.txt
+          git commit -m "Publicar post programado: $(cat src/data/ultimo-post-publicado.txt)"
+          git push
