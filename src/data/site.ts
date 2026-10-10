@@ -27,6 +27,17 @@ export function whatsapp(text = 'Hola, quiero consultar disponibilidad para una 
   return `https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent(text)}`;
 }
 
+// Webs del grupo Animación Galicia (página Quiénes somos).
+export const groupSites = [
+  { name: 'Animación Galicia', url: 'https://www.animaciongalicia.com/', desc: 'Donde empezó todo: animaciones, despedidas y eventos en toda Galicia.' },
+  { name: 'Despedidas Galicia', url: 'https://www.despedidasgalicia.es/', desc: 'Despedidas de soltero y soltera en toda la comunidad.' },
+  { name: 'Despedidas Coruña', url: 'https://www.despedidascoruna.es/', desc: 'Planes de despedida en A Coruña y alrededores.' },
+  { name: 'Despedidas Vigo', url: 'https://www.despedidasvigo.com/', desc: 'Despedidas en Vigo y las Rías Baixas.' },
+  { name: 'Despedidas Sanxenxo', url: 'https://www.despedidas-sanxenxo.com/', desc: 'Despedidas con playa, barco y fiesta en Sanxenxo.' },
+  { name: 'Ginkanas.es', url: 'https://ginkanas.es/', desc: 'Ginkanas urbanas y experiencias para despedidas, cumpleaños, grupos y empresas.' },
+  { name: 'Mil Eventos Galicia', url: 'https://www.mileventosgalicia.com/', desc: 'Eventos de empresa y team building en Galicia.' },
+];
+
 export const nav = [
   { href: '/', label: 'Inicio' },
   { href: '/humor-amarillo-coruna/', label: 'Humor Amarillo' },

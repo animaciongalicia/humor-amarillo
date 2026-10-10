@@ -30,6 +30,7 @@ export const GET: APIRoute = ({ site: origin }) => {
 - [Alojamiento](${u('/alojamiento-despedidas-coruna/')}): hoteles y casas rurales para grupos.
 - [Blog](${u('/blog/')}): guías sobre despedidas en A Coruña.
 ${posts.map((p) => `  - [${p.title}](${u(`/blog/${p.slug}/`)}): ${p.description}`).join('\n')}
+- [Quiénes somos](${u('/quienes-somos/')}): grupo Animación Galicia y sus webs.
 - [Contacto](${u('/contacto/')}): formulario, WhatsApp, teléfono y correo.
 
 ## Legal

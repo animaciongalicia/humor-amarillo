@@ -435,3 +435,15 @@ h2 a:hover, h3 a:hover { color: var(--gold-deep); }
 .timeline .t { font-family: var(--serif); font-weight: 600; color: var(--gold-deep); }
 .prose-cols { margin-bottom: 2rem; }
 .prose-cols p { margin: 0; color: #3a352b; }
+
+/* Quiénes somos */
+.group-sites { margin-top: 1.5rem; }
+@media (min-width: 720px) { .group-sites { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1000px) { .group-sites { grid-template-columns: repeat(4, 1fr); } }
+.group-site { text-decoration: none; color: inherit; gap: .3rem; transition: border-color .2s, transform .2s; }
+a.group-site:hover { border-color: var(--gold); transform: translateY(-2px); color: inherit; }
+.group-site h3 { margin: 0; font-size: 1.1rem; }
+.group-site h3 span { color: var(--gold-deep); font-family: var(--sans); font-size: .9rem; }
+.group-site p { margin: 0 0 .4rem; color: #3a352b; font-size: .95rem; }
+.group-site .small { margin-top: auto; }
+.group-site.current { border-style: dashed; box-shadow: none; }

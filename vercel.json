@@ -13,12 +13,12 @@
     },
     {
       "source": "/acerca-de/",
-      "destination": "/aviso-legal-privacidad/",
+      "destination": "/quienes-somos/",
       "permanent": true
     },
     {
       "source": "/acerca-de",
-      "destination": "/aviso-legal-privacidad/",
+      "destination": "/quienes-somos/",
       "permanent": true
     },
     {
