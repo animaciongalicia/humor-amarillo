@@ -48,5 +48,5 @@
 
 ## Blog (09/10/2026)
 - 5 posts publicados en /blog/. El de cumpleaños/infantiles muestra solo ahí el teléfono de Humor Amarillo oficial (660 94 46 56); falta su URL de página si se quiere enlace de salida (`humorOficial.url`).
-- Aviso legal: Registro Mercantil no se incluye (decisión del titular). Pendiente solo el plazo de conservación de datos.
+- Aviso legal: Registro Mercantil no se incluye (decisión del titular). Plazo de conservación: redactado con texto estándar (revisar con gestoría si se quiere).
 - Imágenes: calidad webp 60/68 y hero home 1280 px (dist/_astro 4,3 MB → 3,1 MB).
