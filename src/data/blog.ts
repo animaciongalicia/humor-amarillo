@@ -213,7 +213,7 @@ export const allPosts: Post[] = [
         'Esta web organiza despedidas de soltero y soltera, y planes para grupos de adultos: actividad, cena y fiesta, hotel y segunda actividad.',
         'Para cumpleaños, fiestas infantiles, excursiones y colegios no gestionamos reservas. Hay otro equipo que lo hace y lo hace bien.' ] },
       { h: 'Para esos planes', p: [
-        `Pregunta directamente a Humor Amarillo oficial, el equipo de infantil y juvenil. Si te sirve, su teléfono es <a href="tel:${oficial.phoneTel}">${oficial.phoneDisplay}</a>.${oficial.url ? ` Y aquí tienes <a href="${oficial.url}" rel="noopener">su página oficial</a>.` : ''}` ] },
+        `Pregunta directamente a Humor Amarillo oficial, el equipo de infantil y juvenil. Si te sirve, su teléfono es <a href="tel:${oficial.phoneTel}">${oficial.phoneDisplay}</a>.${oficial.url ? ` Y aquí tienes <a href="${oficial.url}" target="_blank" rel="noopener">su página oficial</a>.` : ''}` ] },
       { h: '¿Tu plan es una despedida?', p: [
         'Entonces estás en el sitio correcto. Mira <a href="/humor-amarillo-coruna/">Humor Amarillo Coruña para despedidas</a> o los <a href="/packs-despedida-coruna/">packs</a>.' ] },
     ],
