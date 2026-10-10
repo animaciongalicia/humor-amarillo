@@ -47,6 +47,6 @@
 - `llms.txt` incluye datos clave y las 7 páginas públicas más el aviso legal; los precios se leen de los datos del proyecto, así que se actualiza solo al cambiar `src/data/`. El precio de la cena (55 €) está escrito a mano en `src/pages/llms.txt.ts`.
 
 ## Blog (09/10/2026)
-- 4 posts publicados en /blog/. 5º post (cumpleaños/infantiles/colegios → Humor Amarillo oficial) en borrador: rellenar `humorOficial` (teléfono y URL) en src/data/site.ts para publicarlo; entonces re-apuntar en redirects.csv /grupos/cumpleanos/ y /grupos/excursiones-y-colegios/ al post.
-- Aviso legal: faltan datos registrales (Registro Mercantil) y plazo de conservación.
+- 5 posts publicados en /blog/. El de cumpleaños/infantiles muestra solo ahí el teléfono de Humor Amarillo oficial (660 94 46 56); falta su URL de página si se quiere enlace de salida (`humorOficial.url`).
+- Aviso legal: Registro Mercantil no se incluye (decisión del titular). Pendiente solo el plazo de conservación de datos.
 - Imágenes: calidad webp 60/68 y hero home 1280 px (dist/_astro 4,3 MB → 3,1 MB).

@@ -7,7 +7,7 @@ export interface Post {
 }
 
 const oficial = site.humorOficial;
-const oficialOk = Boolean(oficial.url && oficial.phoneTel);
+const oficialOk = Boolean(oficial.phoneTel);
 
 export const allPosts: Post[] = [
   {
@@ -21,7 +21,8 @@ export const allPosts: Post[] = [
     sections: [
       { h: 'Una ciudad donde cabe todo el plan', p: [
         'Una buena despedida necesita cuatro cosas: algo que hacer por la tarde, una cena, fiesta y un sitio donde dormir. En A Coruña las tienes en la misma ciudad, sin coger el coche cada dos horas ni depender de que alguien conduzca.',
-        'Hay hoteles en el centro desde 30 € por persona, con las zonas de vinos y de marcha cerca.' ] },
+        'Hay hoteles en el centro desde 30 € por persona, con las zonas de vinos y de marcha cerca.',
+        'Y no lo decimos solo nosotros: en 2026 A Coruña es Capital Nacional de la Vida Nocturna.' ] },
       { h: 'Qué puedes hacer en una despedida en A Coruña', list: [
         '<strong>De tarde:</strong> <a href="/humor-amarillo-coruna/">Humor Amarillo</a>, un circuito de 11 pruebas en Feáns / A Zapateira, desde 42 € por persona.',
         '<strong>De noche:</strong> <a href="/cena-fiesta-despedidas-coruna/">cena baile y fiesta</a> con animación, espectáculo y DJ.',
@@ -39,8 +40,10 @@ export const allPosts: Post[] = [
     description: 'A Coruña como ciudad de marcha: cómo montar una noche de despedida que empieza con vinos, sigue con cena baile y acaba con DJ.',
     date: '2026-10-09',
     photo: '14-slide-local-despedidas', alt: 'Grupo celebrando una fiesta en el local de cenas baile',
-    lead: 'Si buscas una ciudad de marcha en Galicia, A Coruña está en la lista. Lo importante no es la ciudad: es cómo montas la noche.',
+    lead: 'En 2026 A Coruña es Capital Nacional de la Vida Nocturna. Pero lo importante no es la etiqueta: es cómo montas la noche.',
     sections: [
+      { h: 'Una ciudad que sale de noche… y de tarde', p: [
+        'A Coruña tiene el título de Capital Nacional de la Vida Nocturna en 2026. Y además se vive el tardeo: vermú, vinos y terrazas antes de que empiece la noche de verdad. Para una despedida es ideal: el grupo se calienta en el centro y llega con ganas a la cena y la fiesta.' ] },
       { h: 'La noche de despedida, en orden', p: [
         'Una despedida que sale bien tiene ritmo. Primero rompes el hielo, luego cenas, luego aprietas.' ],
         list: [
@@ -70,6 +73,10 @@ export const allPosts: Post[] = [
       { h: 'Porque lo organizas en un mensaje', p: [
         'Fecha y número de personas. Con eso te preparamos el plan. Mira los <a href="/packs-despedida-coruna/">packs de ejemplo</a>: todos se pueden adaptar.',
         'Con 11 o más, el homenajeado o la homenajeada no paga la cena.' ] },
+      { h: 'Tres consejos antes de organizarla', list: [
+        '<strong>Elige la fecha pronto.</strong> Con 1 o 2 meses de margen respecto a la boda no pisas los últimos preparativos.',
+        '<strong>Piensa en el homenajeado o la homenajeada.</strong> Sabe al menos qué no le gustaría y adapta el plan para que lo disfrute todo el grupo.',
+        '<strong>Reparte tareas.</strong> Uno no puede con todo: que alguien cercano al homenajeado haga de cómplice y guarde el secreto.' ] },
       { h: 'Y tú, ¿qué esperas?', p: [
         'Cuando tengas la fecha, <a href="/contacto/#formulario">consulta disponibilidad</a>. Cuando empieces a organizarla tú solo, ya sabes cómo acaba.' ] },
     ],
@@ -109,9 +116,8 @@ export const allPosts: Post[] = [
     sections: [
       { h: 'Aquí hacemos despedidas', p: [
         'Esta web organiza despedidas de soltero y soltera, y grupos adultos. Para cumpleaños, fiestas infantiles, excursiones y colegios no gestionamos reservas.' ] },
-      { h: 'A quién llamar', p: [
-        `Contacta con Humor Amarillo oficial: <a href="${oficial.phoneTel ? 'tel:' + oficial.phoneTel : '#'}">${oficial.phoneDisplay}</a>.`,
-        `Toda la información y la reserva en <a href="${oficial.url}" rel="noopener">su página oficial</a>.` ] },
+      { h: 'Para esos planes', p: [
+        `Pregunta directamente a Humor Amarillo oficial, el equipo de infantil y juvenil. Si te sirve, su teléfono es <a href="tel:${oficial.phoneTel}">${oficial.phoneDisplay}</a>.${oficial.url ? ` Y aquí tienes <a href="${oficial.url}" rel="noopener">su página oficial</a>.` : ''}` ] },
       { h: '¿Tu plan es una despedida?', p: [
         'Entonces estás en el sitio correcto: <a href="/contacto/#formulario">consulta disponibilidad</a>.' ] },
     ],

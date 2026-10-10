@@ -83,22 +83,22 @@
     },
     {
       "source": "/grupos/cumpleanos/",
-      "destination": "/",
+      "destination": "/blog/cumpleanos-infantiles-colegios-coruna/",
       "permanent": true
     },
     {
       "source": "/grupos/cumpleanos",
-      "destination": "/",
+      "destination": "/blog/cumpleanos-infantiles-colegios-coruna/",
       "permanent": true
     },
     {
       "source": "/grupos/excursiones-y-colegios/",
-      "destination": "/",
+      "destination": "/blog/cumpleanos-infantiles-colegios-coruna/",
       "permanent": true
     },
     {
       "source": "/grupos/excursiones-y-colegios",
-      "destination": "/",
+      "destination": "/blog/cumpleanos-infantiles-colegios-coruna/",
       "permanent": true
     },
     {

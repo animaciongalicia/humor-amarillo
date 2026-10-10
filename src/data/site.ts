@@ -16,8 +16,8 @@ export const site = {
   gaId: 'G-0FG4HS4K7G',
   gscVerification: 'tNAQ0cygBXUyAhI6JzllI4A4hg9Rl2V2K_HkjuWbBfA',
   area: 'A Coruña',
-  // Humor Amarillo oficial (cumpleaños, infantiles, colegios): teléfono y página de destino. Mientras estén vacíos, ese post no se publica.
-  humorOficial: { phoneDisplay: '', phoneTel: '', url: '' },
+  // Humor Amarillo oficial (cumpleaños, infantiles, colegios): teléfono y página de destino. Solo se muestran en ese post (discreto). `url` es opcional.
+  humorOficial: { phoneDisplay: '660 94 46 56', phoneTel: '+34660944656', url: '' },
   ogImage: '/og-humor-amarillo-coruna.png',
 };
 
