@@ -50,3 +50,7 @@
 - 5 posts publicados en /blog/. El de cumpleaños/infantiles muestra solo ahí el teléfono de Humor Amarillo oficial (660 94 46 56); falta su URL de página si se quiere enlace de salida (`humorOficial.url`).
 - Aviso legal: Registro Mercantil no se incluye (decisión del titular). Plazo de conservación: redactado con texto estándar (revisar con gestoría si se quiere).
 - Imágenes: calidad webp 60/68 y hero home 1280 px (dist/_astro 4,3 MB → 3,1 MB).
+
+## Blog programado (10/10/2026)
+- 8 posts en src/data/blog-calendar.ts, uno cada 15 días del 24/10/2026 al 30/01/2027. Se publican solos (workflow diario .github/workflows/publicar-posts.yml).
+- Plan completo: PLAN-SEO.md.
