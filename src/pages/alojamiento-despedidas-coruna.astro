@@ -9,16 +9,19 @@ import { faqPage, breadcrumb } from '../data/schema';
 
 const path = '/alojamiento-despedidas-coruna/';
 const faqs = [
-  { q: '¿Cuánto cuesta el hotel para una despedida en A Coruña?', a: 'Hoteles de 2 y 3 estrellas desde 30 € por persona y de 3 y 4 estrellas desde 35 € por persona, con habitaciones dobles y triples en el centro. El precio varía según temporada y disponibilidad.' },
-  { q: '¿Qué ventaja tiene una casa rural?', a: 'Hay más de 10 casas de 8 a 20 plazas en los alrededores de A Coruña, con piscina, barbacoa, billar o futbolín. Admiten shows y otras animaciones, y se pueden concertar cenas o servicio de catering.' },
-  { q: '¿A qué distancia están las casas rurales?', a: 'Entre 15 y 25 km del centro de A Coruña, en zonas como Oleiros, Sada, Betanzos, Arteixo, Carballo o Miño.' },
+  { q: '¿Qué hoteles usáis para despedidas en A Coruña?', a: 'Sobre todo 4–6 hoteles de 2 y 3 estrellas del centro, como el Maycar, el Nido, el Catalina o el Lois, entre otros. Están cerca de las zonas de vinos y de marcha, así que el grupo no necesita coche ni taxis.' },
+  { q: '¿Cuánto cuesta el hotel para una despedida en A Coruña?', a: 'Hoteles de 2 y 3 estrellas desde 30 € por persona y de 3 y 4 estrellas desde 35 € por persona, en habitaciones dobles y triples en el centro. El precio varía según temporada y disponibilidad.' },
+  { q: '¿Dormimos todos en el mismo hotel?', a: 'Lo intentamos siempre que haya disponibilidad. Por eso conviene reservar con tiempo, sobre todo para grupos grandes.' },
+  { q: '¿Qué ventaja tiene una casa rural?', a: 'Tenéis la casa para el grupo: piscina, barbacoa, billar o futbolín, y espacio para shows y animaciones. Se pueden concertar cenas o catering. Hay más de 10 casas de 8 a 20 plazas.' },
+  { q: '¿A qué distancia están las casas rurales?', a: 'Entre 10 y 20 km del centro de A Coruña, en los alrededores: zonas como Oleiros, Sada, Betanzos, Arteixo, Carballo o Miño.' },
+  { q: '¿Hotel o casa rural?', a: 'Si el plan es salir de noche por A Coruña, hotel en el centro: volvéis andando. Si queréis un fin de semana tranquilo con piscina y barbacoa, casa rural, pensando bien cómo volver de la noche.' },
   { q: '¿Puedo incluir el alojamiento en un pack?', a: 'Sí. Varios de nuestros packs lo incluyen junto con actividad y cena. Dinos fecha y número de personas y te lo cuadramos.' },
 ];
 const schema = [breadcrumb(Astro.site!.href, 'Alojamiento', path), faqPage(faqs)];
 ---
 <Base
   title="Alojamiento para despedidas en A Coruña: hotel o casa rural"
-  description="Hotel en el centro de A Coruña desde 30 € por persona o casa rural de 8 a 20 plazas para tu despedida. Combínalo con Humor Amarillo y cena y fiesta."
+  description="Hoteles de 2 y 3 estrellas en el centro de A Coruña desde 30 € por persona, sin coche ni taxis, o casa rural con piscina a 10–20 km para tu despedida."
   schema={schema}
 >
   <section class="hero">
@@ -26,7 +29,7 @@ const schema = [breadcrumb(Astro.site!.href, 'Alojamiento', path), faqPage(faqs)
       <div>
         <Breadcrumb current="Alojamiento" />
         <h1>Alojamiento para despedidas en A Coruña</h1>
-        <p class="lead">Hotel en el centro desde 30 € por persona, o casa rural para 8–20 personas. Se puede incluir en el mismo pack que <a href="/humor-amarillo-coruna/">Humor Amarillo Coruña</a> y la cena y fiesta.</p>
+        <p class="lead">Lo que más funciona: un hotel de 2 o 3 estrellas en el centro, desde 30 € por persona. Sin coches, sin taxis y volviendo andando. Y si queréis fin de semana con piscina, casas rurales para el grupo a 10–20 km.</p>
         <CtaRow label="Pedir precio" wa="Hola, quiero pedir precio de alojamiento para una despedida en A Coruña." />
       </div>
       <Photo name="coruna-ayuntamiento-maria-pita" alt="El Ayuntamiento de A Coruña en la plaza de María Pita" width={1200} height={790} widths={[480, 800, 1200]} priority />
@@ -34,32 +37,93 @@ const schema = [breadcrumb(Astro.site!.href, 'Alojamiento', path), faqPage(faqs)
   </section>
 
   <section>
-    <div class="wrap grid cols-2">
-      <div>
-        <h2>Hoteles en el centro de A Coruña</h2>
-        <p>Habitaciones dobles y triples, cerca de la zona de vinos y de marcha, para volver andando.</p>
-        <ul class="ticks">
-          <li>Hoteles de 2 y 3 estrellas: desde 30 € por persona.</li>
-          <li>Hoteles de 3 y 4 estrellas: desde 35 € por persona.</li>
-        </ul>
-        <p class="muted small">Precios orientativos; varían según temporada y disponibilidad.</p>
-      </div>
-      <div>
-        <h2>Casas rurales para el grupo</h2>
-        <p>En A Coruña y alrededores (Oleiros, Sada, Betanzos, Arteixo, Carballo, Miño), a 15–25 km del centro.</p>
-        <ul class="ticks">
-          <li>Más de 10 casas de 8 a 20 plazas.</li>
-          <li>Piscina, barbacoa, billar, futbolín…</li>
-          <li>Admiten shows, beauty parties y otras animaciones.</li>
-          <li>Cenas concertadas o servicio de catering.</li>
-        </ul>
+    <div class="wrap">
+      <p class="eyebrow">Lo que más usamos</p>
+      <h2>Hoteles en el centro: sin coche y sin taxis</h2>
+      <div class="grid cols-2">
+        <div>
+          <p>Para la mayoría de despedidas trabajamos con <strong>4–6 hoteles de 2 y 3 estrellas en pleno centro de A Coruña</strong>. No son hoteles de lujo ni falta que hace: son cómodos, limpios y, sobre todo, están donde tienen que estar.</p>
+          <p>Hoteles como el <strong>Maycar</strong>, el <strong>Nido</strong>, el <strong>Catalina</strong> o el <strong>Lois</strong>, entre otros. Elegimos uno u otro según la fecha, el tamaño del grupo y la disponibilidad.</p>
+          <ul class="ticks">
+            <li><strong>2 y 3 estrellas:</strong> desde 30 € por persona.</li>
+            <li><strong>3 y 4 estrellas:</strong> desde 35 € por persona.</li>
+            <li>Habitaciones dobles y triples.</li>
+          </ul>
+          <p class="muted small">Precios orientativos por persona y noche; varían según temporada y disponibilidad.</p>
+        </div>
+        <div class="card">
+          <h3>Por qué en el centro</h3>
+          <ul class="ticks">
+            <li><strong>Nadie conduce.</strong> Todo el grupo puede brindar, incluido el que siempre se ofrece a llevar el coche.</li>
+            <li><strong>Cero taxis.</strong> Con un grupo de quince, los taxis de ida y vuelta se comen el presupuesto.</li>
+            <li><strong>Volvéis andando</strong> desde las zonas de vinos y de marcha.</li>
+            <li><strong>Cambio de ropa fácil</strong> entre la actividad de la tarde y la cena.</li>
+            <li><strong>Domingo cómodo:</strong> desayuno, paseo por la ciudad y a casa.</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 
   <section class="band">
     <div class="wrap">
-      <h2>Salir por A Coruña</h2>
+      <div class="prose">
+        <p class="eyebrow">Fin de semana</p>
+        <h2>Casas rurales con piscina para el grupo</h2>
+        <p>Si lo vuestro es un fin de semana entero, la casa rural es otra experiencia: la casa para vosotros, piscina, barbacoa y nadie en la habitación de al lado pidiendo silencio.</p>
+        <ul class="ticks">
+          <li>Más de 10 casas de 8 a 20 plazas.</li>
+          <li><strong>A 10–20 km del centro</strong>, en los alrededores de A Coruña: Oleiros, Sada, Betanzos, Arteixo, Carballo o Miño.</li>
+          <li>Con piscina, barbacoa, billar, futbolín…</li>
+          <li>Admiten shows, beauty parties y otras animaciones.</li>
+          <li>Cenas concertadas o servicio de catering.</li>
+        </ul>
+        <p class="muted small">Ojo: al estar fuera de la ciudad, pensad bien cómo vais y volvéis si queréis salir de noche por A Coruña.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>¿Hotel o casa rural?</h2>
+      <div class="grid cols-2">
+        <article class="card">
+          <h3>Hotel en el centro</h3>
+          <ul class="ticks">
+            <li>Para salir de noche por A Coruña.</li>
+            <li>Sin coche ni taxis: todo andando.</li>
+            <li>Una o dos noches, desde 30 € por persona.</li>
+            <li>Ideal con <a href="/humor-amarillo-coruna/">Humor Amarillo</a> y <a href="/cena-fiesta-despedidas-coruna/">cena y fiesta</a>.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Casa rural</h3>
+          <ul class="ticks">
+            <li>Para un fin de semana completo en grupo.</li>
+            <li>Piscina, barbacoa y la casa para vosotros.</li>
+            <li>De 8 a 20 personas, a 10–20 km.</li>
+            <li>Con animaciones o catering en la propia casa.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <h2>Un fin de semana tipo, con hotel en el centro</h2>
+      <ol class="timeline">
+        <li><span class="t">Sáb.</span><div><strong>Mediodía:</strong> llegada al hotel y vinos por el centro.</div></li>
+        <li><span class="t">Tarde</span><div><strong><a href="/humor-amarillo-coruna/">Humor Amarillo en A Coruña</a>:</strong> 11 pruebas, disfraz para el homenajeado. Vuelta al hotel a cambiarse.</div></li>
+        <li><span class="t">22:00</span><div><strong><a href="/cena-fiesta-despedidas-coruna/">Cena baile</a>:</strong> cena con DJ, show de drag queen a medianoche y fiesta hasta las 2:30–3:00.</div></li>
+        <li><span class="t">Dom.</span><div><strong>Mañana:</strong> desayuno, paseo por la Torre de Hércules o una <a href="/otras-actividades-despedidas-coruna/">segunda actividad</a>, y a casa.</div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>Salir por A Coruña desde el hotel</h2>
       <div class="grid cols-2">
         <div>
           <h3>Zonas de vinos</h3>
@@ -79,7 +143,7 @@ const schema = [breadcrumb(Astro.site!.href, 'Alojamiento', path), faqPage(faqs)
       <ol class="ticks">
         <li><a href="/humor-amarillo-coruna/">Humor Amarillo</a>: desde 42 € por persona.</li>
         <li><a href="/cena-fiesta-despedidas-coruna/">Cena y fiesta</a>: desde 55 € por persona.</li>
-        <li>Alojamiento, como arriba.</li>
+        <li>Hotel en el centro desde 30 € por persona, o casa rural.</li>
         <li><a href="/otras-actividades-despedidas-coruna/">Una segunda actividad</a>.</li>
       </ol>
       <div class="btn-row"><a class="btn" href="/packs-despedida-coruna/">Ver packs</a></div>
