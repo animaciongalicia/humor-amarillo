@@ -1,10 +1,10 @@
 ---
 import Base from '../../layouts/Base.astro';
 import Photo from '../../components/Photo.astro';
-import { posts, fmtDate } from '../../data/blog';
-import { site, whatsapp } from '../../data/site';
-import { orgRef } from '../../data/schema';
+import { posts, fmtDate, readMin, slugify } from '../../data/blog';
 import type { Post, Section } from '../../data/blog';
+import { site, whatsapp, tel } from '../../data/site';
+import { orgRef, faqPage } from '../../data/schema';
 
 export function getStaticPaths() {
   return posts.map((post) => ({ params: { slug: post.slug }, props: { post } }));
@@ -12,7 +12,10 @@ export function getStaticPaths() {
 const { post } = Astro.props as { post: Post };
 const origin = Astro.site!.href;
 const url = new URL(`/blog/${post.slug}/`, origin).href;
-const schema = [
+const toc = post.sections.filter((s) => s.h).map((s) => ({ id: slugify(s.h!), h: s.h! }));
+if (post.faq?.length) toc.push({ id: 'preguntas', h: 'Preguntas frecuentes' });
+const related = posts.filter((p) => p.slug !== post.slug).slice(0, 3);
+const schema: object[] = [
   {
     '@type': 'BreadcrumbList',
     itemListElement: [
@@ -23,41 +26,115 @@ const schema = [
   },
   {
     '@type': 'BlogPosting', headline: post.h1, description: post.description, url, mainEntityOfPage: url,
-    datePublished: post.date, dateModified: post.date, inLanguage: 'es-ES',
+    datePublished: post.date, dateModified: post.date, inLanguage: 'es-ES', articleSection: post.category,
     author: orgRef(origin), publisher: orgRef(origin),
   },
 ];
+if (post.faq?.length) schema.push(faqPage(post.faq));
 ---
 <Base title={post.title} description={post.description} schema={schema}>
-  <section class="hero">
-    <div class="wrap prose">
+  <section class="hero post-head">
+    <div class="wrap">
       <nav class="breadcrumb" aria-label="Migas de pan">
         <ol>
           <li><a href="/">Inicio</a></li>
           <li><a href="/blog/">Blog</a></li>
-          <li aria-current="page">{post.title}</li>
+          <li aria-current="page">{post.category}</li>
         </ol>
       </nav>
-      <time datetime={post.date} class="muted small">{fmtDate(post.date)}</time>
+      <p class="eyebrow">{post.category}</p>
       <h1>{post.h1}</h1>
       <p class="lead">{post.lead}</p>
+      <p class="post-meta"><time datetime={post.date}>{fmtDate(post.date)}</time> · {readMin(post)} min de lectura</p>
     </div>
   </section>
-  <section>
-    <div class="wrap prose">
-      <figure class="post-hero"><Photo name={post.photo} alt={post.alt} width={1200} height={750} widths={[480, 800, 1200]} sizes="(min-width: 760px) 46rem, 100vw" pos={post.pos} priority /></figure>
-      {post.sections.map((s: Section) => (
-        <>
-          {s.h && <h2>{s.h}</h2>}
-          {s.p?.map((t: string) => <p set:html={t} />)}
-          {s.list && <ul>{s.list.map((t: string) => <li set:html={t} />)}</ul>}
-        </>
-      ))}
-      <div class="btn-row">
-        <a class="btn btn-wa" href={whatsapp()} rel="noopener">WhatsApp {site.phoneDisplay}</a>
-        <a class="btn btn-ghost" href="/packs-despedida-coruna/">Ver packs</a>
+
+  <div class="wrap">
+    <figure class="post-cover"><Photo name={post.photo} alt={post.alt} width={1200} height={600} widths={[480, 800, 1200]} sizes="(min-width: 1100px) 1080px, 100vw" pos={post.pos} priority /></figure>
+  </div>
+
+  <section class="post-section">
+    <div class="wrap post-layout">
+      <aside class="post-aside">
+        {toc.length > 2 && (
+          <>
+            <details class="toc toc-m">
+              <summary>En este artículo</summary>
+              <ol>{toc.map((t) => <li><a href={`#${t.id}`}>{t.h}</a></li>)}</ol>
+            </details>
+            <nav class="toc toc-d" aria-label="En este artículo">
+              <p class="aside-title">En este artículo</p>
+              <ol>{toc.map((t) => <li><a href={`#${t.id}`}>{t.h}</a></li>)}</ol>
+            </nav>
+          </>
+        )}
+        <div class="aside-cta">
+          <p class="aside-title">¿Organizas una despedida?</p>
+          <p class="small">Humor Amarillo desde {site.price} €/persona. Cena y fiesta desde 55 €. Dinos fecha y personas.</p>
+          <a class="btn btn-wa" href={whatsapp()} rel="noopener">WhatsApp</a>
+          <a class="btn btn-ghost" href="/contacto/#formulario">Formulario</a>
+        </div>
+      </aside>
+
+      <article class="prose post-body">
+        <div class="summary-box">
+          <p class="aside-title">En resumen</p>
+          <ul class="ticks">{post.summary.map((t) => <li>{t}</li>)}</ul>
+        </div>
+
+        {post.sections.map((s: Section) => (
+          <>
+            {s.h && <h2 id={slugify(s.h)}>{s.h}</h2>}
+            {s.p?.map((t: string) => <p set:html={t} />)}
+            {s.list && <ul class="ticks">{s.list.map((t: string) => <li set:html={t} />)}</ul>}
+            {s.img && (
+              <figure class="post-fig">
+                <Photo name={s.img.name} alt={s.img.alt} width={900} height={560} widths={[480, 900]} sizes="(min-width: 860px) 680px, 100vw" pos={s.img.pos} />
+                {s.img.caption && <figcaption>{s.img.caption}</figcaption>}
+              </figure>
+            )}
+          </>
+        ))}
+
+        {post.faq?.length && (
+          <div class="faq post-faq">
+            <h2 id="preguntas">Preguntas frecuentes</h2>
+            {post.faq.map((f) => (
+              <details><summary>{f.q}</summary><p>{f.a}</p></details>
+            ))}
+          </div>
+        )}
+
+        <div class="end-cta">
+          <h2>Cuéntanos tu fecha</h2>
+          <p>Fecha y número de personas. Con eso te proponemos el plan completo: actividad, cena y fiesta, hotel y lo que quieras añadir.</p>
+          <div class="btn-row">
+            <a class="btn btn-wa" href={whatsapp()} rel="noopener">WhatsApp {site.phoneDisplay}</a>
+            <a class="btn btn-ghost hide-sm" href={tel}>Llamar</a>
+            <a class="btn btn-ghost" href="/packs-despedida-coruna/">Ver packs</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  {related.length > 0 && (
+    <section class="band">
+      <div class="wrap">
+        <h2>Sigue leyendo</h2>
+        <div class="grid related">
+          {related.map((p) => (
+            <article class="card post-card">
+              <a class="post-img" href={`/blog/${p.slug}/`} tabindex="-1" aria-hidden="true">
+                <Photo name={p.photo} alt="" width={600} height={375} widths={[400, 600]} sizes="(min-width: 860px) 33vw, 100vw" pos={p.pos} />
+              </a>
+              <p class="post-meta"><span class="tag">{p.category}</span> {readMin(p)} min</p>
+              <h3><a href={`/blog/${p.slug}/`}>{p.h1}</a></h3>
+            </article>
+          ))}
+        </div>
+        <p><a class="more" href="/blog/">Todos los artículos <span aria-hidden="true">→</span></a></p>
       </div>
-      <p class="muted small"><a href="/blog/">← Volver al blog</a></p>
-    </div>
-  </section>
+    </section>
+  )}
 </Base>

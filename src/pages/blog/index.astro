@@ -2,32 +2,73 @@
 import Base from '../../layouts/Base.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import Photo from '../../components/Photo.astro';
-import { posts, fmtDate } from '../../data/blog';
+import { posts, fmtDate, readMin } from '../../data/blog';
 import { breadcrumb } from '../../data/schema';
+import { whatsapp } from '../../data/site';
 
-const schema = [breadcrumb(Astro.site!.href, 'Blog', '/blog/')];
+const [featured, ...rest] = posts;
+const origin = Astro.site!.href;
+const schema = [
+  breadcrumb(origin, 'Blog', '/blog/'),
+  {
+    '@type': 'Blog', name: 'Blog de despedidas en A Coruña', url: new URL('/blog/', origin).href, inLanguage: 'es-ES',
+    blogPost: posts.map((p) => ({ '@type': 'BlogPosting', headline: p.h1, url: new URL(`/blog/${p.slug}/`, origin).href, datePublished: p.date })),
+  },
+];
 ---
-<Base title="Blog: despedidas en A Coruña y Galicia" description="Ideas y guías para organizar una despedida en A Coruña: destino, marcha, cenas baile y despedidas conjuntas." schema={schema}>
-  <section class="hero">
+<Base title="Blog: ideas para tu despedida en A Coruña" description="Guías prácticas para organizar una despedida en A Coruña: por qué elegir la ciudad, cómo montar la noche, cenas baile y despedidas conjuntas." schema={schema}>
+  <section class="hero blog-hero">
     <div class="wrap">
       <Breadcrumb current="Blog" />
-      <h1>Blog: despedidas en A Coruña</h1>
-      <p class="lead">Ideas prácticas para organizar tu despedida, sin vueltas.</p>
+      <p class="eyebrow">Blog</p>
+      <h1>Ideas para una despedida en A Coruña que se recuerde</h1>
+      <div class="blog-intro">
+        <p class="lead">Aquí no vas a encontrar listas de «50 ideas originales» que nadie hace. Vas a encontrar lo que funciona de verdad cuando organizas una despedida en A Coruña.</p>
+        <p>Cómo elegir el plan, en qué orden montar la noche, dónde dormir, qué pasa en una cena baile con varios grupos y qué errores evitar. Contado por quien organiza despedidas cada fin de semana, sin humo y al grano.</p>
+      </div>
     </div>
   </section>
-  <section>
-    <div class="wrap grid cols-2 posts">
-      {posts.map((p) => (
-        <article class="card post-card">
-          <a class="post-img" href={`/blog/${p.slug}/`} tabindex="-1" aria-hidden="true">
-            <Photo name={p.photo} alt="" width={800} height={500} widths={[400, 800]} sizes="(min-width: 720px) 45vw, 100vw" pos={p.pos} />
+
+  <section class="blog-list">
+    <div class="wrap">
+      {featured && (
+        <article class="post-feature">
+          <a class="pf-img" href={`/blog/${featured.slug}/`} tabindex="-1" aria-hidden="true">
+            <Photo name={featured.photo} alt="" width={1000} height={680} widths={[480, 800, 1000]} sizes="(min-width: 860px) 55vw, 100vw" pos={featured.pos} priority />
           </a>
-          <time datetime={p.date} class="muted small">{fmtDate(p.date)}</time>
-          <h2><a href={`/blog/${p.slug}/`}>{p.h1}</a></h2>
-          <p>{p.description}</p>
-          <a class="btn btn-ghost" href={`/blog/${p.slug}/`}>Leer artículo</a>
+          <div class="pf-body">
+            <p class="post-meta"><span class="tag">{featured.category}</span> <time datetime={featured.date}>{fmtDate(featured.date)}</time> · {readMin(featured)} min</p>
+            <h2><a href={`/blog/${featured.slug}/`}>{featured.h1}</a></h2>
+            <p>{featured.lead}</p>
+            <a class="btn" href={`/blog/${featured.slug}/`}>Leer artículo</a>
+          </div>
         </article>
-      ))}
+      )}
+
+      <h2 class="list-title">Más artículos</h2>
+      <div class="post-rows">
+        {rest.map((p) => (
+          <article class="post-row">
+            <a class="pr-img" href={`/blog/${p.slug}/`} tabindex="-1" aria-hidden="true">
+              <Photo name={p.photo} alt="" width={560} height={400} widths={[320, 560]} sizes="(min-width: 720px) 280px, 100vw" pos={p.pos} />
+            </a>
+            <div>
+              <p class="post-meta"><span class="tag">{p.category}</span> <time datetime={p.date}>{fmtDate(p.date)}</time> · {readMin(p)} min</p>
+              <h3><a href={`/blog/${p.slug}/`}>{p.h1}</a></h3>
+              <p>{p.description}</p>
+              <a class="more" href={`/blog/${p.slug}/`}>Leer artículo <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="dark">
+    <div class="wrap">
+      <h2>¿Ya tienes fecha?</h2>
+      <p class="lead">Leer está bien. Reservar está mejor. Dinos fecha y número de personas y te proponemos el plan.</p>
+      <div class="btn-row"><a class="btn btn-wa" href={whatsapp()} rel="noopener">WhatsApp</a><a class="btn btn-ghost on-dark" href="/packs-despedida-coruna/">Ver packs</a></div>
     </div>
   </section>
 </Base>
