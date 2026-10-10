@@ -11,10 +11,11 @@ import { faqPage, breadcrumb, orgRef, area } from '../data/schema';
 const path = '/cena-fiesta-despedidas-coruna/';
 const faqs = [
   { q: '¿Qué es el local de cenas baile?', a: 'Es nuestra oferta propia de cenas baile y fiesta en A Coruña, pensada para grupos y despedidas.' },
-  { q: '¿Cuánto cuesta la cena y fiesta?', a: 'La cena baile con fiesta parte de 55 € por persona (precio 2027) e incluye cena con menú, bebida y postre, animación y sesión de DJ. Con 11 o más personas, el homenajeado o la homenajeada no paga la cena. El precio final depende de la temporada y del menú elegido.' },
+  { q: '¿Cuánto cuesta la cena y fiesta?', a: 'La cena baile con fiesta parte de 55 € por persona (precio 2027) e incluye cena con menú, bebida y postre, show de drag queen y sesión de DJ. Con 11 o más personas, el homenajeado o la homenajeada no paga la cena. El precio final depende de la temporada y del menú elegido.' },
   { q: '¿Se puede combinar con Humor Amarillo?', a: `Sí. Humor Amarillo (${site.price} € por persona) más cena y fiesta parte de 97 € por persona.` },
   { q: '¿Por qué una cena con fiesta en lugar de salir de discoteca?', a: 'Porque algunos locales de marcha de A Coruña no dejan entrar con disfraces de despedida. Con cena y fiesta, el grupo va disfrazado, tiene mesa y no depende de la puerta.' },
   { q: '¿Puedo cenar en un restaurante sin fiesta?', a: 'Sí. Hacemos reservas en restaurantes de A Coruña según gusto y presupuesto, y cenas privadas en restaurante de hotel de 4 estrellas desde 38 € por persona.' },
+  { q: '¿Cómo es el horario de la noche?', a: 'Sobre las 22:00 llegan los grupos y se sientan, cada uno en su mesa. De 22:30 a 24:00 se cena con DJ y música. Sobre las 24:00 empieza el show de drag queen, de alrededor de una hora. De 1:00 a 2:30–3:00, fiesta con DJ tipo boda o verbena.' },
   { q: '¿Cómo reservo?', a: 'Consulta disponibilidad con fecha y número de personas por el formulario, WhatsApp o teléfono. La disponibilidad siempre es bajo consulta.' },
 ];
 const schema = [
@@ -42,7 +43,7 @@ const schema = [
       <div>
         <Breadcrumb current="Cena y fiesta" />
         <h1>Cena y fiesta para despedidas en A Coruña</h1>
-        <p class="lead">Tras Humor Amarillo, el grupo sigue junto: cena baile y fiesta en nuestro local de cenas baile. <strong>Desde 55 € por persona.</strong> Con 11 o más personas, el homenajeado o la homenajeada no paga la cena.</p>
+        <p class="lead">Tras <a href="/humor-amarillo-coruna/">Humor Amarillo en A Coruña</a>, el grupo sigue junto: cena baile y fiesta en nuestro local de cenas baile. <strong>Desde 55 € por persona.</strong> Con 11 o más personas, el homenajeado o la homenajeada no paga la cena.</p>
         <CtaRow label="Pedir precio" wa="Hola, quiero pedir precio de cena y fiesta para una despedida en A Coruña." />
       </div>
       <Photo name="_MG_7062" alt="Show de drag queen durante una cena y fiesta" width={1200} height={1000} widths={[480, 800, 1200]} priority />
@@ -55,23 +56,36 @@ const schema = [
         <h2>Qué incluye la cena baile con fiesta</h2>
         <ul class="ticks">
           <li>Cena con menú, bebida y postre.</li>
-          <li>Sesión de animación musical con espectáculo.</li>
-          <li>Juegos y concurso de karaoke.</li>
-          <li>Fiesta y sesión de DJ hasta las 3:00.</li>
+          <li>DJ y música desde la cena.</li>
+          <li>Show de drag queen de alrededor de 1 hora, con canciones y juegos.</li>
+          <li>Fiesta con DJ tipo boda o verbena hasta las 2:30–3:00.</li>
+          <li>Cada grupo en su mesa; suele haber entre 4 y 12 grupos.</li>
         </ul>
         <p class="muted">Precio 2027 desde 55 € por persona; puede variar según temporada y menú elegido. Con 11 o más personas, el homenajeado o la homenajeada no paga. Fechas y disponibilidad, bajo consulta.</p>
       </div>
       <div>
         <h2>Cómo suele desarrollarse la noche</h2>
-        <ol class="ticks">
-          <li><strong>22:00:</strong> recepción de los grupos.</li>
-          <li><strong>22:30 a 24:00:</strong> cena.</li>
-          <li><strong>24:00 a 1:00:</strong> animación y espectáculo.</li>
-          <li><strong>1:15 a 2:30:</strong> sesión de discoteca.</li>
-          <li><strong>3:00:</strong> fin de la fiesta.</li>
+        <ol class="timeline">
+          <li><span class="t">22:00</span><div><strong>Llegada.</strong> Van llegando los grupos y os sentamos, cada uno en su mesa.</div></li>
+          <li><span class="t">22:30</span><div><strong>Cena con DJ.</strong> Música desde el primer plato. Muchos grupos ya la lían, bailan y hacen de las suyas.</div></li>
+          <li><span class="t">24:00</span><div><strong>Show de drag queen.</strong> Canciones divertidas, presentación de los grupos mesa por mesa y juegos.</div></li>
+          <li><span class="t">1:00</span><div><strong>Fiesta.</strong> DJ tipo boda o verbena: música superdivertida y bailonga para todos los gustos, hasta las 2:30–3:00.</div></li>
         </ol>
         <p class="muted small">Horario orientativo; puede sufrir ligeras variaciones.</p>
       </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap hero-grid feature">
+      <div>
+        <p class="eyebrow">A medianoche</p>
+        <h2>El show de drag queen</h2>
+        <p>Sobre las 24:00 sale la drag queen. Durante alrededor de una hora canta varias canciones divertidas y, entre canción y canción, presenta a los grupos mesa por mesa: el homenajeado o la homenajeada tiene su momento delante de toda la sala.</p>
+        <p>Entre medias, juegos: chicas contra chicos, algo subidos de tono y muy divertidos, y otro de cantar tipo «Tu cara me suena». Como todos los grupos van a lo mismo, se crea un ambiente de buen rollo que no consigues cenando solos.</p>
+        <p><a href="/blog/cenas-baile-despedidas-conjuntas-coruna/">Cómo es una despedida conjunta en la cena baile</a></p>
+      </div>
+      <Photo name="_MG_9499" alt="Drag queen con peluca azul cantando en la cena baile" width={1000} height={800} widths={[480, 800, 1000]} sizes="(min-width: 720px) 45vw, 100vw" pos="50% 30%" />
     </div>
   </section>
 
@@ -93,7 +107,7 @@ const schema = [
       <ul class="ticks">
         <li>Todo el grupo en el mismo sitio, sin buscar local.</li>
         <li>Cena, bebida y fiesta resueltas en un único precio por persona.</li>
-        <li>Combinable con <a href="/humor-amarillo-coruna/">Humor Amarillo</a> y con <a href="/alojamiento-despedidas-coruna/">alojamiento</a>.</li>
+        <li>Combinable con el <a href="/humor-amarillo-coruna/">circuito de Humor Amarillo</a> y con <a href="/alojamiento-despedidas-coruna/">alojamiento</a>.</li>
       </ul>
     </div>
   </section>
@@ -112,10 +126,11 @@ const schema = [
       <div>
         <h2>El plan completo</h2>
         <ol class="ticks">
-          <li><a href="/humor-amarillo-coruna/">Humor Amarillo</a>: desde {site.price} € por persona.</li>
+          <li><a href="/humor-amarillo-coruna/">Humor Amarillo Coruña</a>: desde {site.price} € por persona.</li>
           <li>Cena y fiesta: desde 55 € por persona.</li>
           <li><a href="/alojamiento-despedidas-coruna/">Alojamiento</a> y <a href="/otras-actividades-despedidas-coruna/">otra actividad</a>.</li>
         </ol>
+        <p>Así se organizan las <a href="/">despedidas en A Coruña</a> de principio a fin.</p>
         <div class="btn-row"><a class="btn btn-ghost" href="/packs-despedida-coruna/">Ver packs</a></div>
       </div>
     </div>

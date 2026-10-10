@@ -427,3 +427,11 @@ h2 a:hover, h3 a:hover { color: var(--gold-deep); }
 .post-img { display: block; margin: -1.5rem -1.5rem .9rem; overflow: hidden; border-radius: var(--radius) var(--radius) 0 0; }
 .post-img .photo { aspect-ratio: 8 / 5; width: 100%; object-fit: cover; display: block; }
 @media (min-width: 720px) { .related { grid-template-columns: repeat(3, 1fr); } }
+
+/* Horario de la noche */
+.timeline { list-style: none; padding: 0; margin: 0 0 1rem; border-left: 1px solid var(--gold); }
+.timeline li { display: grid; grid-template-columns: 3.6rem 1fr; gap: .8rem; padding: 0 0 1.1rem 1.1rem; position: relative; }
+.timeline li::before { content: ''; position: absolute; left: -5px; top: .55em; width: 9px; height: 9px; border-radius: 50%; background: var(--gold); }
+.timeline .t { font-family: var(--serif); font-weight: 600; color: var(--gold-deep); }
+.prose-cols { margin-bottom: 2rem; }
+.prose-cols p { margin: 0; color: #3a352b; }

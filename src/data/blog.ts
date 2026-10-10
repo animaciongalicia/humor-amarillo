@@ -29,7 +29,7 @@ export const allPosts: Post[] = [
     sections: [
       { h: 'Lo que necesita una despedida (y casi nadie piensa)', p: [
         'Una despedida que sale bien tiene cuatro piezas: algo que hacer por la tarde, una cena, fiesta y un sitio donde dormir. Si una falla, se nota. Si fallan dos, la recuerdas por lo que no tenía que pasar.',
-        'El problema no es encontrar cada pieza. Es encajarlas: horarios, desplazamientos, reservas y gente que llega tarde. Por eso el destino importa tanto como el plan.' ] },
+        'El problema no es encontrar cada pieza. Es encajarlas: horarios, desplazamientos, reservas y gente que llega tarde. Por eso el destino importa tanto como el plan. Y por eso las <a href="/">despedidas en A Coruña</a> funcionan tan bien.' ] },
       { h: 'Por qué A Coruña encaja', p: [
         'En A Coruña cabe todo el plan en la misma ciudad. No hace falta coger el coche cada dos horas ni pelearse por quién conduce. El centro concentra hoteles, zonas de vinos y de marcha, y la actividad está a un paso, en Feáns / A Zapateira.',
         'Y no lo decimos solo nosotros: en 2026, A Coruña es Capital Nacional de la Vida Nocturna. La ciudad sale de noche… y también de tarde, con el tardeo de vermú y terrazas antes de la cena.' ],
@@ -44,7 +44,8 @@ export const allPosts: Post[] = [
         '<strong>Una segunda actividad:</strong> karts, barco, paintball, escape room, catas o spa, desde 22 € por persona. <a href="/otras-actividades-despedidas-coruna/">Ver todas</a>.' ] },
       { h: 'Un solo contacto para organizarlo', p: [
         'Aquí está la diferencia de verdad. Tú dices fecha y número de personas. Nosotros te proponemos el plan. Sin perseguir a cinco proveedores y sin que tu grupo se canse antes de empezar.',
-        'Si quieres ver ejemplos, tienes <a href="/packs-despedida-coruna/">8 packs de despedida</a> ya montados. Todos se pueden adaptar.' ] },
+        'Si quieres ver ejemplos, tienes <a href="/packs-despedida-coruna/">8 packs de despedida</a> ya montados. Todos se pueden adaptar.',
+        'Y si lo que buscas es la actividad, empieza por aquí: <a href="/humor-amarillo-coruna/">precio, pruebas y fechas de Humor Amarillo en A Coruña</a>.' ] },
     ],
     faq: [
       { q: '¿Cuánto cuesta una despedida en A Coruña?', a: `Depende del plan. Humor Amarillo parte de ${site.price} € por persona; con cena y fiesta, desde 97 € por persona. El hotel en el centro parte de 30 € por persona. Son precios «desde», orientativos.` },
@@ -65,7 +66,7 @@ export const allPosts: Post[] = [
       'A Coruña es Capital Nacional de la Vida Nocturna en 2026.',
       'Tardeo, cena, fiesta: el orden importa más de lo que crees.',
       'Con disfraces, algunos locales no dejan entrar. Con cena baile, la noche está resuelta.',
-      'Fiesta y DJ hasta las 3:00, y el hotel en el centro.',
+      'Cena con DJ a las 22:30, show a medianoche y fiesta hasta las 2:30–3:00.',
     ],
     sections: [
       { h: 'Una ciudad que sale de noche… y de tarde', p: [
@@ -74,10 +75,11 @@ export const allPosts: Post[] = [
       { h: 'La noche de despedida, en orden', p: [
         'Una despedida que funciona tiene ritmo. Primero rompes el hielo, luego cenas, luego aprietas. Si te saltas un paso, lo notas.' ],
         list: [
-          '<strong>Tarde:</strong> una actividad que junte al grupo y lo ponga a reír desde el minuto uno. <a href="/humor-amarillo-coruna/">Humor Amarillo</a> está hecho para eso.',
+          '<strong>Tarde:</strong> una actividad que junte al grupo y lo ponga a reír desde el minuto uno. El <a href="/humor-amarillo-coruna/">circuito de Humor Amarillo en Coruña</a> está hecho para eso.',
           '<strong>Tardeo:</strong> vinos y terrazas por el centro, cerca del hotel.',
-          '<strong>Cena:</strong> todos juntos, con menú, bebida y postre. Cero discusiones sobre dónde vamos.',
-          '<strong>Fiesta:</strong> animación, espectáculo, juegos y sesión de DJ hasta las 3:00.' ] },
+          '<strong>22:00 – cena con DJ:</strong> llegáis, os sentamos en vuestra mesa y a las 22:30 se cena con música. Muchos grupos ya la lían desde el primer plato.',
+          '<strong>24:00 – show:</strong> sale la drag queen: canciones, presentación de los grupos y juegos.',
+          '<strong>1:00 – fiesta:</strong> DJ tipo boda o verbena, música bailonga para todos los gustos, hasta las 2:30–3:00.' ] },
       { h: 'El error clásico: depender de la puerta', p: [
         'Llegas con diez amigos disfrazados, con el novio vestido de lo que sea, y en la puerta te dicen que así no. Pasa: algunos locales de marcha de A Coruña no dejan entrar con disfraces de despedida.',
         'Con una <a href="/cena-fiesta-despedidas-coruna/">cena baile</a> esa noche ya está resuelta antes de salir de casa. El grupo va disfrazado, tiene mesa, tiene fiesta y no depende de nadie.' ],
@@ -89,7 +91,7 @@ export const allPosts: Post[] = [
         'La actividad se hace sobre todo en sábado y la disponibilidad es bajo consulta. Si tienes fecha, pregunta hoy y no dentro de tres semanas. Cuando lo dejas para el final, la fecha que querías ya no está.' ] },
     ],
     faq: [
-      { q: '¿Hasta qué hora es la fiesta de la cena baile?', a: 'La sesión de DJ es hasta las 3:00.' },
+      { q: '¿Hasta qué hora es la fiesta de la cena baile?', a: 'La fiesta con DJ empieza sobre la 1:00, después del show, y dura hasta las 2:30–3:00.' },
       { q: '¿Se puede ir disfrazado?', a: 'A la cena baile, sí: está pensada para despedidas. Algunos locales de marcha de la ciudad no dejan entrar con disfraces, por eso conviene tener la noche resuelta.' },
       { q: '¿Cuánto cuesta la cena y fiesta?', a: 'Desde 55 € por persona (precio orientativo 2027). Con 11 o más personas, el homenajeado o la homenajeada no paga la cena.' },
     ],
@@ -115,13 +117,13 @@ export const allPosts: Post[] = [
         'La diferencia no está en hacer más cosas. Está en que todo encaje y nadie tenga que estar pendiente del reloj.' ] },
       { h: 'Porque el grupo se ríe de verdad', p: [
         'Las 11 pruebas del circuito están pensadas para que el novio, la novia y los amigos hagan el ridículo juntos. Con Sumo Gusto, El Guantazo, Lucha de Gladiadores, Telaraña, Puente de Cuerdas, Salto al Vacío… Nadie sale igual que entró.',
-        'Ese es el momento que se cuenta en la boda. No el brindis. El trompazo en la Pared de Puños.' ],
+        'Ese es el momento que se cuenta en la boda. No el brindis. El trompazo en la Pared de Puños. <a href="/humor-amarillo-coruna/">Mira las 11 pruebas de Humor Amarillo Coruña</a>.' ],
         img: { name: 'sumos-batalla', alt: 'Participantes con trajes de sumo hinchables', caption: 'Con Sumo Gusto, una de las 11 pruebas.' } },
       { h: 'Porque la noche está resuelta', p: [
-        'Cena con menú, bebida y postre. Animación, espectáculo y DJ hasta las 3:00. Y un detalle que en un grupo grande se agradece: con 11 o más, el homenajeado o la homenajeada no paga la cena.',
+        'Cena con menú, bebida y postre y DJ desde las 22:30. A medianoche, show de drag queen. Después, fiesta tipo boda o verbena hasta las 2:30–3:00. Y un detalle que en un grupo grande se agradece: con 11 o más, el homenajeado o la homenajeada no paga la cena.',
         'Sin colas en la puerta, sin buscar mesa para quince un sábado y sin dividir al grupo en tres taxis.' ] },
       { h: 'Porque lo organizas en un mensaje', p: [
-        'Fecha y número de personas. Con eso te preparamos el plan. Si quieres inspiración, mira los <a href="/packs-despedida-coruna/">packs de ejemplo</a>: desde Humor Amarillo solo hasta despedidas con karts, barco o hotel. Todos se pueden adaptar.' ] },
+        'Fecha y número de personas. Con eso te preparamos el plan de tu <a href="/">despedida en A Coruña</a>. Si quieres inspiración, mira los <a href="/packs-despedida-coruna/">packs de ejemplo</a>: desde Humor Amarillo solo hasta despedidas con karts, barco o hotel. Todos se pueden adaptar.' ] },
       { h: 'Tres consejos antes de organizarla', list: [
         '<strong>Elige la fecha pronto.</strong> Con 1 o 2 meses de margen respecto a la boda no pisas los últimos preparativos.',
         '<strong>Piensa en el homenajeado o la homenajeada.</strong> Sabe al menos qué no le gustaría y adapta el plan para que lo disfrute todo el grupo.',
@@ -163,7 +165,12 @@ export const allPosts: Post[] = [
         '<strong>Show de drag queen</strong> de alrededor de 1 hora, con canciones divertidas.',
         '<strong>Presentación de los grupos</strong> mesa por mesa.',
         '<strong>Juegos:</strong> chicas contra chicos, algo subidos de tono, y de cantar tipo «Tu cara me suena».',
-        '<strong>DJ y música para bailar</strong> hasta las 3:00.' ] },
+        '<strong>DJ y música:</strong> durante la cena y, después del show, fiesta tipo boda o verbena hasta las 2:30–3:00.' ] },
+      { h: 'La noche, hora a hora', list: [
+        '<strong>22:00 · Llegada.</strong> Van llegando los grupos y los sentamos, cada uno en su mesa.',
+        '<strong>22:30 a 24:00 · Cena con DJ.</strong> Música desde el primer plato. Muchos grupos ya la lían, bailan y hacen de las suyas.',
+        '<strong>24:00 · Show de drag queen.</strong> Alrededor de una hora de canciones, presentaciones y juegos.',
+        '<strong>1:00 a 2:30–3:00 · Fiesta.</strong> DJ tipo boda o verbena, con música superdivertida y bailonga para todos los gustos.' ] },
       { h: 'Por qué se pasa mejor con más grupos', p: [
         'Porque la pista no se queda vacía. Porque nadie se corta cuando ve a otras mesas dándolo todo. Y porque cuando hay ambiente, el ambiente se contagia.',
         'Con un grupo solo, alguien tiene que tirar de la fiesta. Con varios, la fiesta tira de ti. Esa noche no hay que arrancar nada: ya está en marcha.' ] },
@@ -174,7 +181,7 @@ export const allPosts: Post[] = [
         'Que la noche se apague a medianoche porque no hay plan.' ] },
       { h: 'Precio y detalles', p: [
         'La cena baile parte de 55 € por persona (precio orientativo 2027). Con 11 o más personas, el homenajeado o la homenajeada no paga la cena.',
-        `Si quieres la despedida completa, combínala con Humor Amarillo por la tarde: el pack parte de 97 € por persona. Lo tienes en los <a href="/packs-despedida-coruna/">packs</a>.` ] },
+        `Si quieres la despedida completa, combínala por la tarde con <a href="/humor-amarillo-coruna/">Humor Amarillo en A Coruña</a>: el pack parte de 97 € por persona. Lo tienes en los <a href="/packs-despedida-coruna/">packs</a>.` ] },
       { h: 'Reserva con tiempo', p: [
         'La disponibilidad es siempre bajo consulta. Dinos fecha y número de personas y te decimos qué hay. Cuando lo pruebes, no querrás una despedida de otra manera.' ] },
     ],
@@ -182,7 +189,8 @@ export const allPosts: Post[] = [
       { q: '¿Cenamos con nuestro grupo?', a: 'Sí. Cada grupo tiene su mesa. El show, los juegos y la fiesta son compartidos con el resto de grupos.' },
       { q: '¿Cuántos grupos suele haber?', a: 'Suele haber entre 4 y 12 grupos cada sábado, todos celebrando lo mismo.' },
       { q: '¿Cómo es el show?', a: 'Un show de drag queen de alrededor de una hora: canciones divertidas, presentación de los grupos mesa por mesa y juegos como chicas contra chicos (algo subidos de tono) o de cantar tipo «Tu cara me suena».' },
-      { q: '¿Qué incluye la cena baile?', a: 'Cena con menú, bebida y postre, show, juegos, animación y sesión de DJ hasta las 3:00.' },
+      { q: '¿Qué incluye la cena baile?', a: 'Cena con menú, bebida y postre, DJ durante la cena, show de drag queen con juegos y fiesta con DJ hasta las 2:30–3:00.' },
+      { q: '¿A qué hora empieza?', a: 'Sobre las 22:00 llegan los grupos; la cena empieza a las 22:30 y el show, sobre las 24:00.' },
     ],
   },
   {
@@ -206,7 +214,7 @@ export const allPosts: Post[] = [
       { h: 'Para esos planes', p: [
         `Pregunta directamente a Humor Amarillo oficial, el equipo de infantil y juvenil. Si te sirve, su teléfono es <a href="tel:${oficial.phoneTel}">${oficial.phoneDisplay}</a>.${oficial.url ? ` Y aquí tienes <a href="${oficial.url}" rel="noopener">su página oficial</a>.` : ''}` ] },
       { h: '¿Tu plan es una despedida?', p: [
-        'Entonces estás en el sitio correcto. Mira <a href="/humor-amarillo-coruna/">Humor Amarillo para despedidas</a> o los <a href="/packs-despedida-coruna/">packs</a>.' ] },
+        'Entonces estás en el sitio correcto. Mira <a href="/humor-amarillo-coruna/">Humor Amarillo Coruña para despedidas</a> o los <a href="/packs-despedida-coruna/">packs</a>.' ] },
     ],
   },
 ];

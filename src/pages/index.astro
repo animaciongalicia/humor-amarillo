@@ -7,6 +7,7 @@ import { site, tel, whatsapp } from '../data/site';
 import PackCard from '../components/PackCard.astro';
 import { packs } from '../data/packs';
 import { faqPage } from '../data/schema';
+import { posts } from '../data/blog';
 
 const faqs = [
   { q: '¿Cuánto cuesta Humor Amarillo en A Coruña?', a: `${site.price} € por persona. Incluye una consumición por persona y un disfraz para el homenajeado o la homenajeada.` },
@@ -58,6 +59,7 @@ const schema = [faqPage(faqs)];
         <p><strong>Equipos o competición:</strong> contra otros grupos si sois pocos; con 11 o más, en exclusiva.</p>
         <p><strong>Todo organizado por nosotros:</strong> reserva, actividad, cena y alojamiento con un único contacto.</p>
       </div>
+      <p class="muted">Precio, pruebas, duración y preguntas frecuentes en la página de <a href="/humor-amarillo-coruna/">Humor Amarillo Coruña</a>.</p>
       <div class="btn-row"><a class="btn" href="/humor-amarillo-coruna/">Ver Humor Amarillo</a><a class="btn btn-ghost" href="/contacto/#formulario">Consultar disponibilidad</a></div>
     </div>
   </section>
@@ -84,8 +86,8 @@ const schema = [faqPage(faqs)];
         <p class="lead">Nuestro local de cenas baile, para seguir con el grupo entero y sin depender de la puerta de ninguna discoteca.</p>
         <ul class="ticks">
           <li>Cena con menú, bebida y postre.</li>
-          <li>Animación, espectáculo y juegos.</li>
-          <li>Fiesta y sesión de DJ hasta las 3:00.</li>
+          <li>Show de drag queen a medianoche, con canciones y juegos.</li>
+          <li>Fiesta con DJ tipo boda o verbena hasta las 3:00.</li>
           <li><strong>Con 11 o más, el homenajeado o la homenajeada no paga la cena.</strong></li>
         </ul>
         <p class="price"><span class="from-inline">desde</span>55 € <small class="muted">/ persona</small></p>
@@ -115,6 +117,25 @@ const schema = [faqPage(faqs)];
         {packs.slice(0, 3).map((pk) => <PackCard pack={pk} />)}
       </div>
       <div class="btn-row"><a class="btn" href="/packs-despedida-coruna/">Ver los 8 packs</a></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">Del blog</p>
+      <h2>Ideas para tu despedida en A Coruña</h2>
+      <div class="grid related">
+        {posts.slice(0, 3).map((p) => (
+          <article class="card post-card">
+            <a class="post-img" href={`/blog/${p.slug}/`} tabindex="-1" aria-hidden="true">
+              <Photo name={p.photo} alt="" width={600} height={375} widths={[400, 600]} sizes="(min-width: 860px) 33vw, 100vw" pos={p.pos} />
+            </a>
+            <p class="post-meta"><span class="tag">{p.category}</span></p>
+            <h3><a href={`/blog/${p.slug}/`}>{p.h1}</a></h3>
+          </article>
+        ))}
+      </div>
+      <p><a class="more" href="/blog/">Ver el blog <span aria-hidden="true">→</span></a></p>
     </div>
   </section>
 
